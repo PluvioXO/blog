@@ -1,0 +1,5 @@
+.react-pdf__Page{
+    background-color: #111827 !important;}
+.react-pdf__Page__canvas{
+    border-radius: 5px;
+}
