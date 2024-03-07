@@ -10,8 +10,6 @@ import Other from './pages/other';
 import Blog from './pages/blog/blog'
 import Projects from './pages/Projects'
 
-//BPHO Content
-import BPhOHome from './pages/BPhO/home';
 import one from './pages/blog/blogData/pages/1';
 import two from './pages/blog/blogData/pages/2';
 import three from './pages/blog/blogData/pages/3';
@@ -34,7 +32,6 @@ export default function App() {
                 <Route path='/post/2' component={three}/>   
                 <Route path='/post/3' component={four}/>             
                 <Route path='/projects' component={Projects}/>
-                <Route path='/BPhO/home' component={BPhOHome} />
             </Switch>
     </BrowserRouter>
     </StrictMode>
