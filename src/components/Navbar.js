@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {Dropdown, Menu, message, Space, Typography, Row, Col } from 'antd';
 import './Navbar.css';
-import 'antd/dist/antd.css';
+import 'antd/dist/reset.css'
 import { Link } from 'react-router-dom';
 import { motion, useScroll } from "framer-motion";
 import { ReactComponent as YourSvg } from './assets/Component 1.svg'
