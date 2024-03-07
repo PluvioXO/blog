@@ -1,0 +1,39 @@
+:root {
+    --orange: rgb(38 38 38);
+}
+
+#title {
+    font-weight: bold;
+    color: #7DD3FC;
+    font-size: 2rem;
+    text-align: left;
+}
+.home{
+    text-align: left;
+    align-items: top;
+    align-items: left;
+}
+.card{
+    height: auto;
+    width: auto;
+    background-color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 5px;
+    background-color: rgb(23, 23, 23);
+}
+.orange{
+    border-top: 3px solid var(--orange);
+}
+.code{
+    color: white;
+    font-weight: bold;
+    display: inline-block;
+}
+.inside {
+    margin: 20px;
+}
+.green{
+    color: #62dc64;
+}

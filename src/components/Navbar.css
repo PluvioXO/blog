@@ -1,0 +1,58 @@
+.navbar {
+  background-color: #0c101a;
+  height: 80px;
+  position: sticky;
+  top: 0px;
+  z-index: 5;
+}
+
+.navbar-text {
+  color: white;
+}
+#tags {
+  margin-left: 10px;
+}
+#headerOption{
+  color:#7DD3FC;
+  height: 100%;
+  font-size: revert;
+  transition: 0.5s ease;
+  top: 50%;
+}
+#headerOption:hover{
+  color: #F3F4F6;
+  transition: 0.5s ease;
+}
+#colorChange{
+  background-color: #0c101a;
+}
+#colorFill{
+  background-color: #0c101a;
+}
+.signature{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.signature path{
+  stroke: #7DD3FC;
+  transition: 0.5s ease;
+}
+.signature:hover path{
+  stroke: #F3F4F6;
+  transition: 0.5s ease;
+}
+.logo:hover path{
+  fill: #F3F4F6;
+  transition: 0.5s ease;
+}
+
+.block{
+  width: 100px;
+  height: 100px;
+  color: black;
+}

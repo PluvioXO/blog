@@ -1,0 +1,44 @@
+#headerTitle {
+    font-weight: bold;
+    color: #38BDF8;
+    font-size: 3rem;
+}
+#contentsTitle {
+    font-weight: bold;
+    color: #7DD3FC;
+    font-size: 1rem;
+}
+#contentsItem {
+    color: #F3F4F6;
+    font-size: 0.9rem;
+}
+#contentsHyperlink{
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+#creditTitle {
+    font-weight: bold;
+    color: #7DD3FC;
+    font-size: 2rem;
+}
+.outsideRedirectContainer {
+    color: #9CA3AF;
+    font-weight: bold;
+    font-size: 2rem;
+}
+.outsideRedirectContainer:hover {
+    color: #F3F4F6;
+}
+.textBody {
+    color: #D1D5DB;
+    font-size: 0.9rem;
+}
+#subTitle {
+    color: #BAE6FD;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.tableOfContents {
+    position: sticky;
+    top: 30%;
+}

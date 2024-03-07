@@ -1,0 +1,45 @@
+import one from './photos/0_S1KQ-2vjFuKGfg8C.png'
+import two from './photos/download (1).jpeg'
+import three from './photos/sgd-1.jpg'
+import four from './photos/what_is_attention_cover-1024x768.jpg'
+import five from './photos/images (2).png'
+import six from './photos/differentiation_scheme.png'
+
+export const blogData = [
+    {
+        name:'Tax Policy as a methodology for doing good',
+        image: two,
+        date: '2023 November',
+        tag: ['Policy']
+    },
+    {
+        name:'The fallacy of the adaptive loss function',
+        image: one,
+        date:'2023 November',
+        tag: ['Data Science', 'Statistics'],
+    },
+    {
+        name:'Why we love Stochastic Gradient Descent',
+        image: three,
+        date:'2024 January',
+        tag: ['Data Science', 'Statistics'],
+    },
+    {
+        name:'Why we love Attention',
+        image: four,
+        date:'2024 February',
+        tag: ['Data Science', 'Statistics'],
+    },
+    {
+        name:'Thinking about Superposition',
+        image: five,
+        date:'2024 February',
+        tag: ['Data Science', 'Statistics'],
+    },
+    {
+        name:'Why we love Auto Differentiation',
+        image: six,
+        date:'2024 February',
+        tag: ['Data Science', 'Statistics', 'Pure Math'],
+    },
+]
