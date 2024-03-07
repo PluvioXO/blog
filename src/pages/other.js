@@ -4,7 +4,7 @@ import { CreditData } from './otherData'
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom'
 import './Credits.css'
-import 'antd/dist/antd.css';
+import 'antd/dist/reset.css'
 export default function other() {
   
   return (
