@@ -9,7 +9,7 @@ export default function Photos() {
   const variants = {
     visible: { opacity: 1 },
     hidden: { opacity: 0 },
-  }
+  //}
 
   const draw = {
     hidden: { pathLength: 0, opacity: 0 },
