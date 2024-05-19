@@ -28,6 +28,8 @@ Whether you're seeking guidance in your career, striving for personal developmen
       These are all questions that I have had for a long time and thanks to his articles I have reached what I would like to believe to be really good answers to each individual question. Paul Graham is a investor in silicon valley with he himself personally overseing the growth of some of the biggest companies in the world, to which he summerizes what he learns, and puts it into a really easly digestable form. No complex jargon or economics needed. 
       I love to just jump in and out of these articles for advice on topics I am struggling with and his advice has impacted me positively in so many ways, a very high recommend.
       </p>
+      <p id='contentsItem'><Link id="contentsHyperlink" to={{ pathname: "https://colah.github.io" }} target="_blank">Chris Olah's Blog</Link> Is very interesting to look if you have interests into mech interp conscepts, looking at a range of different topics and posts from more achetecture focuses to algorithmic focuses. If I where to recommend these sources in order I would use Colah's blog as a precursor to Neel Nanda's blog when on the topic of mech interp although Colah does a better job explaining some more complicated topics involving circuits and solution spaces however Neel Nanda's covers a wider range and more detail in some cases.
+      </p>
     </Col>
     <Col span={1}></Col>
     <Col span={4}>
@@ -35,6 +37,7 @@ Whether you're seeking guidance in your career, striving for personal developmen
             <h2 id='contentsTitle'>TABLE OF CONTENTS</h2>
             <h2 id='contentsItem'><Link id="contentsHyperlink" to={{ pathname: "https://www.neelnanda.io" }} target="_blank">Neel Nanda</Link></h2>
             <h2 id='contentsItem'><Link id="contentsHyperlink" to={{ pathname: "https://www.paulgraham.com/articles.html" }} target="_blank">Paul Graham</Link></h2>
+            <h2 id='contentsItem'><Link id="contentsHyperlink" to={{ pathname: "https://www.paulgraham.com/articles.html" }} target="_blank">Chris Olah</Link></h2>
         </div>
     </Col>
     </Row>
