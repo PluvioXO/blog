@@ -29,17 +29,5 @@ export const blogData = [
         image: four,
         date:'2024 February',
         tag: ['Data Science', 'Statistics'],
-    },
-    {
-        name:'Thinking about Superposition',
-        image: five,
-        date:'2024 February',
-        tag: ['Data Science', 'Statistics'],
-    },
-    {
-        name:'Why we love Auto Differentiation',
-        image: six,
-        date:'2024 February',
-        tag: ['Data Science', 'Statistics', 'Pure Math'],
-    },
+    }
 ]
