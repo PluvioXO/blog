@@ -30,7 +30,7 @@ export const blogData = [
         tag: ['Data Science', 'Statistics'],
     },
     {
-        name:'Discrete Approximation of N-Dimension Phase Systems',
+        name:'Abstracting Thermodynamics',
         image: five,
         date:'2024 November',
         tag: ['Data Science', 'Statistics', 'Chaos Theory'],

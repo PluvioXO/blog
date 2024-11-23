@@ -14,6 +14,7 @@ import one from './pages/blog/blogData/pages/1';
 import two from './pages/blog/blogData/pages/2';
 import three from './pages/blog/blogData/pages/3';
 import four from './pages/blog/blogData/pages/4';
+import five from './pages/blog/blogData/pages/5';
 
 
 export default function App() {
@@ -30,7 +31,8 @@ export default function App() {
                 <Route path='/post/0' component={one}/>
                 <Route path='/post/1' component={two}/>
                 <Route path='/post/2' component={three}/>   
-                <Route path='/post/3' component={four}/>             
+                <Route path='/post/3' component={four}/>   
+                <Route path='/post/4' component={five}/>             
                 <Route path='/projects' component={Projects}/>
             </Switch>
     </BrowserRouter>
