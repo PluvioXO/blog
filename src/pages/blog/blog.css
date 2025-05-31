@@ -1,0 +1,85 @@
+.blog-container {
+  padding: 20px;
+}
+
+.blog-title {
+  text-align: center;
+  cursor: default;
+  user-select: none;
+  color: white; /* Assuming you want a white title based on previous h2 styles */
+  margin-bottom: 30px;
+}
+
+.blog-card {
+  background-color: rgb(12, 16, 26);
+  margin: 5px; /* This can be removed if Row gutter is sufficient */
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px; /* This can be removed if Row gutter is sufficient */
+  transition: transform 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+}
+
+.blog-card-image {
+  border-radius: 5px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.blog-card-title {
+  color: white;
+  font-size: 1.1rem; /* Slightly increased for better readability */
+  font-weight: bolder;
+  margin-bottom: 8px;
+}
+
+.blog-card-tags {
+  display: flex;
+  flex-wrap: wrap; /* Allow tags to wrap on smaller screens */
+  margin-bottom: 8px;
+}
+
+.blog-card-tag {
+  border-radius: 5px;
+  background-color: #1d263b;
+  width: max-content;
+  padding: 2px 8px; /* Adjusted padding */
+  color: #cecece;
+  margin-right: 5px;
+  margin-bottom: 5px; /* Add margin to bottom for wrapped tags */
+  font-size: 0.85rem;
+}
+
+.blog-card-date {
+  color: rgb(50, 56, 70); /* Adjusted for better contrast if needed */
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .blog-title {
+    font-size: 1.8rem;
+  }
+  .blog-card-title {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .blog-container {
+    padding: 10px;
+  }
+  .blog-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  .blog-card-tag {
+    font-size: 0.8rem;
+    padding: 2px 6px;
+  }
+} 
