@@ -63,7 +63,6 @@ export const PhotoData = [
         caption: 'testing 123',
         tags: ['Outdoors', 'Rural', 'Daytime', 'Water']
     },
-    ,
     {
         title: 'Home',
         item: seven,

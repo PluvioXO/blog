@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Photos.css'
 import { PhotoData } from './photosData';
 import { Row, Col, Modal, Button } from 'antd'
-import { color, motion, useScroll } from 'framer-motion'
+import { motion, useScroll } from 'framer-motion'
 import { DownloadOutlined, CloseOutlined } from '@ant-design/icons';
 
 export default function Photos() {
@@ -75,40 +75,46 @@ export default function Photos() {
       )}
       {visibleModalIndex !== null && PhotoData[visibleModalIndex] && (
         <Modal
-          open={true}
+          open={visibleModalIndex !== null}
           onCancel={handleCancelModal}
           footer={null}
           centered
-          width="90vw"
+          width="auto"
           destroyOnClose={true}
-          styles={{ 
+          maskClosable={true}
+          styles={{
             body: { padding: 0, maxHeight: '90vh', overflowY: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' },
-            content: { backgroundColor: 'transparent', boxShadow: 'none'}
+            content: {
+              backgroundColor: '#1f2937',
+              borderRadius: '8px',
+              boxShadow: '0 10px 30px rgba(0, 0, 0, 0.5)',
+              padding: '20px',
+              width: 'max-content',
+              maxWidth: '90vw',
+            }
           }}
           closeIcon={<CloseOutlined style={{color: '#fff', fontSize: '24px', background: 'rgba(0,0,0,0.6)', borderRadius: '50%', padding: '8px', position: 'fixed', top: '20px', right: '20px', zIndex: 1051}}/>}
         >
-          <div className="photo-modal-content-wrapper">
-            <img 
-              src={PhotoData[visibleModalIndex].item} 
-              alt={PhotoData[visibleModalIndex].date || `Full size photo ${visibleModalIndex + 1}`}
-              className="photo-modal-image"
-            />
-            {(PhotoData[visibleModalIndex].date || PhotoData[visibleModalIndex].item) && (
-            <div className="photo-modal-info">
-              {PhotoData[visibleModalIndex].date && <p>{PhotoData[visibleModalIndex].date}</p>}
-              <Button 
-                type="primary" 
-                icon={<DownloadOutlined />} 
-                href={PhotoData[visibleModalIndex].item} 
-                target="_blank" 
-                download={`photo-${PhotoData[visibleModalIndex].date || visibleModalIndex + 1}.jpg`}
-                className="download-button" 
-              >
-                Download
-              </Button>
-            </div>
-            )}
+          <img
+            src={PhotoData[visibleModalIndex].item}
+            alt={PhotoData[visibleModalIndex].date || `Full size photo ${visibleModalIndex + 1}`}
+            className="photo-modal-image"
+          />
+          {(PhotoData[visibleModalIndex].date || PhotoData[visibleModalIndex].item) && (
+          <div className="photo-modal-info">
+            {PhotoData[visibleModalIndex].date && <p>{PhotoData[visibleModalIndex].date}</p>}
+            <Button
+              type="primary"
+              icon={<DownloadOutlined />}
+              href={PhotoData[visibleModalIndex].item}
+              target="_blank"
+              download={`photo-${PhotoData[visibleModalIndex].date || visibleModalIndex + 1}.jpg`}
+              className="download-button"
+            >
+              Download
+            </Button>
           </div>
+          )}
         </Modal>
       )}
       <Row justify="center" style={{marginTop: '40px', paddingBottom: '20px'}}>
