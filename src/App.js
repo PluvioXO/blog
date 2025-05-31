@@ -9,6 +9,7 @@ import Photos from './pages/Photos';
 import Other from './pages/other';
 import Blog from './pages/blog/blog'
 import Projects from './pages/Projects'
+import LandingPage from './pages/LandingPage';
 
 import one from './pages/blog/blogData/pages/1';
 import two from './pages/blog/blogData/pages/2';
@@ -23,7 +24,7 @@ export default function App() {
     <BrowserRouter>
             <Navbar />
             <Switch>
-              <Route path="/" exact component={Blog} />
+              <Route path="/" exact component={LandingPage} />
               <Route path="/photos" component={Photos} />
                 <Route path='/reports' component={Reports} />
                 <Route path='/other' component={Other} />

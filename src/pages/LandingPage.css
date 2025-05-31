@@ -1,0 +1,66 @@
+.landing-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 80px); /* Adjust 80px if your Navbar height is different */
+  text-align: center;
+  background-color: #111827; /* Similar to your photos page background */
+  padding: 20px;
+  overflow: hidden; /* Prevent scrollbars from animations */
+}
+
+.landing-content {
+  max-width: 600px;
+}
+
+.landing-title {
+  font-size: 3rem;
+  color: #e0e0e0; /* Light title color */
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.landing-description {
+  font-size: 1.2rem;
+  color: #d1d5db; /* Light gray text */
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.landing-button {
+  background-color: #38bdf8; /* A nice sky blue */
+  border-color: #38bdf8;
+  color: white;
+  font-weight: bold;
+  padding: 10px 30px;
+  height: auto;
+  font-size: 1.1rem;
+}
+
+.landing-button:hover {
+  background-color: #0ea5e9 !important; /* Ensure hover style overrides Ant Design default */
+  border-color: #0ea5e9 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .landing-title {
+    font-size: 2.5rem;
+  }
+  .landing-description {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .landing-title {
+    font-size: 2rem;
+  }
+  .landing-description {
+    font-size: 1rem;
+  }
+  .landing-button {
+    font-size: 1rem;
+    padding: 8px 25px;
+  }
+} 
