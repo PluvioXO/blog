@@ -1,30 +1,212 @@
-#imagePreview {
-    border-radius: 10px;
-    height: 200px;
-    width: 100px;
-    opacity: 0.7;
-    transition: 1s ease;
+/* General Page Styles */
+.photos-container {
+  padding: 20px;
+  background-color: #111827; /* Match body background if desired */
 }
-#imagePreviewText{
-    font-weight: bold;
-    color: #6B7280;
-    transition: 1s ease;
+
+.photos-header-row {
+  margin-bottom: 30px;
 }
-#spcFX:hover #imagePreviewText {
-    color: #9CA3AF;
-    transition: 1s ease;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
+.photos-title {
+  text-align: center;
+  cursor: default;
+  user-select: none;
+  color: #e0e0e0; /* Brighter title color */
+  font-size: 2.5rem;
+  font-weight: bold;
 }
-#spcFX:hover #imagePreview {
-    opacity: 1;
-    transition: 1s ease;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
+/* Image Grid Styles */
+.photos-grid-row {
+  /* Let gutter in JS handle spacing */
 }
-#headerTitle{
-    font-weight: bold;
-    color: #38BDF8;
-    font-size: 3rem;
+
+.photo-item-col {
+  display: flex; /* Helps with alignment if needed */
+  justify-content: center; /* Center card in column if col is wider */
 }
+
+.photo-card {
+  background-color: #1f2937; /* Darker card background */
+  border-radius: 8px;
+  overflow: hidden; /* Ensures image corners are rounded if image itself isn't */
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%; /* Make card take full width of its column */
+  margin-bottom: 16px; /* Consistent spacing from gutter or if no gutter */
+  display: flex;
+  flex-direction: column;
+}
+
+.photo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.photo-image-preview {
+  width: 100%;
+  height: 250px; /* Fixed height for uniform card size, adjust as needed */
+  object-fit: cover; /* Crop image to fit, maintaining aspect ratio */
+  display: block; /* Remove extra space below image */
+}
+
+.photo-date-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 8px;
+  font-size: 0.85rem;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.photo-card:hover .photo-date-overlay {
+  opacity: 1;
+}
+
+/* Modal (Overlay) Styles - For the existing custom modal */
+/* Basic styles to make the existing custom modal more responsive */
+/* Assuming the outer modal container has a style attribute setting position:fixed */
+
+/* Style the image within the custom modal */
+/* Ensure this targets the correct img tag in your Photos.js modal */
+.custom-modal-image {
+  max-width: 90vw;    /* Max width relative to viewport */
+  max-height: 80vh;   /* Max height relative to viewport */
+  height: auto;       /* Maintain aspect ratio */
+  width: auto;        /* Maintain aspect ratio */
+  border-radius: 8px;
+  display: block;
+  margin: auto; /* Center image if container is larger */
+}
+
+/* Style the close button in the custom modal */
+.custom-modal-close-button {
+  /* Add styles to make it more prominent and easier to click */
+  /* Example: */
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10; /* Ensure it's above the image */
+}
+
+/* NEW/UPDATED STYLES FOR ANT DESIGN MODAL */
+.photo-modal-content-wrapper {
+  background-color: #1f2937; /* Dark background for modal content area */
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 100%; /* Ensure it fits within the antd modal body */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content like image and info block */
+}
+
+.photo-modal-image {
+  max-width: 100%;
+  max-height: 70vh; /* Allow space for info below */
+  width: auto;
+  height: auto;
+  object-fit: contain; /* Ensure whole image is visible, scales down */
+  border-radius: 6px;
+  margin-bottom: 15px; /* Space between image and info */
+}
+
+.photo-modal-info {
+  text-align: center;
+  width: 100%;
+  color: #d1d5db; /* Light gray text for date */
+}
+
+.photo-modal-info p {
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+}
+
+.photo-modal-info .download-button {
+  background-color: #38bdf8; /* A nice sky blue */
+  border-color: #38bdf8;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 8px 20px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.photo-modal-info .download-button:hover {
+  background-color: #0ea5e9; /* Slightly darker blue on hover */
+  border-color: #0ea5e9;
+}
+
+/* Image open prompt */
+.image-open-prompt {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0,0,0,0.7);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 100;
+  font-size: 0.9rem;
+}
+
+/* Footer count */
+.photos-count-footer {
+  color: #8f96a3; /* Softer color */
+  font-weight: normal; /* Less emphasis */
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+/* Responsive adjustments for the grid and titles */
+@media (max-width: 768px) {
+  .photos-title {
+    font-size: 2rem;
+  }
+  .photo-image-preview {
+    height: 220px; /* Adjust height for tablets */
+  }
+}
+
+@media (max-width: 576px) {
+  .photos-container {
+    padding: 10px;
+  }
+  .photos-title {
+    font-size: 1.75rem;
+  }
+  .photo-image-preview {
+    height: 180px; /* Adjust height for phones */
+  }
+  .photo-date-overlay {
+    font-size: 0.8rem;
+    padding: 6px;
+  }
+  .image-open-prompt {
+    font-size: 0.85rem;
+    padding: 8px 15px;
+    bottom: 10px;
+  }
+}
+
+/* Loader from original Photos.css - kept if still used by JS */
 .loader {
     width: 16px;
     height: 16px;
@@ -36,20 +218,20 @@
     box-shadow: -24px 0 #FFF, 24px 0 #FFF;
     box-sizing: border-box;
     animation: shadowPulse 2s linear infinite;
-  }
+}
   
-  @keyframes shadowPulse {
-    33% {
-      background: #FFF;
-      box-shadow: -24px 0 #FF3D00, 24px 0 #FFF;
-    }
-    66% {
-      background: #FF3D00;
-      box-shadow: -24px 0 #FFF, 24px 0 #FFF;
-    }
-    100% {
-      background: #FFF;
-      box-shadow: -24px 0 #FFF, 24px 0 #FF3D00;
-    }
+@keyframes shadowPulse {
+  33% {
+    background: #FFF;
+    box-shadow: -24px 0 #FF3D00, 24px 0 #FFF;
   }
+  66% {
+    background: #FF3D00;
+    box-shadow: -24px 0 #FFF, 24px 0 #FFF;
+  }
+  100% {
+    background: #FFF;
+    box-shadow: -24px 0 #FFF, 24px 0 #FF3D00;
+  }
+}
   
