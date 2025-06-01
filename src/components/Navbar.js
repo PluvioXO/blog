@@ -26,17 +26,17 @@ export default function Navbar() {
 
   return (
     <>
-        <div className='navbar' style={{ /* backgroundColor:"#0c101a", */ userSelect: 'none', height:'70px'}}>
+        <div className='navbar' style={{ userSelect: 'none', height:'70px', paddingLeft: '24px', paddingRight: '24px' }}>
           <Row align="middle" style={{height: '100%'}}>
-          <Col xs={1} sm={1} md={1} lg={1} xl={1}></Col>
+          <Col xs={1} sm={1} md={0} lg={0} xl={0}></Col>
           <Col xs={16} sm={16} md={4} lg={4} xl={4}>
             <Link to="/">
             <motion.img src={ BlogLogo } style={{height:'70px'}} initial={{opacity:0}} animate={{opacity: 1}} transition={{duration:0.5}}/>
             </Link>
           </Col>
-          <Col xs={0} sm={0} md={1} lg={1} xl={1} />
-          <Col xs={0} sm={0} md={11} lg={11} xl={11}>
-          <div className='tags desktop-nav' style={{marginTop:'15px'}}>
+          <Col xs={0} sm={0} md={0} lg={0} xl={0} />
+          <Col xs={0} sm={0} md={16} lg={16} xl={16}>
+          <div className='tags desktop-nav' /* style={{marginTop:'15px'}} */ >
           <Space id='colorChange' size="large">
             <Link id='colorChange' to='/blog' className='blog-link-hover'>
               <motion.h2 id='headerOption'>~/blog</motion.h2>
@@ -70,12 +70,7 @@ export default function Navbar() {
               />
             </Space>
           </Col>
-          <Col xs={5} sm={5} md={0} lg={0} xl={0} style={{ textAlign: 'right' }}>
-            <Button className="mobile-nav-button" type="primary" onClick={showDrawer} style={{background: 'transparent', border: 'none' /* , color: '#7DD3FC' */}}>
-              <MenuOutlined style={{ fontSize: '24px'}} />
-            </Button>
-          </Col>
-          <Col xs={1} sm={1} md={1} lg={1} xl={1}></Col>
+          <Col xs={1} sm={1} md={0} lg={0} xl={0}></Col>
           </Row>
         </div>
         <Drawer

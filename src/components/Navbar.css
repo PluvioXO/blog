@@ -11,9 +11,20 @@
 .navbar-text {
   color: white;
 }
+
+.tags.desktop-nav {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
 #tags {
   margin-left: 10px;
 }
+
 #headerOption {
   color: var(--link-color);
   height: 100%;
