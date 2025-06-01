@@ -1,0 +1,69 @@
+/* src/pages/blog/blogData/pages/IndividualPost.css */
+
+.blog-post-container {
+  padding: 20px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: calc(100vh - 70px); /* Assuming 70px navbar height */
+}
+
+.blog-text-content p, /* Target general paragraphs */
+.blog-text-content {
+  color: var(--text-color);
+  line-height: 1.7;
+  font-size: 1rem; /* Adjust as needed */
+  transition: color 0.3s ease;
+}
+
+.blog-text-content .section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--text-color); /* Or a specific heading color variable if you create one */
+  margin-top: 20px;
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--link-color); /* Example border using link color */
+  transition: color 0.3s ease, border-bottom-color 0.3s ease;
+}
+
+.blog-text-content .subsection-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text-color); /* Or a specific heading color variable */
+  margin-top: 25px;
+  margin-bottom: 15px;
+  transition: color 0.3s ease;
+}
+
+/* Add styles for other elements like blockquotes, code blocks, lists as needed */
+.blog-text-content pre, 
+.blog-text-content code {
+  background-color: var(--navbar-background-color); /* Example for code blocks */
+  color: var(--text-color);
+  padding: 10px;
+  border-radius: 5px;
+  margin: 15px 0;
+  overflow-x: auto;
+  font-family: 'Courier New', Courier, monospace;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.blog-text-content blockquote {
+  border-left: 4px solid var(--link-color);
+  margin: 15px 0;
+  padding: 10px 20px;
+  background-color: var(--navbar-background-color); /* Or a slightly different shade */
+  color: var(--text-color);
+  font-style: italic;
+  transition: background-color 0.3s ease, color 0.3s ease, border-left-color 0.3s ease;
+}
+
+.blog-text-content a {
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+.blog-text-content a:hover {
+  color: var(--link-hover-color);
+} 

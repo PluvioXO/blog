@@ -1,9 +1,11 @@
 .navbar {
-  background-color: #0c101a;
-  height: 80px;
+  background-color: var(--navbar-background-color);
+  height: 70px;
   position: sticky;
-  top: 0px;
+  top: 0;
   z-index: 5;
+  user-select: none;
+  transition: background-color 0.3s ease;
 }
 
 .navbar-text {
@@ -12,22 +14,39 @@
 #tags {
   margin-left: 10px;
 }
-#headerOption{
-  color:#7DD3FC;
+#headerOption {
+  color: var(--link-color);
   height: 100%;
   font-size: revert;
-  transition: 0.5s ease;
-  top: 50%;
+  transition: color 0.3s ease;
+  position: relative;
+  padding-bottom: 4px;
 }
-#headerOption:hover{
-  color: #F3F4F6;
-  transition: 0.5s ease;
+
+#headerOption::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--link-hover-color);
+  transition: width 0.3s ease-in-out;
 }
+
+#headerOption:hover {
+  color: var(--link-hover-color);
+}
+
+#headerOption:hover::after {
+  width: 100%;
+}
+
 #colorChange{
-  background-color: #0c101a;
+  background-color: transparent;
 }
 #colorFill{
-  background-color: #0c101a;
+  background-color: transparent;
 }
 .signature{
   margin: 0;
@@ -39,11 +58,11 @@
 }
 
 .signature path{
-  stroke: #7DD3FC;
+  stroke: var(--link-color);
   transition: 0.5s ease;
 }
 .signature:hover path{
-  stroke: #F3F4F6;
+  stroke: var(--link-hover-color);
   transition: 0.5s ease;
 }
 .logo:hover path{
@@ -55,4 +74,66 @@
   width: 100px;
   height: 100px;
   color: black;
+}
+
+/* Update Ant Design component styles if needed, e.g., Drawer and Menu */
+/* You might need to inspect elements and target specific AntD classes */
+.ant-drawer-header {
+  background-color: var(--navbar-background-color) !important;
+  border-bottom: 1px solid var(--text-color) !important;
+}
+
+.ant-drawer-title,
+.ant-drawer-close .anticon {
+  color: var(--navbar-text-color) !important;
+}
+
+.ant-menu {
+  background-color: var(--navbar-background-color) !important;
+  border-right: 0 !important;
+}
+
+.ant-menu-item a,
+.ant-menu-item .anticon {
+  color: var(--link-color) !important;
+}
+
+.ant-menu-item:hover a,
+.ant-menu-item:hover .anticon,
+.ant-menu-item-selected a,
+.ant-menu-item-selected .anticon {
+  color: var(--link-hover-color) !important;
+}
+
+.mobile-nav-button {
+  background: transparent !important;
+  border: none !important;
+  color: var(--link-color) !important;
+}
+
+/* Ant Design Switch Overrides */
+.ant-switch {
+  background-color: var(--navbar-text-color) !important; /* For the track when unchecked */
+}
+
+.ant-switch-checked {
+  background-color: var(--link-color) !important; /* For the track when checked */
+}
+
+.ant-switch .ant-switch-handle {
+  /* The handle itself is usually white or a light gray, might not need override */
+  /* but if you want to change it: */
+  /* background-color: var(--some-handle-color) !important; */
+}
+
+.ant-switch .ant-switch-inner .anticon {
+ color: var(--navbar-background-color) !important; /* Color for Sun/Moon icons inside the switch */
+}
+
+.github-nav-button.ant-btn-text .anticon {
+  color: var(--link-color) !important; /* Use link color for the GitHub icon */
+}
+
+.github-nav-button.ant-btn-text:hover .anticon {
+  color: var(--link-hover-color) !important; /* Use link hover color for the GitHub icon on hover */
 }

@@ -1,33 +1,39 @@
 :root {
-    --orange: rgb(38 38 38);
+    /* --orange: rgb(38 38 38); */ /* This seems unused or can be replaced by theme variable */
 }
 
 #title {
     font-weight: bold;
-    color: #7DD3FC;
+    color: var(--link-color);
     font-size: 2rem;
     text-align: left;
 }
 .home{
     text-align: left;
-    align-items: top;
-    align-items: left;
+    /* align-items: top; */ /* This is not a valid value for align-items */
+    /* align-items: left; */ /* This is not a valid value for align-items */
+    /* Consider using flexbox properties on the parent for alignment */
 }
 .card{
     height: auto;
     width: auto;
-    background-color: white;
-    position: absolute;
+    background-color: var(--navbar-background-color); /* Using navbar bg as an example for card */
+    position: absolute; /* Be cautious with absolute positioning and theming */
     left: 50%;
     top: 50%;
     border-radius: 5px;
-    background-color: rgb(23, 23, 23);
+    /* background-color: rgb(23, 23, 23); */ /* Replaced with variable */
+    color: var(--text-color); /* Ensure text inside card is themed */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+/* .orange selector seems to rely on the --orange variable which was local */
+/* We should use a theme variable if this border color needs to change with themes */
 .orange{
-    border-top: 3px solid var(--orange);
+    border-top: 3px solid var(--link-hover-color); /* Example: using link-hover color */
 }
 .code{
-    color: white;
+    color: var(--text-color); /* Use main text color */
     font-weight: bold;
     display: inline-block;
 }
@@ -35,5 +41,6 @@
     margin: 20px;
 }
 .green{
-    color: #62dc64;
+    color: #62dc64; /* This green might need its own theme variable if it should change */
+                 /* Or keep it static if it's a specific status/highlight color */
 }

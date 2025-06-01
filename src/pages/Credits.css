@@ -1,16 +1,19 @@
 #headerTitle {
     font-weight: bold;
-    color: #38BDF8;
+    color: var(--link-hover-color);
     font-size: 3rem;
+    transition: color 0.3s ease;
 }
 #contentsTitle {
     font-weight: bold;
-    color: #7DD3FC;
+    color: var(--link-color);
     font-size: 1rem;
+    transition: color 0.3s ease;
 }
 #contentsItem {
-    color: #F3F4F6;
+    color: var(--text-color);
     font-size: 0.9rem;
+    transition: color 0.3s ease;
 }
 #contentsHyperlink{
     font-weight: bold;
@@ -18,27 +21,38 @@
 }
 #creditTitle {
     font-weight: bold;
-    color: #7DD3FC;
+    color: var(--link-color);
     font-size: 2rem;
+    transition: color 0.3s ease;
 }
 .outsideRedirectContainer {
-    color: #9CA3AF;
+    color: var(--text-color);
     font-weight: bold;
     font-size: 2rem;
+    transition: color 0.3s ease;
 }
 .outsideRedirectContainer:hover {
-    color: #F3F4F6;
+    color: var(--link-hover-color);
 }
 .textBody {
-    color: #D1D5DB;
+    color: var(--text-color);
     font-size: 0.9rem;
+    transition: color 0.3s ease;
 }
 #subTitle {
-    color: #BAE6FD;
+    color: var(--link-color);
     font-size: 1.5rem;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 .tableOfContents {
     position: sticky;
     top: 30%;
+}
+.page-container {
+  padding: 20px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  min-height: calc(100vh - 70px); /* Assuming 70px navbar height */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }

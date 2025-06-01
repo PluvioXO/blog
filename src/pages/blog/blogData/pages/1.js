@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Row, Col} from 'antd'
 import { motion } from 'framer-motion'
-import './pdfstyling.css'
+// import './pdfstyling.css' // Removed for web theming, use IndividualPost.css
+import './IndividualPost.css'; // Import new CSS file
 import { BlockMath, InlineMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
 

@@ -2,11 +2,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: calc(100vh - 80px); /* Adjust 80px if your Navbar height is different */
+  min-height: calc(100vh - 70px); /* Adjusted to match Navbar height from Navbar.css */
   text-align: center;
-  background-color: #111827; /* Similar to your photos page background */
+  background-color: var(--background-color);
   padding: 20px;
   overflow: hidden; /* Prevent scrollbars from animations */
+  transition: background-color 0.3s ease; /* Smooth transition */
 }
 
 .landing-content {
@@ -15,14 +16,15 @@
 
 .landing-title {
   font-size: 3rem;
-  color: #e0e0e0; /* Light title color */
+  color: var(--text-color);
   margin-bottom: 20px;
   font-weight: bold;
+  transition: color 0.3s ease; /* Smooth transition */
 }
 
 .terminal-title {
   /* font-family: 'Courier New', Courier, monospace; */
-  /* color: #39FF14;  Optional: Green terminal color */
+  /* color: var(--link-color); */ /* Optional: Use link color or a specific terminal green */
   position: relative; /* For cursor positioning */
   display: inline-block; /* So the cursor can be placed right after the text */
 }
@@ -31,7 +33,7 @@
   content: '_';
   animation: blink 1s step-end infinite;
   margin-left: 5px; /* Space between text and cursor */
-  /* color: #39FF14;  Optional: Green terminal color for cursor */
+  /* color: var(--link-color); */ /* Optional: Use link color for cursor */
 }
 
 @keyframes blink {
@@ -41,24 +43,26 @@
 
 .landing-description {
   font-size: 1.2rem;
-  color: #d1d5db; /* Light gray text */
+  color: var(--text-color); /* Use text-color variable */
   margin-bottom: 30px;
   line-height: 1.6;
+  transition: color 0.3s ease; /* Smooth transition */
 }
 
 .landing-button {
-  background-color: #38bdf8; /* A nice sky blue */
-  border-color: #38bdf8;
-  color: white;
+  background-color: var(--button-background-color);
+  border-color: var(--button-background-color);
+  color: var(--button-text-color);
   font-weight: bold;
   padding: 10px 30px;
   height: auto;
   font-size: 1.1rem;
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
 }
 
 .landing-button:hover {
-  background-color: #0ea5e9 !important; /* Ensure hover style overrides Ant Design default */
-  border-color: #0ea5e9 !important;
+  background-color: var(--button-hover-background-color) !important;
+  border-color: var(--button-hover-background-color) !important;
 }
 
 /* Responsive adjustments */

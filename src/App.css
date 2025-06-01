@@ -1,20 +1,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
+:root {
+  /* Default to dark mode variables */
+  --background-color: #111827;
+  --text-color: #e0e0e0;
+  --navbar-background-color: #0c101a;
+  --navbar-text-color: #e0e0e0;
+  --link-color: #7DD3FC;
+  --link-hover-color: #38bdf8;
+  --button-background-color: #38bdf8;
+  --button-text-color: white;
+  --button-hover-background-color: #0ea5e9;
+}
+
+.light-mode {
+  --background-color: #f9fafb; /* Light gray */
+  --text-color: #1f2937; /* Dark gray */
+  --navbar-background-color: #e5e7eb; /* Lighter gray for navbar */
+  --navbar-text-color: #1f2937;
+  --link-color: #0ea5e9;
+  --link-hover-color: #0284c7;
+  --button-background-color: #0ea5e9;
+  --button-text-color: white;
+  --button-hover-background-color: #0284c7;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: 'Lato', sans-serif;
 }
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
 .home,
 .reports,
 .products {
   display: flex;
   height: 90vh;
+  align-items: center; /* Vertically center content if needed */
+  justify-content: center; /* Horizontally center content if needed */
   font-size: 3rem;
+  color: var(--text-color);
+}
+
+/* General link styling */
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--link-hover-color);
 }
 
 .blog-link-hover:hover {
-  color: #00FF00; /* Or your desired hover color */
+  color: var(--link-hover-color) !important; /* Ensure specificity */
   transition: color 0.3s ease;
 }

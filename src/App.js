@@ -1,5 +1,6 @@
 import React, { StrictMode } from 'react';
 import './App.css';
+import { ThemeProvider } from './ThemeContext';
 import Path from './components/Path';
 import { BrowserRouter as BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';
@@ -21,22 +22,24 @@ import five from './pages/blog/blogData/pages/5';
 export default function App() {
   return (
     <StrictMode>
-    <BrowserRouter>
-            <Navbar />
-            <Switch>
-              <Route path="/" exact component={LandingPage} />
-              <Route path="/photos" component={Photos} />
-                <Route path='/reports' component={Reports} />
-                <Route path='/other' component={Other} />
-                <Route path='/blog' component={Blog}/>
-                <Route path='/post/0' component={one}/>
-                <Route path='/post/1' component={two}/>
-                <Route path='/post/2' component={three}/>   
-                <Route path='/post/3' component={four}/>   
-                <Route path='/post/4' component={five}/>             
-                <Route path='/projects' component={Projects}/>
-            </Switch>
-    </BrowserRouter>
+      <ThemeProvider>
+        <BrowserRouter>
+          <Navbar />
+          <Switch>
+            <Route path="/" exact component={LandingPage} />
+            <Route path="/photos" component={Photos} />
+            <Route path='/reports' component={Reports} />
+            <Route path='/other' component={Other} />
+            <Route path='/blog' component={Blog}/>
+            <Route path='/post/0' component={one}/>
+            <Route path='/post/1' component={two}/>
+            <Route path='/post/2' component={three}/>   
+            <Route path='/post/3' component={four}/>   
+            <Route path='/post/4' component={five}/>             
+            <Route path='/projects' component={Projects}/>
+          </Switch>
+        </BrowserRouter>
+      </ThemeProvider>
     </StrictMode>
   );
 }

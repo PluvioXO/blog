@@ -8,7 +8,7 @@ import 'antd/dist/reset.css'
 export default function other() {
   
   return (
-    <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{duration:0.5}}>
+    <motion.div className="page-container" initial={{opacity:0}} animate={{opacity:1}} transition={{duration:0.5}}>
       <Row>
       <Col span={11}></Col>
       <Col span={4}><h1 id='headerTitle'>Credits</h1></Col>

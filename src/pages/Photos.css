@@ -1,7 +1,8 @@
 /* General Page Styles */
 .photos-container {
   padding: 20px;
-  background-color: #111827; /* Match body background if desired */
+  background-color: var(--background-color);
+  transition: background-color 0.3s ease;
 }
 
 .photos-header-row {
@@ -12,9 +13,10 @@
   text-align: center;
   cursor: default;
   user-select: none;
-  color: #e0e0e0; /* Brighter title color */
+  color: var(--text-color);
   font-size: 2.5rem;
   font-weight: bold;
+  transition: color 0.3s ease;
 }
 
 /* Image Grid Styles */
@@ -28,11 +30,11 @@
 }
 
 .photo-card {
-  background-color: #1f2937; /* Darker card background */
+  background-color: var(--navbar-background-color); /* Example: using navbar bg for cards */
   border-radius: 8px;
   overflow: hidden; /* Ensures image corners are rounded if image itself isn't */
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
   width: 100%; /* Make card take full width of its column */
   margin-bottom: 16px; /* Consistent spacing from gutter or if no gutter */
   display: flex;
@@ -41,7 +43,7 @@
 
 .photo-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Shadow might need adjustment for light mode */
 }
 
 .photo-image-preview {
@@ -56,8 +58,8 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
+  background: rgba(0, 0, 0, 0.6); /* This might need a variable if opacity isn't enough for light mode */
+  color: white; /* Explicitly white, consider a variable if contrast is an issue in light mode */
   padding: 8px;
   font-size: 0.85rem;
   text-align: center;
@@ -92,8 +94,8 @@
   position: absolute;
   top: 15px;
   right: 15px;
-  background: rgba(0,0,0,0.5);
-  color: white;
+  background: rgba(0,0,0,0.5); /* Consider variable for background */
+  color: white; /* Consider variable for color */
   border-radius: 50%;
   width: 30px;
   height: 30px;
@@ -118,7 +120,8 @@
 .photo-modal-info {
   text-align: center;
   width: 100%;
-  color: #d1d5db; /* Light gray text for date */
+  color: var(--text-color);
+  transition: color 0.3s ease;
 }
 
 .photo-modal-info p {
@@ -127,18 +130,18 @@
 }
 
 .photo-modal-info .download-button {
-  background-color: #38bdf8; /* A nice sky blue */
-  border-color: #38bdf8;
-  color: white;
+  background-color: var(--button-background-color);
+  border-color: var(--button-background-color);
+  color: var(--button-text-color);
   font-weight: bold;
   border-radius: 6px;
   padding: 8px 20px;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 .photo-modal-info .download-button:hover {
-  background-color: #0ea5e9; /* Slightly darker blue on hover */
-  border-color: #0ea5e9;
+  background-color: var(--button-hover-background-color);
+  border-color: var(--button-hover-background-color);
 }
 
 /* Image open prompt */
@@ -147,20 +150,23 @@
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: rgba(0,0,0,0.7);
-  color: white;
+  background-color: var(--navbar-background-color); /* Using navbar bg as example */
+  color: var(--text-color); /* Using text color */
   padding: 10px 20px;
   border-radius: 5px;
   z-index: 100;
   font-size: 0.9rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Footer count */
 .photos-count-footer {
-  color: #8f96a3; /* Softer color */
+  color: var(--text-color); /* Use main text color, adjust opacity if needed for softer look */
   font-weight: normal; /* Less emphasis */
   text-align: center;
   margin-top: 20px;
+  opacity: 0.7; /* Example for softer look */
+  transition: color 0.3s ease;
 }
 
 
@@ -196,6 +202,8 @@
 }
 
 /* Loader from original Photos.css - kept if still used by JS */
+/* The loader uses specific colors (white, #FF3D00). These might need to become theme variables */
+/* if they should change with the theme, or remain static if they are brand/status colors. */
 .loader {
     width: 16px;
     height: 16px;
@@ -203,24 +211,76 @@
     display: block;
     margin:15px auto;
     position: relative;
-    background: #FFF;
-    box-shadow: -24px 0 #FFF, 24px 0 #FFF;
+    background: var(--text-color); /* Changed from #FFF */
+    box-shadow: -24px 0 var(--text-color), 24px 0 var(--text-color); /* Changed from #FFF */
     box-sizing: border-box;
     animation: shadowPulse 2s linear infinite;
 }
   
 @keyframes shadowPulse {
   33% {
-    background: #FFF;
-    box-shadow: -24px 0 #FF3D00, 24px 0 #FFF;
+    background: var(--text-color); /* Changed from #FFF */
+    box-shadow: -24px 0 var(--link-hover-color), 24px 0 var(--text-color); /* #FF3D00 to link-hover */
   }
   66% {
-    background: #FF3D00;
-    box-shadow: -24px 0 #FFF, 24px 0 #FFF;
+    background: var(--link-hover-color); /* #FF3D00 to link-hover */
+    box-shadow: -24px 0 var(--text-color), 24px 0 var(--text-color); /* Changed from #FFF */
   }
   100% {
-    background: #FFF;
-    box-shadow: -24px 0 #FFF, 24px 0 #FF3D00;
+    background: var(--text-color); /* Changed from #FFF */
+    box-shadow: -24px 0 var(--text-color), 24px 0 var(--link-hover-color); /* #FF3D00 to link-hover */
   }
+}
+  
+/* Ant Design Modal Overrides for Photos Page */
+.ant-modal-content {
+  background-color: var(--background-color) !important;
+  color: var(--text-color) !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.ant-modal-header {
+  background-color: var(--background-color) !important;
+  color: var(--text-color) !important;
+  border-bottom: 1px solid var(--text-color) !important; /* Adjust for visibility */
+  transition: background-color 0.3s ease, color 0.3s ease, border-bottom-color 0.3s ease;
+}
+
+.ant-modal-title {
+  color: var(--text-color) !important;
+  transition: color 0.3s ease;
+}
+
+.ant-modal-close .ant-modal-close-x .anticon {
+  color: var(--text-color) !important;
+  transition: color 0.3s ease;
+}
+
+.ant-modal-footer {
+  border-top: 1px solid var(--text-color) !important; /* Adjust for visibility */
+  transition: border-top-color 0.3s ease;
+}
+
+/* Ensure buttons inside the modal footer also get themed if they don't inherit properly */
+.ant-modal-footer .ant-btn-primary {
+  background-color: var(--button-background-color) !important;
+  border-color: var(--button-background-color) !important;
+  color: var(--button-text-color) !important;
+}
+
+.ant-modal-footer .ant-btn-primary:hover {
+  background-color: var(--button-hover-background-color) !important;
+  border-color: var(--button-hover-background-color) !important;
+}
+
+.ant-modal-footer .ant-btn-default {
+  background-color: transparent !important; /* Or var(--background-color) */
+  border-color: var(--text-color) !important; /* Or a button border variable */
+  color: var(--text-color) !important;
+}
+
+.ant-modal-footer .ant-btn-default:hover {
+  border-color: var(--link-hover-color) !important;
+  color: var(--link-hover-color) !important;
 }
   
