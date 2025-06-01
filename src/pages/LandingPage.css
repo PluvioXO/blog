@@ -20,6 +20,25 @@
   font-weight: bold;
 }
 
+.terminal-title {
+  /* font-family: 'Courier New', Courier, monospace; */
+  /* color: #39FF14;  Optional: Green terminal color */
+  position: relative; /* For cursor positioning */
+  display: inline-block; /* So the cursor can be placed right after the text */
+}
+
+.terminal-title::after {
+  content: '_';
+  animation: blink 1s step-end infinite;
+  margin-left: 5px; /* Space between text and cursor */
+  /* color: #39FF14;  Optional: Green terminal color for cursor */
+}
+
+@keyframes blink {
+  from, to { opacity: 0 }
+  50% { opacity: 1 }
+}
+
 .landing-description {
   font-size: 1.2rem;
   color: #d1d5db; /* Light gray text */

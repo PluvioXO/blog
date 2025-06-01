@@ -34,7 +34,7 @@ export default function Navbar() {
           <Col xs={0} sm={0} md={15} lg={15} xl={15}>
           <div className='tags desktop-nav' style={{marginTop:'15px'}}>
           <Space id='colorChange' size="large">
-            <Link id='colorChange' to='/blog'>
+            <Link id='colorChange' to='/blog' className='blog-link-hover'>
               <motion.h2 id='headerOption'>~/blog</motion.h2>
             </Link>
             <Link to='photos'>
@@ -68,7 +68,7 @@ export default function Navbar() {
           closeIcon={<Button type="text" style={{color: '#7DD3FC'}}>Close</Button>}
         >
           <Menu mode="vertical" theme="dark" style={{ backgroundColor: '#0c101a', borderRight: 0}} onClick={onClose}>
-            <Menu.Item key="1"><Link to='/blog'>~/blog</Link></Menu.Item>
+            <Menu.Item key="1"><Link to='/blog' className='blog-link-hover'>~/blog</Link></Menu.Item>
             <Menu.Item key="2"><Link to='photos'>~/photos</Link></Menu.Item>
             <Menu.Item key="3"><Link to='projects'>~/projects</Link></Menu.Item>
             <Menu.Item key="4"><Link to='other'>~/resources</Link></Menu.Item>

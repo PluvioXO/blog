@@ -13,3 +13,8 @@
   height: 90vh;
   font-size: 3rem;
 }
+
+.blog-link-hover:hover {
+  color: #00FF00; /* Or your desired hover color */
+  transition: color 0.3s ease;
+}
