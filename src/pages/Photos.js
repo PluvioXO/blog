@@ -45,11 +45,6 @@ export default function Photos() {
           Tap an image to open.
         </motion.div>
       )}
-      <Row justify="center" className="photos-header-row">
-        <Col>
-          <h1 className='photos-title'>Photo Collection</h1>
-        </Col>
-      </Row>
       <Row gutter={[16, 16]} justify="center" className="photos-grid-row">
         {PhotoData.slice(0, loadedImagesCount).map((item, index) => (
           <Col key={item.id || index} xs={24} sm={12} md={8} lg={6} className="photo-item-col">

@@ -10,7 +10,6 @@ export default function Blog() {
     <motion.div className="blog-container" initial={{opacity:0, y:2}} animate={{opacity:1, y:0}} transition={{duration:0.5}}>
       <Row justify="center">
         <Col xs={22} sm={20} md={18} lg={18} xl={18}>
-          <h1 className="blog-title">Blog</h1>
           <Row gutter={[16, 16]}> {/* Add gutter for spacing between cards */}
             {blogData.map((item, index) => (
               <Col key={index} xs={24} sm={12} md={8} lg={6}>
