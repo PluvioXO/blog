@@ -11,6 +11,7 @@
   --button-background-color: #38bdf8;
   --button-text-color: white;
   --button-hover-background-color: #0ea5e9;
+  --card-background-color: #1f2937; /* Lighter than page bg for dark mode cards */
 }
 
 .light-mode {
@@ -23,6 +24,7 @@
   --button-background-color: #0ea5e9;
   --button-text-color: white;
   --button-hover-background-color: #0284c7;
+  --card-background-color: var(--navbar-background-color); /* For light mode, card bg = navbar bg */
 }
 
 * {
@@ -30,6 +32,11 @@
   margin: 0;
   padding: 0;
   font-family: 'Lato', sans-serif;
+}
+
+html {
+  background-color: var(--background-color);
+  transition: background-color 0.3s ease; /* Match body transition */
 }
 
 body {

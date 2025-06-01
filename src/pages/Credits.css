@@ -1,7 +1,7 @@
 #headerTitle {
     font-weight: bold;
     color: var(--link-hover-color);
-    font-size: 3rem;
+    /* font-size: 3rem; Handled inline now */
     transition: color 0.3s ease;
 }
 #contentsTitle {
@@ -55,4 +55,67 @@
   color: var(--text-color);
   min-height: calc(100vh - 70px); /* Assuming 70px navbar height */
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* New styles for Resource Cards */
+.resources-page-container #headerTitle {
+    color: var(--link-hover-color); /* Ensure theme color */
+    margin-bottom: 1.5rem; /* Adjusted margin from inline style for consistency */
+}
+
+.resource-card {
+    background-color: var(--card-background-color); /* Use new theme variable */
+    border: 1px solid var(--link-color); /* Subtle border with link color */
+    border-radius: 8px; /* Slightly rounded corners */
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.resource-card .ant-card-head {
+    background-color: rgba(0, 0, 0, 0.1); /* Increased overlay opacity to 10% */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Matched line color to new overlay opacity */
+    color: var(--link-hover-color); /* Title color */
+    font-size: 1.5rem; /* Larger title for cards */
+    transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.resource-card .ant-card-head-title {
+    color: var(--link-hover-color); /* Ensure title text color */
+    font-weight: bold;
+}
+
+.resource-card .ant-card-body {
+    padding: 20px; /* Standard padding */
+    color: var(--text-color);
+    border-top: none; /* Ensure no top border on the body */
+}
+
+.resource-description {
+    color: var(--text-color);
+    font-size: 1rem; /* Slightly larger for readability */
+    line-height: 1.6;
+    margin-bottom: 1em; /* Ensure paragraph spacing */
+}
+
+.resource-card .ant-card-actions {
+    background-color: transparent;
+    border-top: 1px solid var(--link-color);
+    padding: 12px 20px; /* Adjust padding */
+    transition: border-color 0.3s ease;
+}
+
+.resource-card .ant-card-actions > li {
+    margin: 0; /* Remove default Ant Design margins if any */
+}
+
+.resource-visit-button.ant-btn-primary {
+    background-color: var(--button-background-color) !important; /* Ensure theme color */
+    border-color: var(--button-background-color) !important;
+    color: var(--button-text-color) !important;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.resource-visit-button.ant-btn-primary:hover {
+    background-color: var(--button-hover-background-color) !important;
+    border-color: var(--button-hover-background-color) !important;
 }

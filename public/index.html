@@ -5,6 +5,24 @@
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
+    <script>
+      (function() {
+        try {
+          var storedThemeValue = localStorage.getItem('theme');
+          console.log('[index.html script] Initial theme from localStorage:', storedThemeValue);
+          var lightBg = '#f9fafb'; // Corresponds to --background-color in .light-mode
+          var darkBg = '#111827';  // Corresponds to --background-color in :root (dark mode)
+          if (storedThemeValue === 'light') {
+            document.documentElement.style.backgroundColor = lightBg;
+          } else { // Default to dark if not explicitly 'light' (i.e., 'dark', null, or other)
+            document.documentElement.style.backgroundColor = darkBg;
+          }
+        } catch (e) {
+          console.error('[index.html script] Error initializing theme:', e);
+          document.documentElement.style.backgroundColor = darkBg; // Fallback
+        }
+      })();
+    </script>
     <meta
       name="description"
       content="Web site created using create-react-app"
@@ -34,7 +52,7 @@
         onload="renderMathInElement(document.body);"></script>
     <title>Maximilians Website</title>
   </head>
-  <body style="background-color: #111827">
+  <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
