@@ -94,9 +94,9 @@ export default function four() {
   return(
   <motion.div className="blog-post-container" initial={{opacity:0, y:2}} animate={{opacity:1, y:0}} transition={{duration:0.5}}>
     <Row justify="center">
-      <Col xs={0} sm={4} md={5} lg={6} xl={6} className="blog-post-menu">
+      <Col xs={0} sm={4} md={5} lg={6} xl={5} className="blog-post-menu">
       </Col>
-      <Col xs={22} sm={14} md={12} lg={10} xl={10} className='blog-text-content'>
+      <Col xs={22} sm={16} md={14} lg={13} xl={14} className='blog-text-content'>
         <p id="introduction" className='section-title'>Why we love Attention</p>
         <p className="blog-subtitle">The mathematical framework behind modern neural networks' most powerful mechanism</p>
         
@@ -157,7 +157,7 @@ export default function four() {
 
         <p id="self-attention" className='subsection-title'>Self-Attention Mechanism</p>
         <div>
-          Self-attention is a mechanism that allows a model to focus on different parts of the input sequence when producing an output. It's particularly powerful because it enables the model to consider the context of each token in relation to all other tokens in the sequence, rather than just its immediate neighbors. As described in "Attention Is All You Need" [1], this approach has several advantages over recurrent and convolutional architectures.
+          Self-attention is a mechanism that allows a model to focus on different parts of the input sequence when producing an output. It's particularly powerful because it enables the model to consider the context of each token in relation to all other tokens in the sequence, rather than just its immediate neighbors. As described in "Attention Is All You Need" <a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer">[1]</a>, this approach has several advantages over recurrent and convolutional architectures.
         </div>
 
         <div className="indented-block">
@@ -179,12 +179,12 @@ export default function four() {
           
           <BlockMath math='z_i = \sum_{j=1}^{n} \alpha_{ij} (x_j W^V)' />
           
-          This formulation builds upon earlier work by Bahdanau et al. [2] and Luong et al. [3], but removes the recurrent components for improved parallelization.
+          This formulation builds upon earlier work by Bahdanau et al. <a href="https://arxiv.org/abs/1409.0473" target="_blank" rel="noopener noreferrer">[2]</a> and Luong et al. <a href="https://arxiv.org/abs/1508.04025" target="_blank" rel="noopener noreferrer">[3]</a>, but removes the recurrent components for improved parallelization.
         </div>
 
         <p id="multi-head-attention" className='subsection-title'>Multi-Head Attention</p>
         <div>
-          While the self-attention mechanism is powerful, it can be beneficial to allow the model to attend to different representation subspaces at different positions. This is achieved through multi-head attention, which runs multiple attention mechanisms in parallel. This concept, introduced in the Transformer architecture [1], has become a cornerstone of modern deep learning models, including BERT [4] and GPT variants [5].
+          While the self-attention mechanism is powerful, it can be beneficial to allow the model to attend to different representation subspaces at different positions. This is achieved through multi-head attention, which runs multiple attention mechanisms in parallel. This concept, introduced in the Transformer architecture <a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer">[1]</a>, has become a cornerstone of modern deep learning models, including BERT <a href="https://arxiv.org/abs/1810.04805" target="_blank" rel="noopener noreferrer">[4]</a> and GPT variants <a href="https://arxiv.org/abs/2005.14165" target="_blank" rel="noopener noreferrer">[5]</a>.
         </div>
 
         <div className="indented-block">
@@ -200,12 +200,12 @@ export default function four() {
           
           Typically, we set <InlineMath math='d_k = d_v = d_{model}/h' />, which means the total computational cost is similar to that of single-head attention with full dimensionality.
           
-          As noted in the original paper [1]: "Multi-head attention allows the model to jointly attend to information from different representation subspaces at different positions. With a single attention head, averaging inhibits this."
+          As noted in the original paper <a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer">[1]</a>: "Multi-head attention allows the model to jointly attend to information from different representation subspaces at different positions. With a single attention head, averaging inhibits this."
         </div>
 
         <p id="multihead-latent-attention" className='subsection-title'>Multihead Latent Attention</p>
         <div>
-          Multihead Latent Attention (MLA) extends the standard multi-head attention mechanism by introducing latent variables to capture more complex dependencies and improve the expressiveness of the attention mechanism. This approach has shown promising results in various natural language processing and computer vision tasks, and can be seen as an extension of ideas explored in papers like "Reformer: The Efficient Transformer" [9], "Rethinking Attention with Performers" [10], and "Perceiver: General Perception with Iterative Attention" [11].
+          Multihead Latent Attention (MLA) extends the standard multi-head attention mechanism by introducing latent variables to capture more complex dependencies and improve the expressiveness of the attention mechanism. This approach has shown promising results in various natural language processing and computer vision tasks, and can be seen as an extension of ideas explored in papers like "Reformer: The Efficient Transformer" <a href="https://arxiv.org/abs/2001.04451" target="_blank" rel="noopener noreferrer">[9]</a>, "Rethinking Attention with Performers" <a href="https://arxiv.org/abs/2009.14794" target="_blank" rel="noopener noreferrer">[10]</a>, and "Perceiver: General Perception with Iterative Attention" <a href="https://arxiv.org/abs/2103.03206" target="_blank" rel="noopener noreferrer">[11]</a>.
         </div>
 
         <div className="indented-block">
@@ -239,7 +239,7 @@ export default function four() {
           
           This approach offers several advantages:
           
-          <p><strong>Reduced Complexity:</strong> By attending to a fixed number of latent variables <InlineMath math='m' /> instead of the full sequence length <InlineMath math='n' />, the computational complexity can be reduced from <InlineMath math='O(n^2)' /> to <InlineMath math='O(nm)' /> where typically <InlineMath math='m \ll n' />. This is conceptually similar to approaches like Longformer [7] and Big Bird [8], which aim to reduce the quadratic complexity of attention.</p>
+          <p><strong>Reduced Complexity:</strong> By attending to a fixed number of latent variables <InlineMath math='m' /> instead of the full sequence length <InlineMath math='n' />, the computational complexity can be reduced from <InlineMath math='O(n^2)' /> to <InlineMath math='O(nm)' /> where typically <InlineMath math='m \ll n' />. This is conceptually similar to approaches like Longformer <a href="https://arxiv.org/abs/2004.05150" target="_blank" rel="noopener noreferrer">[7]</a> and Big Bird <a href="https://arxiv.org/abs/2007.14062" target="_blank" rel="noopener noreferrer">[8]</a>, which aim to reduce the quadratic complexity of attention.</p>
           
           <p><strong>Increased Expressivity:</strong> The latent variables can capture more complex patterns and dependencies than direct attention.</p>
           
@@ -272,7 +272,7 @@ export default function four() {
 
         <p id="computational-complexity" className='subsection-title'>Computational Complexity</p>
         <div>
-          The attention mechanism, while powerful, has a computational complexity that scales quadratically with sequence length. This can be a bottleneck for very long sequences, as discussed in several papers addressing this limitation [7, 8, 9, 10].
+          The attention mechanism, while powerful, has a computational complexity that scales quadratically with sequence length. This can be a bottleneck for very long sequences, as discussed in several papers addressing this limitation <a href="https://arxiv.org/abs/2004.05150" target="_blank" rel="noopener noreferrer">[7]</a>, <a href="https://arxiv.org/abs/2007.14062" target="_blank" rel="noopener noreferrer">[8]</a>, <a href="https://arxiv.org/abs/2001.04451" target="_blank" rel="noopener noreferrer">[9]</a>, <a href="https://arxiv.org/abs/2009.14794" target="_blank" rel="noopener noreferrer">[10]</a>.
         </div>
 
         <div className="indented-block">
@@ -282,15 +282,15 @@ export default function four() {
           
           Several approaches have been proposed to reduce this complexity:
           
-          <p><strong>Sparse Attention:</strong> Only compute attention for a subset of token pairs, reducing complexity to <InlineMath math='O(n \cdot s \cdot d)' /> where <InlineMath math='s \ll n' /> is the sparsity factor. This approach is implemented in the Longformer [7] and Big Bird [8] models.</p>
+          <p><strong>Sparse Attention:</strong> Only compute attention for a subset of token pairs, reducing complexity to <InlineMath math='O(n \cdot s \cdot d)' /> where <InlineMath math='s \ll n' /> is the sparsity factor. This approach is implemented in the Longformer <a href="https://arxiv.org/abs/2004.05150" target="_blank" rel="noopener noreferrer">[7]</a> and Big Bird <a href="https://arxiv.org/abs/2007.14062" target="_blank" rel="noopener noreferrer">[8]</a> models.</p>
           
-          <p><strong>Linear Attention:</strong> Reformulate the attention computation to avoid the explicit <InlineMath math='n \times n' /> matrix, reducing complexity to <InlineMath math='O(n \cdot d^2)' />. The Performers model [10] utilizes this technique with a kernel-based approximation.</p>
+          <p><strong>Linear Attention:</strong> Reformulate the attention computation to avoid the explicit <InlineMath math='n \times n' /> matrix, reducing complexity to <InlineMath math='O(n \cdot d^2)' />. The Performers model <a href="https://arxiv.org/abs/2009.14794" target="_blank" rel="noopener noreferrer">[10]</a> utilizes this technique with a kernel-based approximation.</p>
           
-          <p><strong>Low-Rank Approximations:</strong> Approximate the attention matrix with a low-rank factorization, reducing complexity to <InlineMath math='O(n \cdot r \cdot d)' /> where <InlineMath math='r \ll n' /> is the rank. The Reformer [9] uses locality-sensitive hashing to achieve similar efficiency gains.</p>
+          <p><strong>Low-Rank Approximations:</strong> Approximate the attention matrix with a low-rank factorization, reducing complexity to <InlineMath math='O(n \cdot r \cdot d)' /> where <InlineMath math='r \ll n' /> is the rank. The Reformer <a href="https://arxiv.org/abs/2001.04451" target="_blank" rel="noopener noreferrer">[9]</a> uses locality-sensitive hashing to achieve similar efficiency gains.</p>
           
           <BlockMath math='Attention(Q, K, V) \approx \phi(Q) \cdot (\phi(K)^T \cdot V)' />
           
-          where <InlineMath math='\phi' /> is a suitable feature map, as implemented in the Performer model [10].
+          where <InlineMath math='\phi' /> is a suitable feature map, as implemented in the Performer model <a href="https://arxiv.org/abs/2009.14794" target="_blank" rel="noopener noreferrer">[10]</a>.
           
           These efficiency improvements have been crucial for scaling transformer models to increasingly longer contexts, enabling applications like document-level processing and even entire books.
         </div>
@@ -387,7 +387,7 @@ export default function four() {
           <p>[13] Lan, Z., Chen, M., Goodman, S., Gimpel, K., Sharma, P., & Soricut, R. (2020). ALBERT: A Lite BERT for Self-supervised Learning of Language Representations. <a href="https://arxiv.org/abs/1909.11942" target="_blank" rel="noopener noreferrer">arXiv:1909.11942</a></p>
         </div>
       </Col>
-      <Col xs={0} sm={6} md={7} lg={8} xl={8}>
+      <Col xs={0} sm={4} md={5} lg={5} xl={5}>
         <TableOfContents sections={sections} />
       </Col>
     </Row>

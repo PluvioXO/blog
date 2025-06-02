@@ -8,11 +8,18 @@
   min-height: calc(100vh - 70px); /* Assuming 70px navbar height */
 }
 
-.blog-text-content p, /* Target general paragraphs */
 .blog-text-content {
   color: var(--text-color);
   line-height: 1.7;
   font-size: 1rem; /* Adjust as needed */
+  transition: color 0.3s ease;
+  padding-right: 25px; /* Add padding on the right for better readability */
+  padding-left: 10px; /* Small padding on the left */
+  max-width: 900px; /* Limit max width for better readability on larger screens */
+}
+
+.blog-text-content p {
+  color: var(--text-color);
   transition: color 0.3s ease;
 }
 

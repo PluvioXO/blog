@@ -6,11 +6,12 @@
   background-color: var(--navbar-background-color);
   padding: 15px;
   border-radius: 8px;
-  margin: 0 15px;
+  margin: 0 5px 0 0; /* Reduce right margin to give more space to content */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;
   max-height: 80vh;
   overflow-y: auto;
+  width: calc(100% - 5px); /* Ensure it doesn't overflow its container */
 }
 
 .table-of-contents-title {
