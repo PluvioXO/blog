@@ -1,0 +1,57 @@
+/* TableOfContents.css */
+.table-of-contents {
+  position: sticky;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--navbar-background-color);
+  padding: 15px;
+  border-radius: 8px;
+  margin: 0 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.table-of-contents-title {
+  color: var(--link-color);
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--link-color);
+  transition: color 0.3s ease, border-bottom-color 0.3s ease;
+}
+
+.table-of-contents-link {
+  color: var(--text-color);
+  display: block;
+  padding: 5px 0;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.table-of-contents-link:hover {
+  color: var(--link-hover-color);
+}
+
+.subsection-link {
+  padding-left: 15px;
+  font-size: 0.85rem;
+}
+
+/* Add scrollbar styling for better appearance */
+.table-of-contents::-webkit-scrollbar {
+  width: 5px;
+}
+
+.table-of-contents::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.table-of-contents::-webkit-scrollbar-thumb {
+  background-color: var(--link-color);
+  border-radius: 10px;
+} 

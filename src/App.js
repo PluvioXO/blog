@@ -9,7 +9,6 @@ import Navbar from './components/Navbar';
 import Photos from './pages/Photos';
 import Other from './pages/other';
 import Blog from './pages/blog/blog'
-import Projects from './pages/Projects'
 import LandingPage from './pages/LandingPage';
 
 import one from './pages/blog/blogData/pages/1';
@@ -36,7 +35,6 @@ export default function App() {
             <Route path='/post/2' component={three}/>   
             <Route path='/post/3' component={four}/>   
             <Route path='/post/4' component={five}/>             
-            <Route path='/projects' component={Projects}/>
           </Switch>
         </BrowserRouter>
       </ThemeProvider>

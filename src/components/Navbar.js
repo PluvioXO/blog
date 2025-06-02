@@ -44,9 +44,6 @@ export default function Navbar() {
             <Link to='photos'>
               <motion.h2 id='headerOption'>~/photos</motion.h2>
             </Link>
-            <Link to='projects'>
-              <motion.h2 id='headerOption' >~/projects</motion.h2>
-            </Link>
             <Link to='other'>
               <motion.h2 id='headerOption' >~/resources</motion.h2>
             </Link>
@@ -85,10 +82,9 @@ export default function Navbar() {
           <Menu mode="vertical" /* theme="dark" */ style={{ /* backgroundColor: '#0c101a', */ borderRight: 0}} onClick={onClose}>
             <Menu.Item key="1"><Link to='/blog' className='blog-link-hover'>~/blog</Link></Menu.Item>
             <Menu.Item key="2"><Link to='photos'>~/photos</Link></Menu.Item>
-            <Menu.Item key="3"><Link to='projects'>~/projects</Link></Menu.Item>
-            <Menu.Item key="4"><Link to='other'>~/resources</Link></Menu.Item>
+            <Menu.Item key="3"><Link to='other'>~/resources</Link></Menu.Item>
             <Menu.Divider />
-            <Menu.Item key="5" style={{ textAlign: 'center' }}>
+            <Menu.Item key="4" style={{ textAlign: 'center' }}>
               <Switch
                 checked={theme === 'light'}
                 onChange={() => { toggleTheme(); onClose(); }}
@@ -96,7 +92,7 @@ export default function Navbar() {
                 unCheckedChildren={<MoonOutlined />}
               />
             </Menu.Item>
-            <Menu.Item key="6" icon={<GithubOutlined />} style={{ textAlign: 'center' }}>
+            <Menu.Item key="5" icon={<GithubOutlined />} style={{ textAlign: 'center' }}>
               <a href={githubRepoUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>
                 GitHub
               </a>

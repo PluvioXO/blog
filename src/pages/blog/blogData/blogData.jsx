@@ -1,8 +1,8 @@
-import one from './photos/0_S1KQ-2vjFuKGfg8C.png'
+import one from './photos/image.png'
 import two from './photos/download (1).jpeg'
-import three from './photos/sgd-1.jpg'
+import three from './photos/image 2.png'
 import four from './photos/what_is_attention_cover-1024x768.jpg'
-import five from './photos/Lyapunov_exponents_of_the_Mandelbrot_set_(The_mini-Mandelbrot)_-_Matlab.png'
+import five from './photos/image 3.png'
 
 export const blogData = [
     {
