@@ -1,0 +1,40 @@
+.empty-results-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background-color: var(--navbar-background-color);
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.empty-text {
+  color: var(--text-color);
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.reset-button {
+  background-color: var(--link-color);
+  border: none;
+}
+
+.reset-button:hover {
+  background-color: var(--link-hover-color);
+}
+
+/* Override Ant Design Empty component styles */
+.ant-empty-image {
+  opacity: 0.5;
+}
+
+@media (max-width: 576px) {
+  .empty-results-container {
+    padding: 30px 15px;
+  }
+  
+  .empty-text {
+    font-size: 0.9rem;
+  }
+} 

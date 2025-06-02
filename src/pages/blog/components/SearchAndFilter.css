@@ -1,0 +1,142 @@
+.search-filter-container {
+  margin-bottom: 30px;
+  background-color: var(--navbar-background-color);
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-bar .ant-input-affix-wrapper {
+  flex: 1;
+  background-color: var(--background-color);
+  border: 1px solid transparent;
+  color: #000 !important; /* Force dark text color */
+}
+
+.search-bar .ant-input-affix-wrapper:hover,
+.search-bar .ant-input-affix-wrapper:focus,
+.search-bar .ant-input-affix-wrapper-focused {
+  border-color: var(--link-color);
+  box-shadow: 0 0 0 2px rgba(var(--link-color-rgb), 0.2);
+}
+
+.search-bar .ant-input {
+  background-color: transparent;
+  color: #000 !important; /* Force dark text color */
+}
+
+.search-bar .ant-input::placeholder {
+  color: #666 !important; /* Dark placeholder text */
+}
+
+/* Specifically target the search icon prefix inside the input */
+.search-bar .ant-input-prefix .anticon {
+  color: var(--text-color) !important; /* Use theme text color for search icon */
+  opacity: 0.7;
+}
+
+.filter-toggle-button {
+  background-color: var(--link-color);
+  border: none;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter-toggle-button:hover {
+  background-color: var(--link-hover-color);
+}
+
+.filter-section {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.filter-label {
+  color: var(--text-color);
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.ant-select-multiple.ant-select-show-search {
+  background-color: var(--background-color);
+  border-radius: 4px;
+}
+
+.ant-select-selector {
+  background-color: var(--background-color) !important;
+  color: var(--text-color) !important;
+  border-color: transparent !important;
+}
+
+.ant-select-selection-placeholder,
+.ant-select-selection-item {
+  color: var(--text-color) !important;
+}
+
+.clear-filters-button {
+  margin-top: 10px;
+  background-color: transparent;
+  border: 1px solid var(--link-color);
+  color: var(--link-color);
+}
+
+.clear-filters-button:hover {
+  background-color: var(--link-color);
+  color: white;
+}
+
+.filter-result-count {
+  margin-top: 10px;
+  color: var(--text-color);
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .search-filter-container {
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .filter-section {
+    margin-top: 10px;
+    padding-top: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .search-bar {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .filter-toggle-button {
+    align-self: flex-end;
+    margin-top: -40px; /* Position on the same line as search input */
+  }
+} 

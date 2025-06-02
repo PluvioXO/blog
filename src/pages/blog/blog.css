@@ -2,6 +2,16 @@
   padding: 20px;
   background-color: var(--background-color);
   transition: background-color 0.3s ease;
+  min-height: calc(100vh - 70px);
+}
+
+.blog-page-title {
+  text-align: left;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
 }
 
 .blog-title {
@@ -20,6 +30,9 @@
   border-radius: 5px;
   margin-bottom: 10px; /* This can be removed if Row gutter is sufficient */
   transition: transform 0.3s ease, background-color 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .blog-card:hover {
@@ -29,7 +42,8 @@
 .blog-card-image {
   border-radius: 5px;
   width: 100%;
-  height: auto;
+  height: 160px;
+  object-fit: cover;
   margin-bottom: 10px;
 }
 
@@ -65,15 +79,35 @@
   margin: 0;
   font-size: 0.8rem;
   transition: color 0.3s ease;
+  margin-top: auto; /* Push to bottom of flex container */
+}
+
+.results-info {
+  text-align: center;
+  color: var(--text-color);
+  opacity: 0.7;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  font-style: italic;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  .blog-page-title {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+  
   .blog-title {
     font-size: 1.8rem;
   }
+  
   .blog-card-title {
     font-size: 1rem;
+  }
+  
+  .blog-card-image {
+    height: 140px;
   }
 }
 
@@ -81,12 +115,23 @@
   .blog-container {
     padding: 10px;
   }
+  
+  .blog-page-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  
   .blog-title {
     font-size: 1.5rem;
     margin-bottom: 20px;
   }
+  
   .blog-card-tag {
     font-size: 0.8rem;
     padding: 2px 6px;
+  }
+  
+  .blog-card-image {
+    height: 120px;
   }
 } 
