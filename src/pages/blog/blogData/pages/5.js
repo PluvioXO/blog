@@ -12,6 +12,7 @@ import three_b from './Assets/Working-principles-of-softmax-function.png'
 import three_e from './Assets/coffee-small.jpg'
 import 'katex/dist/katex.min.css';
 import TableOfContents from '../components/TableOfContents';
+import MobileSidebar from '../components/MobileSidebar';
 
 export default function five() {
   // Define sections for table of contents
@@ -100,10 +101,9 @@ export default function five() {
 
   return(
   <motion.div className="blog-post-container" initial={{opacity:0, y:2}} animate={{opacity:1, y:0}} transition={{duration:0.5}}>
+    <MobileSidebar sections={sections} />
     <Row justify="center">
-      <Col xs={0} sm={4} md={5} lg={6} xl={5} className="blog-post-menu">
-      </Col>
-      <Col xs={22} sm={16} md={14} lg={13} xl={14} className='blog-text-content'>
+      <Col xs={24} sm={20} md={14} lg={13} xl={14} className='blog-text-content'>
         <p id="introduction" className='section-title'>Abstracting Thermodynamics</p>
         <p className="blog-subtitle">The intersection of thermodynamics, information theory, and computation</p>
         
@@ -405,7 +405,7 @@ export default function five() {
           </div>
         </div>
       </Col>
-      <Col xs={0} sm={4} md={5} lg={5} xl={5}>
+      <Col xs={0} sm={0} md={5} lg={5} xl={5} className="desktop-toc">
         <TableOfContents sections={sections} />
       </Col>
     </Row>

@@ -1,0 +1,119 @@
+/* MobileSidebar.css */
+.mobile-sidebar-container {
+  display: none; /* Hidden by default, will show only on mobile */
+}
+
+.sidebar-toggle {
+  position: fixed;
+  top: 80px;
+  right: 15px;
+  z-index: 1000;
+  background-color: var(--link-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.sidebar-toggle:hover {
+  background-color: var(--link-hover-color);
+}
+
+.sidebar-toggle svg {
+  font-size: 24px;
+}
+
+.sidebar-content {
+  position: fixed;
+  top: 0;
+  right: -280px; /* Start off-screen */
+  width: 280px;
+  height: 100vh;
+  background-color: var(--navbar-background-color);
+  z-index: 999;
+  padding: 70px 20px 20px;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease-in-out;
+  overflow-y: auto;
+}
+
+.sidebar-content.open {
+  right: 0;
+}
+
+.sidebar-title {
+  color: var(--link-color);
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--link-color);
+  transition: color 0.3s ease, border-bottom-color 0.3s ease;
+}
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-link {
+  color: var(--text-color);
+  padding: 10px 0;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.sidebar-link:hover {
+  color: var(--link-hover-color);
+}
+
+.sidebar-link.main-section {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 15px;
+}
+
+.sidebar-link.subsection-link {
+  font-size: 0.95rem;
+  padding-left: 15px;
+}
+
+.subsections-group {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.subsections-group:before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: var(--text-color);
+  opacity: 0.5;
+}
+
+.sidebar-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+}
+
+/* Only show on mobile devices */
+@media (max-width: 768px) {
+  .mobile-sidebar-container {
+    display: block;
+  }
+} 
