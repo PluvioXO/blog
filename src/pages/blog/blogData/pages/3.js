@@ -207,7 +207,7 @@ export default function three() {
         
         <p id="learning-rate" className='subsection-title'>Learning Rate</p>
         <div>
-          A pretty intuitive concept, this basically describes how much we want to shift the weight when we know we are wrong. Let's say we have a very high-cost function, so our model is shit. Ok, if our learning rate is low it is the equivalent of politely asking the weights to move a tiny bit. If the learning rate is high then it would be the equivalent of punching the weights are hard as possible to move in the direction we want.
+    A pretty intuitive concept, this basically describes how much we want to shift the weight when we know we are wrong. Let's say we have a very high-cost function, so our model is shit. Ok, if our learning rate is low it is the equivalent of politely asking the weights to move a tiny bit. If the learning rate is high then it would be the equivalent of punching the weights are hard as possible to move in the direction we want. 
           
           Mathematically, the learning rate <InlineMath>{"\\eta"}</InlineMath> controls the step size in the parameter space:
           
@@ -368,9 +368,9 @@ export default function three() {
         
         <p id="local-minima" className='bold-text'>Escape from poor local minima:</p>
         <div>
-          <center>
+    <center>
             <img src={two} id='blogImg' style={{ borderRadius: '10px', borderWidth: '5px', borderStyle: 'solid', borderColor: '#0c101a'}}/>
-          </center>
+    </center>
           The stochastic nature of the updates allows the optimization process to escape from local minima. The noise in the updates helps the optimization process explore the parameter space more effectively, as demonstrated in research by Dauphin et al. <a href="https://arxiv.org/abs/1406.2572" target="_blank" rel="noopener noreferrer">[4]</a>.
         </div>
         
@@ -443,7 +443,7 @@ export default function three() {
       </Col>
       <Col xs={0} sm={0} md={5} lg={5} xl={5} className="desktop-toc">
         <TableOfContents sections={sections} />
-      </Col>
+    </Col>
     </Row>
   </motion.div>
 );

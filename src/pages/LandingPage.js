@@ -75,12 +75,6 @@ export default function LandingPage() {
           transition={{ duration: 0.5, delay: 0.6 }}
           style={{ marginBottom: '20px' }}
         >
-          <Canvas style={{ height: '200px', width: '200px' }}>
-            <ambientLight intensity={0.5} />
-            <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-            <pointLight position={[-10, -10, -10]} />
-            <Box />
-          </Canvas>
         </motion.div>
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}

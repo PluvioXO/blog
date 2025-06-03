@@ -163,7 +163,7 @@ export default function five() {
         <p className="blog-subtitle">The intersection of thermodynamics, information theory, and computation</p>
         
         <div>
-          This is meant to be a continuation post to <Link id="contentsHyperlink" to={{ pathname: "https://scottaaronson.blog/?p=762" }} target="_blank">The First Law of Thermodynamics</Link>. I would highly recommend taking the time to read it first as this goes on assumed knowledge!
+    This is meant to be a continuation post to <Link id="contentsHyperlink" to={{ pathname: "https://scottaaronson.blog/?p=762" }} target="_blank">The First Law of Thermodynamics</Link>. I would highly recommend taking the time to read it first as this goes on assumed knowledge!
         </div>
         
         <p id="what-is-abstraction" className='subsection-title'>What is abstraction?</p>
@@ -177,7 +177,7 @@ export default function five() {
           
           <BlockMath>{"\\underbrace{\\left[ \\theta \\rightarrow \\prod_{i=0}^{0} u_{i} \\theta \\rightarrow \\dots \\rightarrow \\prod_{i=0}^{m} u_{i} \\theta \\right] \\equiv \\left[ \\underbrace{| \\sum i |}_{\\text{state 0}} > \\underbrace{| \\sum i |}_{\\text{state 1}} > \\dots > | \\underbrace{\\sum i}_{\\text{state ∞}} | = 1 \\right]}_{\\text{for realised information}}"}</BlockMath>
           
-          This rule is shown in one of the famous examples of thermodynamics:
+    This rule is shown in one of the famous examples of thermodynamics:
           <center><img src={three_e} id='blogImg' style={{ borderRadius: '10px', borderWidth: '5px', borderStyle: 'solid', borderColor: '#0c101a'}}/></center>
           
           In this example, the act of stirring (mixing) is equivalent to the application of a filter. This pattern appears in every physical system due to the second law of thermodynamics, which states that the total entropy of an isolated system can never decrease over time.
@@ -580,7 +580,7 @@ export default function five() {
       </Col>
       <Col xs={0} sm={0} md={5} lg={5} xl={5} className="desktop-toc">
         <TableOfContents sections={sections} />
-      </Col>
+    </Col>
     </Row>
   </motion.div>
 );

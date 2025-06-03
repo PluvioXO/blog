@@ -435,10 +435,10 @@ export default function two() {
           
           For researchers and practitioners, this analysis suggests that efforts might be better directed toward improving model architectures, data quality, and optimization techniques rather than developing increasingly complex loss functions with diminishing returns.
         </div>
-      </Col>
+    </Col>
       <Col xs={0} sm={0} md={5} lg={5} xl={5} className="desktop-toc">
         <TableOfContents sections={sections} />
-      </Col>
+    </Col>
     </Row>
   </motion.div>
 );
