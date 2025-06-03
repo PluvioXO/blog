@@ -203,4 +203,68 @@
   .references p {
     font-size: 0.85rem;
   }
+}
+
+.data-visualization {
+  margin: 35px 0;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: var(--navbar-background-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden; /* Prevent overflowing content */
+}
+
+.data-visualization:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Give some spacing after visualizations with text below them */
+.data-visualization + div, 
+.data-visualization + p {
+  margin-top: 20px;
+}
+
+/* Ensure consistent image styling within visualizations */
+.data-visualization img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .data-visualization {
+    padding: 12px;
+    margin: 25px 0;
+  }
+}
+
+/* Make sure plotly charts respect dark mode */
+.js-plotly-plot .plotly .main-svg {
+  background-color: transparent !important;
+}
+
+/* Adjust the references section for better readability */
+.references {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.references p {
+  margin-bottom: 12px;
+  text-indent: -20px;
+  padding-left: 20px;
+}
+
+.references a {
+  text-decoration: none;
+  color: var(--link-color);
+  transition: color 0.2s ease;
+}
+
+.references a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
 } 

@@ -7,6 +7,8 @@ import one from './Assets/0_Dx76YLb9hCIuF6Zi.png';
 import two from './Assets/image-9-627x376.png';
 import 'katex/dist/katex.min.css';
 import TableOfContents from '../components/TableOfContents';
+import MobileSidebar from '../components/MobileSidebar';
+import Plot from 'react-plotly.js';
 
 export default function three() {
   // Define sections for table of contents
@@ -133,11 +135,64 @@ export default function three() {
     }
   ];
 
+  // Generate contour data for optimization landscape
+  const generateContourData = () => {
+    const size = 50;
+    const x = Array.from({ length: size }, (_, i) => -3 + i * 0.12);
+    const y = Array.from({ length: size }, (_, i) => -3 + i * 0.12);
+    
+    // Generate Rosenbrock function: f(x,y) = (1-x)^2 + 100(y-x^2)^2
+    // This function is a common test for optimization algorithms
+    const z = [];
+    for (let i = 0; i < size; i++) {
+      const row = [];
+      for (let j = 0; j < size; j++) {
+        const xi = x[j];
+        const yi = y[i];
+        const val = Math.pow(1 - xi, 2) + 100 * Math.pow(yi - Math.pow(xi, 2), 2);
+        // Apply log scale to better visualize the landscape
+        row.push(Math.log(val + 1));
+      }
+      z.push(row);
+    }
+    
+    // Simulate SGD path with some random noise to show stochasticity
+    const sgdPath = {
+      x: [-2.5],
+      y: [2.5]
+    };
+    
+    let currentX = -2.5;
+    let currentY = 2.5;
+    const learningRate = 0.01;
+    
+    for (let step = 0; step < 200; step++) {
+      // Calculate gradients (Rosenbrock function derivatives)
+      const gradX = -2 * (1 - currentX) + 400 * currentX * (currentY - Math.pow(currentX, 2));
+      const gradY = 200 * (currentY - Math.pow(currentX, 2));
+      
+      // Add some noise to simulate stochasticity
+      const noiseX = (Math.random() - 0.5) * 0.05;
+      const noiseY = (Math.random() - 0.5) * 0.05;
+      
+      // Update position with gradient and noise
+      currentX = currentX - learningRate * (gradX + noiseX);
+      currentY = currentY - learningRate * (gradY + noiseY);
+      
+      // Save position to trace
+      sgdPath.x.push(currentX);
+      sgdPath.y.push(currentY);
+    }
+    
+    return { x, y, z, sgdPath };
+  };
+  
+  const contourData = generateContourData();
+
   return(
   <motion.div className="blog-post-container" initial={{opacity:0, y:2}} animate={{opacity:1, y:0}} transition={{duration:0.5}}>
+    <MobileSidebar sections={sections} />
     <Row justify="center">
-      <Col xs={0} sm={4} md={5} lg={6} xl={5} className="blog-post-menu">
-      </Col>
       <Col xs={22} sm={16} md={14} lg={13} xl={14} className='blog-text-content'>
         <p id="introduction" className='section-title'>Why we love Stochastic Gradient Descent</p>
         <p className="blog-subtitle">The foundational optimization algorithm powering modern machine learning</p>
@@ -182,6 +237,64 @@ export default function three() {
           <BlockMath>{"w := w - \\eta \\nabla Q_i (w)"}</BlockMath> 
           
           where <InlineMath>{"Q(w)"}</InlineMath> represents the true gradient for the entire data set, <InlineMath>{"\\eta"}</InlineMath> represents the learning rate and <InlineMath>{"w"}</InlineMath> represents the most up to date approximation for the gradient.
+        </div>
+        
+        <div className="data-visualization">
+          <Plot
+            data={[
+              {
+                type: 'contour',
+                z: contourData.z,
+                x: contourData.x,
+                y: contourData.y,
+                colorscale: 'Viridis',
+                contours: {
+                  showlabels: true,
+                  labelfont: {
+                    family: 'Arial',
+                    size: 12,
+                    color: 'white',
+                  }
+                }
+              },
+              {
+                type: 'scatter',
+                x: contourData.sgdPath.x,
+                y: contourData.sgdPath.y,
+                mode: 'lines+markers',
+                name: 'SGD Path',
+                line: {
+                  color: 'rgba(255, 0, 0, 0.8)',
+                  width: 2
+                },
+                marker: {
+                  size: 5,
+                  color: 'rgba(255, 0, 0, 0.8)'
+                }
+              }
+            ]}
+            layout={{
+              title: 'Stochastic Gradient Descent Optimization Path',
+              xaxis: {
+                title: 'Parameter w₁',
+                range: [-3, 3]
+              },
+              yaxis: {
+                title: 'Parameter w₂',
+                range: [-3, 3]
+              },
+              margin: { l: 50, r: 50, b: 50, t: 80 },
+              paper_bgcolor: 'transparent',
+              plot_bgcolor: 'transparent',
+              font: { family: 'Arial, sans-serif', color: 'var(--text-color)' }
+            }}
+            style={{ width: '100%', height: 450 }}
+            config={{ responsive: true, displayModeBar: false }}
+          />
+        </div>
+        
+        <div>
+          The visualization above demonstrates how SGD navigates the optimization landscape of a Rosenbrock function, a classic test function in optimization. The contour lines represent level sets of the loss function, with darker colors indicating lower values. The red path shows how SGD moves through this landscape, taking small steps in the direction of steepest descent with some stochasticity. Notice how the algorithm gradually converges toward the global minimum (the darkest region), sometimes taking circuitous routes due to the randomness in gradient estimation.
         </div>
         
         <p id="variants" className='section-title'>SGD Variants</p>
@@ -328,7 +441,7 @@ export default function three() {
           <p>[8] Ruder, S. (2016). An overview of gradient descent optimization algorithms. <a href="https://arxiv.org/abs/1609.04747" target="_blank" rel="noopener noreferrer">arXiv:1609.04747</a></p>
         </div>
       </Col>
-      <Col xs={0} sm={4} md={5} lg={5} xl={5}>
+      <Col xs={0} sm={0} md={5} lg={5} xl={5} className="desktop-toc">
         <TableOfContents sections={sections} />
       </Col>
     </Row>

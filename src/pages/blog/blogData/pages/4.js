@@ -10,6 +10,8 @@ import three_a from './Assets/istockphoto-154919536-612x612_a.jpg'
 import three_b from './Assets/Working-principles-of-softmax-function.png'
 import 'katex/dist/katex.min.css';
 import TableOfContents from '../components/TableOfContents';
+import MobileSidebar from '../components/MobileSidebar';
+import Plot from 'react-plotly.js';
 
 export default function four() {
   // Define sections for table of contents
@@ -91,11 +93,45 @@ export default function four() {
     }
   ];
 
+  // Generate attention visualization data
+  const generateAttentionHeatmap = () => {
+    // Simulated attention matrix between 8 tokens
+    const attentionMatrix = [
+      [0.02, 0.03, 0.05, 0.20, 0.50, 0.10, 0.05, 0.05],
+      [0.01, 0.05, 0.04, 0.10, 0.60, 0.15, 0.03, 0.02],
+      [0.02, 0.03, 0.05, 0.05, 0.05, 0.70, 0.05, 0.05],
+      [0.10, 0.05, 0.05, 0.05, 0.05, 0.10, 0.50, 0.10],
+      [0.05, 0.05, 0.05, 0.05, 0.10, 0.10, 0.10, 0.50],
+      [0.30, 0.20, 0.10, 0.10, 0.10, 0.05, 0.05, 0.10],
+      [0.50, 0.20, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05],
+      [0.05, 0.50, 0.15, 0.10, 0.05, 0.05, 0.05, 0.05]
+    ];
+    
+    const tokens = ['The', 'cat', 'sat', 'on', 'the', 'mat', 'while', 'purring'];
+    
+    return { attentionMatrix, tokens };
+  };
+  
+  const attentionData = generateAttentionHeatmap();
+  
+  // Generate multi-head attention data visualization
+  const generateMultiHeadVisualization = () => {
+    const xValues = Array.from({ length: 100 }, (_, i) => i / 10);
+    
+    // Simulate multiple attention heads focusing on different parts of a sequence
+    const head1 = xValues.map(x => 0.5 * Math.exp(-Math.pow((x - 2), 2) / 0.5));
+    const head2 = xValues.map(x => 0.8 * Math.exp(-Math.pow((x - 5), 2) / 0.5));
+    const head3 = xValues.map(x => 0.6 * Math.exp(-Math.pow((x - 8), 2) / 0.5));
+    
+    return { xValues, head1, head2, head3 };
+  };
+  
+  const multiHeadData = generateMultiHeadVisualization();
+
   return(
   <motion.div className="blog-post-container" initial={{opacity:0, y:2}} animate={{opacity:1, y:0}} transition={{duration:0.5}}>
+    <MobileSidebar sections={sections} />
     <Row justify="center">
-      <Col xs={0} sm={4} md={5} lg={6} xl={5} className="blog-post-menu">
-      </Col>
       <Col xs={22} sm={16} md={14} lg={13} xl={14} className='blog-text-content'>
         <p id="introduction" className='section-title'>Why we love Attention</p>
         <p className="blog-subtitle">The mathematical framework behind modern neural networks' most powerful mechanism</p>
@@ -182,6 +218,62 @@ export default function four() {
           This formulation builds upon earlier work by Bahdanau et al. <a href="https://arxiv.org/abs/1409.0473" target="_blank" rel="noopener noreferrer">[2]</a> and Luong et al. <a href="https://arxiv.org/abs/1508.04025" target="_blank" rel="noopener noreferrer">[3]</a>, but removes the recurrent components for improved parallelization.
         </div>
 
+        <div className="data-visualization">
+          <Plot
+            data={[
+              {
+                z: attentionData.attentionMatrix,
+                x: attentionData.tokens,
+                y: attentionData.tokens,
+                type: 'heatmap',
+                colorscale: 'Viridis',
+                showscale: true,
+                colorbar: {
+                  title: 'Attention Weight',
+                  titleside: 'right'
+                }
+              }
+            ]}
+            layout={{
+              title: 'Self-Attention Visualization',
+              xaxis: {
+                title: 'Context Tokens',
+                side: 'top'
+              },
+              yaxis: {
+                title: 'Query Tokens'
+              },
+              margin: { l: 80, r: 50, b: 50, t: 100 },
+              paper_bgcolor: 'transparent',
+              plot_bgcolor: 'transparent',
+              font: { family: 'Arial, sans-serif', color: 'var(--text-color)' },
+              annotations: [
+                {
+                  x: 4.5,
+                  y: 4.5,
+                  text: 'Attention Weights Matrix',
+                  showarrow: false,
+                  font: { size: 14, color: 'var(--text-color)' }
+                }
+              ]
+            }}
+            style={{ width: '100%', height: 450 }}
+            config={{ responsive: true, displayModeBar: false }}
+          />
+        </div>
+
+        <div>
+          The heatmap above visualizes a self-attention matrix for the sentence "The cat sat on the mat while purring." Each cell represents the attention weight that a query token (y-axis) places on a context token (x-axis). Darker colors indicate higher attention weights. Notice how:
+          
+          <ul>
+            <li>The token "cat" attends strongly to "the" (its article) and "mat" (what it's sitting on)</li>
+            <li>"Mat" attends to "on" and "the" to understand its positional context</li>
+            <li>"Purring" attends to "cat" to establish who is performing the action</li>
+          </ul>
+          
+          This illustrates how self-attention creates a rich contextual representation by allowing each token to gather information from all other tokens in the sequence, weighted by relevance.
+        </div>
+
         <p id="multi-head-attention" className='subsection-title'>Multi-Head Attention</p>
         <div>
           While the self-attention mechanism is powerful, it can be beneficial to allow the model to attend to different representation subspaces at different positions. This is achieved through multi-head attention, which runs multiple attention mechanisms in parallel. This concept, introduced in the Transformer architecture <a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer">[1]</a>, has become a cornerstone of modern deep learning models, including BERT <a href="https://arxiv.org/abs/1810.04805" target="_blank" rel="noopener noreferrer">[4]</a> and GPT variants <a href="https://arxiv.org/abs/2005.14165" target="_blank" rel="noopener noreferrer">[5]</a>.
@@ -197,10 +289,67 @@ export default function four() {
           <BlockMath math='head_i = Attention(QW_i^Q, KW_i^K, VW_i^V)' />
           
           Here, <InlineMath math='W_i^Q \in \mathbb{R}^{d_{model} \times d_k}' />, <InlineMath math='W_i^K \in \mathbb{R}^{d_{model} \times d_k}' />, <InlineMath math='W_i^V \in \mathbb{R}^{d_{model} \times d_v}' />, and <InlineMath math='W^O \in \mathbb{R}^{hd_v \times d_{model}}' /> are parameter matrices.
+        </div>
+
+        <div className="data-visualization">
+          <Plot
+            data={[
+              {
+                x: multiHeadData.xValues,
+                y: multiHeadData.head1,
+                type: 'scatter',
+                mode: 'lines',
+                name: 'Head 1',
+                line: { color: '#1f77b4', width: 2 }
+              },
+              {
+                x: multiHeadData.xValues,
+                y: multiHeadData.head2,
+                type: 'scatter',
+                mode: 'lines',
+                name: 'Head 2',
+                line: { color: '#ff7f0e', width: 2 }
+              },
+              {
+                x: multiHeadData.xValues,
+                y: multiHeadData.head3,
+                type: 'scatter',
+                mode: 'lines',
+                name: 'Head 3',
+                line: { color: '#2ca02c', width: 2 }
+              }
+            ]}
+            layout={{
+              title: 'Multiple Attention Heads Focusing on Different Parts of a Sequence',
+              xaxis: { 
+                title: 'Position in Sequence',
+                range: [0, 10]
+              },
+              yaxis: { 
+                title: 'Attention Weight',
+                range: [0, 1]
+              },
+              legend: { orientation: 'h', y: -0.2 },
+              margin: { l: 50, r: 50, b: 100, t: 80 },
+              paper_bgcolor: 'transparent',
+              plot_bgcolor: 'transparent',
+              font: { family: 'Arial, sans-serif', color: 'var(--text-color)' }
+            }}
+            style={{ width: '100%', height: 450 }}
+            config={{ responsive: true, displayModeBar: false }}
+          />
+        </div>
+
+        <div>
+          The graph above illustrates how different attention heads can focus on different parts of an input sequence. Each curve represents the attention weights from one head across positions in a sequence. This ability to attend to different semantic aspects simultaneously is what makes multi-head attention so powerful.
           
-          Typically, we set <InlineMath math='d_k = d_v = d_{model}/h' />, which means the total computational cost is similar to that of single-head attention with full dimensionality.
+          <ul>
+            <li>Head 1 (blue) focuses strongly on earlier positions, perhaps capturing syntactic dependencies like subject-verb relationships</li>
+            <li>Head 2 (orange) attends to the middle of the sequence, potentially focusing on the main action or predicate</li>
+            <li>Head 3 (green) attends to later positions, possibly capturing object relationships or modifiers</li>
+          </ul>
           
-          As noted in the original paper <a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer">[1]</a>: "Multi-head attention allows the model to jointly attend to information from different representation subspaces at different positions. With a single attention head, averaging inhibits this."
+          This multi-faceted representation allows the model to capture different types of dependencies simultaneously, enabling richer contextual understanding. The formal mathematical justification for this approach comes from considering attention as operating in a high-dimensional space where different heads can represent projections onto different subspaces, effectively implementing a form of ensemble learning within a single layer.
         </div>
 
         <p id="multihead-latent-attention" className='subsection-title'>Multihead Latent Attention</p>
@@ -387,7 +536,7 @@ export default function four() {
           <p>[13] Lan, Z., Chen, M., Goodman, S., Gimpel, K., Sharma, P., & Soricut, R. (2020). ALBERT: A Lite BERT for Self-supervised Learning of Language Representations. <a href="https://arxiv.org/abs/1909.11942" target="_blank" rel="noopener noreferrer">arXiv:1909.11942</a></p>
         </div>
       </Col>
-      <Col xs={0} sm={4} md={5} lg={5} xl={5}>
+      <Col xs={0} sm={0} md={5} lg={5} xl={5} className="desktop-toc">
         <TableOfContents sections={sections} />
       </Col>
     </Row>
