@@ -3,6 +3,8 @@ import two from './photos/download (1).jpeg'
 import three from './photos/image 2.png'
 import four from './photos/what_is_attention_cover-1024x768.jpg'
 import five from './photos/image 3.png'
+import six from './photos/string_theory.jpg'
+import seven from './photos/loop_quantum_gravity.jpg'
 
 export const blogData = [
     {
@@ -34,5 +36,17 @@ export const blogData = [
         image: five,
         date:'2024 November',
         tag: ['Data Science', 'Statistics', 'Chaos Theory'],
+    },
+    {
+        name:'Introduction to Heterotic String Theory',
+        image: six,
+        date:'2024 December',
+        tag: ['Physics', 'String Theory', 'Theoretical Physics'],
+    },
+    {
+        name:'Introduction to Loop Quantum Gravity',
+        image: seven,
+        date:'2025 January',
+        tag: ['Physics', 'Quantum Gravity', 'Theoretical Physics'],
     }
 ]
