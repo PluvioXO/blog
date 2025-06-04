@@ -206,13 +206,19 @@
 }
 
 .data-visualization {
-  margin: 35px 0;
-  padding: 20px;
-  border-radius: 8px;
-  background-color: var(--navbar-background-color);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  overflow: hidden; /* Prevent overflowing content */
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.source-attribution {
+  font-size: 10px;
+  color: #666;
+  text-align: right;
+  width: 100%;
+  margin-top: 5px;
+  font-style: italic;
 }
 
 .data-visualization:hover {

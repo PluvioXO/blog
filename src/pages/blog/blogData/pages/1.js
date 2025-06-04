@@ -103,6 +103,14 @@ export default function one() {
     satisfaction: [75, 71, 70, 68, 60, 51, 48, 42, 35]
   };
 
+  // Create correlation data between tax rates and satisfaction
+  const correlationData = {
+    countries: ['Denmark', 'Finland', 'Sweden', 'Germany', 'France', 'OECD Avg', 'UK', 'US'],
+    taxRates: [43.4, 42.4, 42.5, 38.2, 45.8, 34.0, 35.4, 27.6],
+    satisfaction: [75, 71, 68, 60, 51, 48, 42, 35],
+    gdpPerCapita: [61063, 49041, 51430, 45723, 40494, 45342, 42330, 63416]
+  };
+
   return(
   <motion.div className="blog-post-container" initial={{opacity:0, y:2}} animate={{opacity:1, y:0}} transition={{duration:0.5}}>
     <MobileSidebar sections={sections} />
@@ -203,9 +211,8 @@ export default function one() {
                   marker: {
                     color: publicSatisfactionData.satisfaction.map(value => 
                       value > 65 ? '#557A95' : 
-                      value > 55 ? '#7395AE' : 
-                      value > 45 ? '#A5C4D4' : 
-                      value > 35 ? '#B1A296' : '#5D5C61'
+                      value > 50 ? '#7395AE' : 
+                      value > 40 ? '#A5C4D4' : '#B1A296'
                     )
                   }
                 }
@@ -218,7 +225,74 @@ export default function one() {
                 },
                 yaxis: {
                   title: 'Satisfaction Level (%)',
-                  range: [0, 80]
+                  range: [0, 100]
+                },
+                margin: {
+                  l: 50,
+                  r: 50,
+                  b: 100,
+                  t: 80
+                },
+                paper_bgcolor: 'transparent',
+                plot_bgcolor: 'transparent',
+                font: {
+                  family: 'Arial, sans-serif',
+                  color: 'var(--text-color)'
+                },
+                annotations: [
+                  {
+                    x: 1,
+                    y: -0.15,
+                    xref: 'paper',
+                    yref: 'paper',
+                    text: 'Source: OECD Better Life Index (2022)',
+                    showarrow: false,
+                    font: {
+                      size: 10,
+                      color: 'gray'
+                    }
+                  }
+                ]
+              }}
+              style={{ width: '100%', height: 450 }}
+              config={{ responsive: true, displayModeBar: false }}
+            />
+          </div>
+          
+          <div className="data-visualization">
+            <Plot
+              data={[
+                {
+                  x: correlationData.taxRates,
+                  y: correlationData.satisfaction,
+                  type: 'scatter',
+                  mode: 'markers+text',
+                  text: correlationData.countries,
+                  textposition: 'top center',
+                  marker: {
+                    size: correlationData.gdpPerCapita.map(gdp => gdp/4000),
+                    color: correlationData.satisfaction.map(value => 
+                      value > 65 ? '#557A95' : 
+                      value > 50 ? '#7395AE' : 
+                      value > 40 ? '#A5C4D4' : '#B1A296'
+                    ),
+                    opacity: 0.8,
+                    line: {
+                      width: 1,
+                      color: '#333'
+                    }
+                  }
+                }
+              ]}
+              layout={{
+                title: 'Correlation: Tax-to-GDP Ratio vs. Public Satisfaction',
+                xaxis: {
+                  title: 'Tax-to-GDP Ratio (%)',
+                  range: [25, 50]
+                },
+                yaxis: {
+                  title: 'Public Satisfaction (%)',
+                  range: [30, 80]
                 },
                 margin: {
                   l: 50,
@@ -231,10 +305,36 @@ export default function one() {
                 font: {
                   family: 'Arial, sans-serif',
                   color: 'var(--text-color)'
-                }
+                },
+                annotations: [
+                  {
+                    x: 1,
+                    y: -0.15,
+                    xref: 'paper',
+                    yref: 'paper',
+                    text: 'Sources: OECD Revenue Statistics (2022), OECD Better Life Index (2022)',
+                    showarrow: false,
+                    font: {
+                      size: 10,
+                      color: 'gray'
+                    }
+                  },
+                  {
+                    x: 0.5,
+                    y: 1.05,
+                    xref: 'paper',
+                    yref: 'paper',
+                    text: 'Bubble size represents GDP per capita (USD)',
+                    showarrow: false,
+                    font: {
+                      size: 10,
+                      color: 'gray'
+                    }
+                  }
+                ]
               }}
-              style={{ width: '100%', height: 400 }}
-              config={{ responsive: true, displayModeBar: false }}
+              style={{ width: '100%', height: 450 }}
+              config={{ responsive: true, displayModeBar: true }}
             />
           </div>
           

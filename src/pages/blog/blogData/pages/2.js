@@ -123,6 +123,38 @@ export default function two() {
   };
   
   const adaptiveLossData = generateAdaptiveLossData();
+  
+  // Generate 3D surface data for Barron loss function
+  const generate3DBarronLossData = () => {
+    // Create grid for x (error) and y (alpha) values
+    const errorValues = Array.from({ length: 40 }, (_, i) => -4 + i * 0.2);
+    const alphaValues = Array.from({ length: 10 }, (_, i) => 0.2 + i * 0.3);
+    
+    // Calculate z values (loss) for each combination of error and alpha
+    const zValues = [];
+    
+    for (let i = 0; i < alphaValues.length; i++) {
+      const alpha = alphaValues[i];
+      const row = [];
+      
+      for (let j = 0; j < errorValues.length; j++) {
+        const error = errorValues[j];
+        const abs_e = Math.abs(error);
+        
+        // Barron loss function
+        const loss = (abs_e < 0.001) ? 0 : 
+          (Math.pow(Math.pow(abs_e, 2) / (Math.pow(abs_e, 2) + Math.pow(alpha, 2)), (alpha/2)) * Math.pow(alpha, 2));
+        
+        row.push(loss);
+      }
+      
+      zValues.push(row);
+    }
+    
+    return { errorValues, alphaValues, zValues };
+  };
+  
+  const barron3DData = generate3DBarronLossData();
 
   return(
   <motion.div className="blog-post-container" initial={{opacity:0, y:2}} animate={{opacity:1, y:0}} transition={{duration:0.5}}>
@@ -343,7 +375,10 @@ export default function two() {
                   type: 'scatter',
                   mode: 'lines',
                   name: 'α = 1.0',
-                  line: { color: '#d62728', width: 2 }
+                  line: {
+                    color: '#557A95',
+                    width: 3
+                  }
                 },
                 {
                   x: adaptiveLossData.errorValues,
@@ -351,27 +386,119 @@ export default function two() {
                   type: 'scatter',
                   mode: 'lines',
                   name: 'α = 2.0',
-                  line: { color: '#9467bd', width: 2 }
+                  line: {
+                    color: '#A5C4D4',
+                    width: 3
+                  }
                 }
               ]}
               layout={{
                 title: 'Barron Adaptive Loss Function',
-                xaxis: { 
-                  title: 'Error Value',
-                  range: [-5, 5]
+                xaxis: {
+                  title: 'Error (y - ŷ)',
+                  range: [-10, 10]
                 },
-                yaxis: { 
-                  title: 'Loss Value',
+                yaxis: {
+                  title: 'Loss',
                   range: [0, 5]
                 },
-                legend: { orientation: 'h', y: -0.2 },
-                margin: { l: 50, r: 50, b: 100, t: 80 },
+                margin: {
+                  l: 50,
+                  r: 50,
+                  b: 50,
+                  t: 80
+                },
                 paper_bgcolor: 'transparent',
                 plot_bgcolor: 'transparent',
-                font: { family: 'Arial, sans-serif', color: 'var(--text-color)' }
+                font: {
+                  family: 'Arial, sans-serif',
+                  color: 'var(--text-color)'
+                },
+                annotations: [
+                  {
+                    x: 1,
+                    y: -0.15,
+                    xref: 'paper',
+                    yref: 'paper',
+                    text: 'Source: Barron (2019). "A General and Adaptive Robust Loss Function". CVPR 2019.',
+                    showarrow: false,
+                    font: {
+                      size: 10,
+                      color: 'gray'
+                    }
+                  }
+                ]
               }}
-              style={{ width: '100%', height: 450 }}
+              style={{ width: '100%', height: 400 }}
               config={{ responsive: true, displayModeBar: false }}
+            />
+          </div>
+          
+          <div className="data-visualization">
+            <Plot
+              data={[
+                {
+                  type: 'surface',
+                  x: barron3DData.errorValues,
+                  y: barron3DData.alphaValues,
+                  z: barron3DData.zValues,
+                  colorscale: 'Viridis',
+                  contours: {
+                    z: {
+                      show: true,
+                      usecolormap: true,
+                      highlightcolor: "#42f462",
+                      project: { z: true }
+                    }
+                  }
+                }
+              ]}
+              layout={{
+                title: '3D Surface of Barron Loss Function',
+                scene: {
+                  xaxis: { title: 'Error (y - ŷ)' },
+                  yaxis: { title: 'Alpha Parameter (α)' },
+                  zaxis: { title: 'Loss Value' },
+                  camera: {
+                    eye: { x: 1.5, y: -1.5, z: 1 }
+                  }
+                },
+                margin: {
+                  l: 0,
+                  r: 0,
+                  b: 0,
+                  t: 80
+                },
+                paper_bgcolor: 'transparent',
+                plot_bgcolor: 'transparent',
+                font: {
+                  family: 'Arial, sans-serif',
+                  color: 'var(--text-color)'
+                },
+                width: 700,
+                height: 500,
+                autosize: true,
+                annotations: [
+                  {
+                    x: 0.95,
+                    y: 0,
+                    xref: 'paper',
+                    yref: 'paper',
+                    text: 'Source: Based on Barron (2019)',
+                    showarrow: false,
+                    font: {
+                      size: 10,
+                      color: 'gray'
+                    }
+                  }
+                ]
+              }}
+              config={{ 
+                responsive: true, 
+                displayModeBar: true,
+                displaylogo: false,
+                modeBarButtonsToRemove: ['lasso2d', 'select2d']
+              }}
             />
           </div>
           

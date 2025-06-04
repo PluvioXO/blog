@@ -158,22 +158,27 @@ export default function three() {
     
     // Simulate SGD path with some random noise to show stochasticity
     const sgdPath = {
-      x: [-2.5],
-      y: [2.5]
+      x: [],
+      y: []
     };
     
-    let currentX = -2.5;
-    let currentY = 2.5;
-    const learningRate = 0.01;
+    // Create a more visible path
+    let currentX = -2.0;
+    let currentY = 2.0;
+    const learningRate = 0.015;
     
-    for (let step = 0; step < 200; step++) {
+    // Add starting point
+    sgdPath.x.push(currentX);
+    sgdPath.y.push(currentY);
+    
+    for (let step = 0; step < 150; step++) {
       // Calculate gradients (Rosenbrock function derivatives)
       const gradX = -2 * (1 - currentX) + 400 * currentX * (currentY - Math.pow(currentX, 2));
       const gradY = 200 * (currentY - Math.pow(currentX, 2));
       
       // Add some noise to simulate stochasticity
-      const noiseX = (Math.random() - 0.5) * 0.05;
-      const noiseY = (Math.random() - 0.5) * 0.05;
+      const noiseX = (Math.random() - 0.5) * 0.1;
+      const noiseY = (Math.random() - 0.5) * 0.1;
       
       // Update position with gradient and noise
       currentX = currentX - learningRate * (gradX + noiseX);
@@ -239,62 +244,8 @@ export default function three() {
           where <InlineMath>{"Q(w)"}</InlineMath> represents the true gradient for the entire data set, <InlineMath>{"\\eta"}</InlineMath> represents the learning rate and <InlineMath>{"w"}</InlineMath> represents the most up to date approximation for the gradient.
         </div>
         
-        <div className="data-visualization">
-          <Plot
-            data={[
-              {
-                type: 'contour',
-                z: contourData.z,
-                x: contourData.x,
-                y: contourData.y,
-                colorscale: 'Viridis',
-                contours: {
-                  showlabels: true,
-                  labelfont: {
-                    family: 'Arial',
-                    size: 12,
-                    color: 'white',
-                  }
-                }
-              },
-              {
-                type: 'scatter',
-                x: contourData.sgdPath.x,
-                y: contourData.sgdPath.y,
-                mode: 'lines+markers',
-                name: 'SGD Path',
-                line: {
-                  color: 'rgba(255, 0, 0, 0.8)',
-                  width: 2
-                },
-                marker: {
-                  size: 5,
-                  color: 'rgba(255, 0, 0, 0.8)'
-                }
-              }
-            ]}
-            layout={{
-              title: 'Stochastic Gradient Descent Optimization Path',
-              xaxis: {
-                title: 'Parameter w₁',
-                range: [-3, 3]
-              },
-              yaxis: {
-                title: 'Parameter w₂',
-                range: [-3, 3]
-              },
-              margin: { l: 50, r: 50, b: 50, t: 80 },
-              paper_bgcolor: 'transparent',
-              plot_bgcolor: 'transparent',
-              font: { family: 'Arial, sans-serif', color: 'var(--text-color)' }
-            }}
-            style={{ width: '100%', height: 450 }}
-            config={{ responsive: true, displayModeBar: false }}
-          />
-        </div>
-        
         <div>
-          The visualization above demonstrates how SGD navigates the optimization landscape of a Rosenbrock function, a classic test function in optimization. The contour lines represent level sets of the loss function, with darker colors indicating lower values. The red path shows how SGD moves through this landscape, taking small steps in the direction of steepest descent with some stochasticity. Notice how the algorithm gradually converges toward the global minimum (the darkest region), sometimes taking circuitous routes due to the randomness in gradient estimation.
+          Stochastic Gradient Descent navigates the optimization landscape by taking small steps in the direction of steepest descent with some stochasticity. The algorithm gradually converges toward the global minimum, sometimes taking circuitous routes due to the randomness in gradient estimation.
         </div>
         
         <p id="variants" className='section-title'>SGD Variants</p>

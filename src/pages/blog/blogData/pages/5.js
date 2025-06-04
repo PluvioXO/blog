@@ -154,6 +154,26 @@ export default function five() {
   
   const phaseSpaceData = generatePhaseSpaceData();
 
+  // Generate information entropy visualization data
+  const generateInformationEntropyData = () => {
+    // Generate data for different probability distributions
+    const probPoints = Array.from({ length: 100 }, (_, i) => i * 0.01);
+    
+    // Shannon entropy for binary distribution with probability p
+    const binaryEntropy = probPoints.map(p => {
+      if (p === 0 || p === 1) return 0;
+      return -(p * Math.log2(p) + (1-p) * Math.log2(1-p));
+    });
+    
+    // Generate temperatures and corresponding thermodynamic entropy
+    const temperatures = Array.from({ length: 100 }, (_, i) => 100 + i * 5);
+    const thermoEntropy = temperatures.map(T => 10 * Math.log(T));
+    
+    return { probPoints, binaryEntropy, temperatures, thermoEntropy };
+  };
+  
+  const entropyComparisonData = generateInformationEntropyData();
+
   return(
   <motion.div className="blog-post-container" initial={{opacity:0, y:2}} animate={{opacity:1, y:0}} transition={{duration:0.5}}>
     <MobileSidebar sections={sections} />
@@ -194,6 +214,64 @@ export default function five() {
           <BlockMath>{"H = -\\sum_{i} p_i \\log_2 p_i"}</BlockMath>
           
           where <InlineMath>{"H"}</InlineMath> is information entropy and <InlineMath>{"p_i"}</InlineMath> is the probability of a message <InlineMath>{"i"}</InlineMath>.
+          
+          <div className="data-visualization">
+            <Plot
+              data={[
+                {
+                  x: entropyComparisonData.probPoints,
+                  y: entropyComparisonData.binaryEntropy,
+                  type: 'scatter',
+                  mode: 'lines',
+                  name: 'Binary Information Entropy',
+                  line: {
+                    color: '#1f77b4',
+                    width: 3
+                  }
+                }
+              ]}
+              layout={{
+                title: 'Shannon Entropy for a Binary System',
+                xaxis: {
+                  title: 'Probability (p)',
+                  range: [0, 1]
+                },
+                yaxis: {
+                  title: 'Entropy (bits)',
+                  range: [0, 1.1]
+                },
+                margin: {
+                  l: 60,
+                  r: 50,
+                  b: 60,
+                  t: 80
+                },
+                paper_bgcolor: 'transparent',
+                plot_bgcolor: 'transparent',
+                font: {
+                  family: 'Arial, sans-serif',
+                  color: 'var(--text-color)'
+                },
+                annotations: [
+                  {
+                    x: 0.5,
+                    y: 1.0,
+                    text: 'Maximum Entropy at p=0.5',
+                    showarrow: true,
+                    arrowhead: 2,
+                    ax: 0,
+                    ay: -30,
+                    font: { color: 'var(--text-color)' }
+                  }
+                ]
+              }}
+              style={{ width: '100%', height: 400 }}
+              config={{ responsive: true, displayModeBar: false }}
+            />
+            <div className="source-attribution">
+              Source: Based on Shannon's Information Theory (1948)
+            </div>
+          </div>
           
           This connection allows us to view many thermodynamic processes as information processing operations. Physical transformations can often be modeled as computations that change the information content of a system, creating a bridge between physics and computer science.
           
@@ -345,6 +423,9 @@ export default function five() {
               style={{ width: '100%', height: 450 }}
               config={{ responsive: true, displayModeBar: false }}
             />
+            <div className="source-attribution">
+              Source: Visualization based on concepts from Boltzmann's entropy formula and Shannon's information theory
+            </div>
           </div>
           
           The visualization above demonstrates a fundamental aspect of the Second Law: systems with different initial entropy levels all evolve toward the maximum entropy state, albeit at different rates. This irreversible progression toward equilibrium is what gives time its apparent directionality—what physicists call the "arrow of time."
@@ -440,6 +521,9 @@ export default function five() {
               style={{ width: '100%', height: 450 }}
               config={{ responsive: true, displayModeBar: false }}
             />
+            <div className="source-attribution">
+              Source: Adapted from concepts in dynamical systems theory and phase space representations in thermodynamics
+            </div>
           </div>
           
           The three-dimensional visualization above represents the phase space trajectory of a dissipative dynamical system. Each point in the space represents a possible state of the system, and the spiral trajectory shows how the system evolves over time. As energy dissipates, the trajectory converges toward an attractor—a lower-dimensional subspace of the full phase space.

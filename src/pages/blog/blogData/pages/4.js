@@ -127,6 +127,46 @@ export default function four() {
   };
   
   const multiHeadData = generateMultiHeadVisualization();
+  
+  // Generate 3D attention visualization
+  const generate3DAttentionData = () => {
+    // Create a sequence of tokens (x-axis)
+    const sequence = Array.from({ length: 20 }, (_, i) => i);
+    
+    // Create different attention heads (y-axis)
+    const heads = Array.from({ length: 8 }, (_, i) => i);
+    
+    // Generate attention weights matrix (z values)
+    const attentionWeights = [];
+    
+    for (let head of heads) {
+      const headWeights = [];
+      
+      // Each head attends to different positions
+      const focusPosition = Math.floor(sequence.length * ((head % 4) / 4));
+      const secondaryFocus = Math.floor(sequence.length * (((head + 2) % 4) / 4));
+      
+      for (let pos of sequence) {
+        // Primary attention pattern based on head
+        let weight = Math.exp(-0.3 * Math.pow(pos - focusPosition, 2));
+        
+        // Secondary attention pattern
+        if (head > 3) {
+          weight = weight * 0.7 + 0.3 * Math.exp(-0.3 * Math.pow(pos - secondaryFocus, 2));
+        }
+        
+        // Add some noise
+        weight = weight * 0.9 + 0.1 * Math.random();
+        headWeights.push(weight);
+      }
+      
+      attentionWeights.push(headWeights);
+    }
+    
+    return { sequence, heads, attentionWeights };
+  };
+  
+  const attention3DData = generate3DAttentionData();
 
   return(
   <motion.div className="blog-post-container" initial={{opacity:0, y:2}} animate={{opacity:1, y:0}} transition={{duration:0.5}}>
@@ -299,44 +339,142 @@ export default function four() {
                 y: multiHeadData.head1,
                 type: 'scatter',
                 mode: 'lines',
-                name: 'Head 1',
-                line: { color: '#1f77b4', width: 2 }
+                name: 'Attention Head 1',
+                line: {
+                  color: '#557A95',
+                  width: 3
+                }
               },
               {
                 x: multiHeadData.xValues,
                 y: multiHeadData.head2,
                 type: 'scatter',
                 mode: 'lines',
-                name: 'Head 2',
-                line: { color: '#ff7f0e', width: 2 }
+                name: 'Attention Head 2',
+                line: {
+                  color: '#7395AE',
+                  width: 3
+                }
               },
               {
                 x: multiHeadData.xValues,
                 y: multiHeadData.head3,
                 type: 'scatter',
                 mode: 'lines',
-                name: 'Head 3',
-                line: { color: '#2ca02c', width: 2 }
+                name: 'Attention Head 3',
+                line: {
+                  color: '#A5C4D4',
+                  width: 3
+                }
               }
             ]}
             layout={{
-              title: 'Multiple Attention Heads Focusing on Different Parts of a Sequence',
-              xaxis: { 
-                title: 'Position in Sequence',
+              title: 'Multi-Head Attention Focus Distribution',
+              xaxis: {
+                title: 'Sequence Position',
                 range: [0, 10]
               },
-              yaxis: { 
+              yaxis: {
                 title: 'Attention Weight',
                 range: [0, 1]
               },
-              legend: { orientation: 'h', y: -0.2 },
-              margin: { l: 50, r: 50, b: 100, t: 80 },
+              margin: {
+                l: 50,
+                r: 50,
+                b: 50,
+                t: 80
+              },
               paper_bgcolor: 'transparent',
               plot_bgcolor: 'transparent',
-              font: { family: 'Arial, sans-serif', color: 'var(--text-color)' }
+              font: {
+                family: 'Arial, sans-serif',
+                color: 'var(--text-color)'
+              },
+              annotations: [
+                {
+                  x: 1,
+                  y: -0.15,
+                  xref: 'paper',
+                  yref: 'paper',
+                  text: 'Source: Based on Vaswani et al. (2017). "Attention Is All You Need". NIPS 2017.',
+                  showarrow: false,
+                  font: {
+                    size: 10,
+                    color: 'gray'
+                  }
+                }
+              ]
             }}
-            style={{ width: '100%', height: 450 }}
+            style={{ width: '100%', height: 400 }}
             config={{ responsive: true, displayModeBar: false }}
+          />
+        </div>
+        
+        <div className="data-visualization">
+          <Plot
+            data={[
+              {
+                type: 'surface',
+                x: attention3DData.sequence,
+                y: attention3DData.heads,
+                z: attention3DData.attentionWeights,
+                colorscale: 'Viridis',
+                contours: {
+                  z: {
+                    show: true,
+                    usecolormap: true,
+                    highlightcolor: "#42f462"
+                  }
+                },
+                opacity: 0.9
+              }
+            ]}
+            layout={{
+              title: '3D Visualization of Multi-Head Attention Patterns',
+              scene: {
+                xaxis: { title: 'Sequence Position' },
+                yaxis: { title: 'Attention Head' },
+                zaxis: { title: 'Attention Weight' },
+                camera: {
+                  eye: { x: 1.5, y: -1.5, z: 1 }
+                }
+              },
+              margin: {
+                l: 0,
+                r: 0,
+                b: 0,
+                t: 80
+              },
+              paper_bgcolor: 'transparent',
+              plot_bgcolor: 'transparent',
+              font: {
+                family: 'Arial, sans-serif',
+                color: 'var(--text-color)'
+              },
+              width: 700,
+              height: 500,
+              autosize: true,
+              annotations: [
+                {
+                  x: 0.95,
+                  y: 0,
+                  xref: 'paper',
+                  yref: 'paper',
+                  text: 'Source: Simulation based on concepts from Vaswani et al. (2017)',
+                  showarrow: false,
+                  font: {
+                    size: 10,
+                    color: 'gray'
+                  }
+                }
+              ]
+            }}
+            config={{ 
+              responsive: true, 
+              displayModeBar: true,
+              displaylogo: false,
+              modeBarButtonsToRemove: ['lasso2d', 'select2d']
+            }}
           />
         </div>
 
