@@ -5,9 +5,8 @@ import 'antd/dist/reset.css'
 import { Link } from 'react-router-dom';
 import { motion, useScroll } from "framer-motion";
 import { ReactComponent as YourSvg } from './assets/Component 1.svg'
-import { SunOutlined, MoonOutlined, GithubOutlined } from '@ant-design/icons';
+import { SunOutlined, MoonOutlined, GithubOutlined, MenuOutlined } from '@ant-design/icons';
 import BlogLogo from './assets/blogLogo.png'
-import { MenuOutlined } from '@ant-design/icons';
 import { ThemeContext } from '../ThemeContext';
 
 export default function Navbar() {
@@ -36,7 +35,7 @@ export default function Navbar() {
           </Col>
           <Col xs={0} sm={0} md={0} lg={0} xl={0} />
           <Col xs={0} sm={0} md={16} lg={16} xl={16}>
-          <div className='tags desktop-nav' /* style={{marginTop:'15px'}} */ >
+          <div className='tags desktop-nav'>
           <Space id='colorChange' size="large">
             <Link id='colorChange' to='/blog' className='blog-link-hover'>
               <motion.h2 id='headerOption'>~/blog</motion.h2>
@@ -67,33 +66,47 @@ export default function Navbar() {
               />
             </Space>
           </Col>
-          <Col xs={1} sm={1} md={0} lg={0} xl={0}></Col>
+          
+          {/* Mobile Menu Button */}
+          <Col xs={7} sm={7} md={0} lg={0} xl={0} style={{ textAlign: 'right' }}>
+            <Button 
+              type="text" 
+              icon={<MenuOutlined style={{ fontSize: '20px' }} />} 
+              onClick={showDrawer}
+              className="mobile-nav-button"
+            />
+          </Col>
           </Row>
         </div>
         <Drawer
           title="Menu"
           placement="right"
           onClose={onClose}
-          visible={visible}
-          bodyStyle={{ padding: 0 /*, backgroundColor: '#0c101a' */ }}
-          headerStyle={{ /* backgroundColor: '#0c101a', */ borderBottom: '1px solid var(--text-color)' /* Use variable for border */ }}
-          closeIcon={<Button type="text" /* style={{color: '#7DD3FC'}} */ >Close</Button>}
+          open={visible}
+          bodyStyle={{ padding: 0 }}
+          headerStyle={{ borderBottom: '1px solid var(--text-color)' }}
+          closeIcon={<Button type="text">Close</Button>}
+          className="mobile-sidebar"
         >
-          <Menu mode="vertical" /* theme="dark" */ style={{ /* backgroundColor: '#0c101a', */ borderRight: 0}} onClick={onClose}>
+          <Menu mode="vertical" style={{ borderRight: 0}} onClick={onClose}>
             <Menu.Item key="1"><Link to='/blog' className='blog-link-hover'>~/blog</Link></Menu.Item>
             <Menu.Item key="2"><Link to='photos'>~/photos</Link></Menu.Item>
             <Menu.Item key="3"><Link to='other'>~/resources</Link></Menu.Item>
             <Menu.Divider />
             <Menu.Item key="4" style={{ textAlign: 'center' }}>
-              <Switch
-                checked={theme === 'light'}
-                onChange={() => { toggleTheme(); onClose(); }}
-                checkedChildren={<SunOutlined />}
-                unCheckedChildren={<MoonOutlined />}
-              />
+              <Space>
+                <span>Theme:</span>
+                <Switch
+                  checked={theme === 'light'}
+                  onChange={() => { toggleTheme(); }}
+                  checkedChildren={<SunOutlined />}
+                  unCheckedChildren={<MoonOutlined />}
+                />
+              </Space>
             </Menu.Item>
-            <Menu.Item key="5" icon={<GithubOutlined />} style={{ textAlign: 'center' }}>
+            <Menu.Item key="5" style={{ textAlign: 'center' }}>
               <a href={githubRepoUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>
+                <GithubOutlined style={{ marginRight: '8px' }} />
                 GitHub
               </a>
             </Menu.Item>

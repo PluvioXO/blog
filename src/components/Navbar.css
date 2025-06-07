@@ -87,6 +87,73 @@
   color: black;
 }
 
+/* Mobile Navigation Button */
+.mobile-nav-button {
+  background: transparent !important;
+  border: none !important;
+  color: var(--link-color) !important;
+  font-size: 24px !important;
+  padding: 0 !important;
+  height: auto !important;
+}
+
+.mobile-nav-button:hover {
+  color: var(--link-hover-color) !important;
+}
+
+.mobile-nav-button .anticon {
+  font-size: 24px;
+}
+
+/* Mobile Sidebar Styles */
+.mobile-sidebar .ant-drawer-content {
+  background-color: var(--navbar-background-color) !important;
+}
+
+.mobile-sidebar .ant-drawer-header {
+  background-color: var(--navbar-background-color) !important;
+  border-bottom: 1px solid var(--text-color) !important;
+  padding: 16px 24px !important;
+}
+
+.mobile-sidebar .ant-drawer-title {
+  color: var(--text-color) !important;
+  font-size: 18px !important;
+}
+
+.mobile-sidebar .ant-drawer-close {
+  color: var(--link-color) !important;
+}
+
+.mobile-sidebar .ant-menu {
+  background-color: var(--navbar-background-color) !important;
+  border-right: none !important;
+  color: var(--text-color) !important;
+}
+
+.mobile-sidebar .ant-menu-item {
+  height: 50px !important;
+  line-height: 50px !important;
+  margin: 0 !important;
+  padding: 0 24px !important;
+}
+
+.mobile-sidebar .ant-menu-item a {
+  color: var(--link-color) !important;
+  font-size: 16px !important;
+}
+
+.mobile-sidebar .ant-menu-item:hover a,
+.mobile-sidebar .ant-menu-item-selected a {
+  color: var(--link-hover-color) !important;
+}
+
+.mobile-sidebar .ant-menu-item-divider {
+  margin: 8px 0 !important;
+  background-color: var(--text-color) !important;
+  opacity: 0.2;
+}
+
 /* Update Ant Design component styles if needed, e.g., Drawer and Menu */
 /* You might need to inspect elements and target specific AntD classes */
 .ant-drawer-header {
