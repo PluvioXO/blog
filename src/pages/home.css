@@ -1,5 +1,9 @@
-:root {
-    /* --orange: rgb(38 38 38); */ /* This seems unused or can be replaced by theme variable */
+/* Home page styles */
+.home {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #title {
@@ -7,40 +11,37 @@
     color: var(--link-color);
     font-size: 2rem;
     text-align: left;
+    transition: color 0.3s ease;
 }
-.home{
-    text-align: left;
-    /* align-items: top; */ /* This is not a valid value for align-items */
-    /* align-items: left; */ /* This is not a valid value for align-items */
-    /* Consider using flexbox properties on the parent for alignment */
-}
-.card{
+
+.card {
     height: auto;
     width: auto;
-    background-color: var(--navbar-background-color); /* Using navbar bg as an example for card */
-    position: absolute; /* Be cautious with absolute positioning and theming */
+    background-color: var(--navbar-background-color);
+    position: absolute;
     left: 50%;
     top: 50%;
     border-radius: 5px;
-    /* background-color: rgb(23, 23, 23); */ /* Replaced with variable */
-    color: var(--text-color); /* Ensure text inside card is themed */
+    color: var(--text-color);
     transition: background-color 0.3s ease, color 0.3s ease;
+    transform: translate(-50%, -50%); /* Proper centering for absolute positioning */
 }
 
-/* .orange selector seems to rely on the --orange variable which was local */
-/* We should use a theme variable if this border color needs to change with themes */
-.orange{
-    border-top: 3px solid var(--link-hover-color); /* Example: using link-hover color */
+.card.orange {
+    border-top: 3px solid var(--link-hover-color);
 }
-.code{
-    color: var(--text-color); /* Use main text color */
+
+.code {
+    color: var(--text-color);
     font-weight: bold;
     display: inline-block;
+    transition: color 0.3s ease;
 }
+
 .inside {
     margin: 20px;
 }
-.green{
-    color: #62dc64; /* This green might need its own theme variable if it should change */
-                 /* Or keep it static if it's a specific status/highlight color */
+
+.status-success {
+    color: #62dc64; /* Keep as static color for status indication */
 }

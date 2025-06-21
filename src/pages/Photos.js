@@ -4,17 +4,23 @@ import { PhotoData } from './photosData';
 import { Row, Col, Modal, Button } from 'antd'
 import { motion, useScroll } from 'framer-motion'
 import { DownloadOutlined, CloseOutlined } from '@ant-design/icons';
+import { 
+  LOAD_MORE_PHOTOS_COUNT, 
+  INITIAL_PHOTOS_COUNT, 
+  IMAGE_PROMPT_TIMEOUT,
+  ANIMATION_DURATIONS 
+} from '../constants';
 
 export default function Photos() {
   const [visibleModalIndex, setVisibleModalIndex] = useState(null);
-  const [loadedImagesCount, setLoadedImagesCount] = useState(9);
+  const [loadedImagesCount, setLoadedImagesCount] = useState(INITIAL_PHOTOS_COUNT);
   const [imagePromptVisible, setImagePromptVisible] = useState(true);
 
   useEffect(() => {
     if (imagePromptVisible) {
       const timer = setTimeout(() => {
         setImagePromptVisible(false);
-      }, 3000);
+      }, IMAGE_PROMPT_TIMEOUT);
       return () => clearTimeout(timer);
     }
   }, [imagePromptVisible]);
@@ -29,11 +35,18 @@ export default function Photos() {
   };
 
   const loadMoreImages = () => {
-    setLoadedImagesCount(prevCount => Math.min(prevCount + 8, PhotoData.length));
+    setLoadedImagesCount(prevCount => 
+      Math.min(prevCount + LOAD_MORE_PHOTOS_COUNT, PhotoData.length)
+    );
   };
 
   return (
-    <motion.div className="photos-container" initial={{opacity:0, y:2}} animate={{opacity:1, y:0}} transition={{duration:0.5}}>
+    <motion.div 
+      className="photos-container" 
+      initial={{opacity: 0, y: 2}} 
+      animate={{opacity: 1, y: 0}} 
+      transition={{duration: ANIMATION_DURATIONS.MEDIUM}}
+    >
       {imagePromptVisible && (
         <motion.div 
           className="image-open-prompt"
@@ -63,8 +76,13 @@ export default function Photos() {
       {loadedImagesCount < PhotoData.length && (
         <Row justify="center" style={{ marginTop: '30px', marginBottom: '20px' }}>
           <Col style={{ textAlign: 'center' }}>
-            <motion.div onViewportEnter={loadMoreImages} style={{height: '1px', width: '100%', position: 'relative', bottom: '100px'}} /> 
-            <Button onClick={loadMoreImages} type="dashed">Load More Photos</Button>
+            <motion.div 
+              onViewportEnter={loadMoreImages} 
+              style={{height: '1px', width: '100%', position: 'relative', bottom: '100px'}} 
+            /> 
+            <Button onClick={loadMoreImages} type="dashed">
+              Load More Photos
+            </Button>
           </Col>
         </Row>
       )}
@@ -78,7 +96,15 @@ export default function Photos() {
           destroyOnClose={true}
           maskClosable={true}
           styles={{
-            body: { padding: 0, maxHeight: '90vh', overflowY: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' },
+            body: { 
+              padding: 0, 
+              maxHeight: '90vh', 
+              overflowY: 'auto', 
+              display: 'flex', 
+              flexDirection: 'column', 
+              alignItems: 'center', 
+              justifyContent: 'center' 
+            },
             content: {
               backgroundColor: '#1f2937',
               borderRadius: '8px',
@@ -88,7 +114,21 @@ export default function Photos() {
               maxWidth: '90vw',
             }
           }}
-          closeIcon={<CloseOutlined style={{color: '#fff', fontSize: '24px', background: 'rgba(0,0,0,0.6)', borderRadius: '50%', padding: '8px', position: 'fixed', top: '20px', right: '20px', zIndex: 1051}}/>}
+          closeIcon={
+            <CloseOutlined 
+              style={{
+                color: '#fff', 
+                fontSize: '24px', 
+                background: 'rgba(0,0,0,0.6)', 
+                borderRadius: '50%', 
+                padding: '8px', 
+                position: 'fixed', 
+                top: '20px', 
+                right: '20px', 
+                zIndex: 1051
+              }}
+            />
+          }
         >
           <img
             src={PhotoData[visibleModalIndex].item}
@@ -96,19 +136,19 @@ export default function Photos() {
             className="photo-modal-image"
           />
           {(PhotoData[visibleModalIndex].date || PhotoData[visibleModalIndex].item) && (
-          <div className="photo-modal-info">
-            {PhotoData[visibleModalIndex].date && <p>{PhotoData[visibleModalIndex].date}</p>}
-            <Button
-              type="primary"
-              icon={<DownloadOutlined />}
-              href={PhotoData[visibleModalIndex].item}
-              target="_blank"
-              download={`photo-${PhotoData[visibleModalIndex].date || visibleModalIndex + 1}.jpg`}
-              className="download-button"
-            >
-              Download
-            </Button>
-          </div>
+            <div className="photo-modal-info">
+              {PhotoData[visibleModalIndex].date && <p>{PhotoData[visibleModalIndex].date}</p>}
+              <Button
+                type="primary"
+                icon={<DownloadOutlined />}
+                href={PhotoData[visibleModalIndex].item}
+                target="_blank"
+                download={`photo-${PhotoData[visibleModalIndex].date || visibleModalIndex + 1}.jpg`}
+                className="download-button"
+              >
+                Download
+              </Button>
+            </div>
           )}
         </Modal>
       )}

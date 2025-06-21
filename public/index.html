@@ -8,24 +8,28 @@
     <script>
       (function() {
         try {
-          var storedThemeValue = localStorage.getItem('theme');
-          console.log('[index.html script] Initial theme from localStorage:', storedThemeValue);
-          var lightBg = '#f9fafb'; // Corresponds to --background-color in .light-mode
-          var darkBg = '#111827';  // Corresponds to --background-color in :root (dark mode)
-          if (storedThemeValue === 'light') {
-            document.documentElement.style.backgroundColor = lightBg;
-          } else { // Default to dark if not explicitly 'light' (i.e., 'dark', null, or other)
-            document.documentElement.style.backgroundColor = darkBg;
-          }
+          var STORAGE_KEYS = { THEME: 'theme' };
+          var THEMES = { LIGHT: 'light', DARK: 'dark' };
+          var THEME_COLORS = {
+            LIGHT_BG: '#f9fafb',
+            DARK_BG: '#111827'
+          };
+          
+          var storedTheme = localStorage.getItem(STORAGE_KEYS.THEME);
+          var backgroundColor = storedTheme === THEMES.LIGHT 
+            ? THEME_COLORS.LIGHT_BG 
+            : THEME_COLORS.DARK_BG;
+          
+          document.documentElement.style.backgroundColor = backgroundColor;
         } catch (e) {
-          console.error('[index.html script] Error initializing theme:', e);
-          document.documentElement.style.backgroundColor = darkBg; // Fallback
+          // Fallback to dark theme
+          document.documentElement.style.backgroundColor = '#111827';
         }
       })();
     </script>
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Maximilian's Blog - Discover insightful articles, tutorials, and thoughts on various topics"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
@@ -50,7 +54,7 @@
     <!-- To automatically render math in text elements, include the auto-render extension: -->
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
         onload="renderMathInElement(document.body);"></script>
-    <title>Maximilians Website</title>
+    <title>Maximilian's Blog</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

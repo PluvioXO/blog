@@ -1,23 +1,22 @@
 import React, { createContext, useState, useMemo, useEffect } from 'react';
+import { THEMES, STORAGE_KEYS } from './constants';
 
 export const ThemeContext = createContext({
-  theme: 'dark', // Default here is less critical now, will be overwritten
+  theme: THEMES.DARK,
   toggleTheme: () => {},
 });
 
 export const ThemeProvider = ({ children }) => {
-  // Initialize theme from localStorage or default to 'dark'
+  // Initialize theme from localStorage or default to dark
   const [theme, setTheme] = useState(() => {
-    const storedTheme = localStorage.getItem('theme');
-    console.log('[ThemeContext] Initializing theme. Read from localStorage:', storedTheme);
-    return storedTheme ? storedTheme : 'dark';
+    const storedTheme = localStorage.getItem(STORAGE_KEYS.THEME);
+    return storedTheme || THEMES.DARK;
   });
 
   const toggleTheme = () => {
     setTheme((prevTheme) => {
-      const newTheme = prevTheme === 'dark' ? 'light' : 'dark';
-      localStorage.setItem('theme', newTheme); // Save to localStorage
-      console.log('[ThemeContext] Theme toggled. prevTheme:', prevTheme, 'newTheme:', newTheme, 'Saved to localStorage.');
+      const newTheme = prevTheme === THEMES.DARK ? THEMES.LIGHT : THEMES.DARK;
+      localStorage.setItem(STORAGE_KEYS.THEME, newTheme);
       return newTheme;
     });
   };
@@ -32,7 +31,7 @@ export const ThemeProvider = ({ children }) => {
       theme,
       toggleTheme,
     }),
-    [theme, toggleTheme] // Added toggleTheme to dependency array
+    [theme]
   );
 
   return (
