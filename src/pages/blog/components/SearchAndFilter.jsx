@@ -6,7 +6,9 @@ import {
   MinusOutlined,
   TagOutlined,
   FileTextOutlined,
-  CalendarOutlined
+  CalendarOutlined,
+  DownOutlined,
+  FilterOutlined
 } from '@ant-design/icons';
 import './SearchAndFilter.css';
 
@@ -57,6 +59,7 @@ const SearchAndFilter = ({ blogData, onFilter }) => {
     { id: 1, field: 'tags', operator: 'includes', value: [], enabled: true },
   ]);
   const [nextId, setNextId] = useState(2);
+  const [isFilterVisible, setIsFilterVisible] = useState(false);
 
   // Get all unique tags
   const allTags = useMemo(() => {
@@ -106,6 +109,17 @@ const SearchAndFilter = ({ blogData, onFilter }) => {
     const newValue = fieldConfig.valueType === 'multi-select' ? [] : '';
     updateFilter(id, { field: newField, operator: newOperator, value: newValue });
   };
+
+  const toggleFilterVisibility = () => {
+    setIsFilterVisible(!isFilterVisible);
+  };
+
+  const clearAllFilters = () => {
+    setFilters([{ id: 1, field: 'tags', operator: 'includes', value: [], enabled: true }]);
+    setNextId(2);
+  };
+
+  const activeFiltersCount = filters.filter(f => f.enabled && f.value && (Array.isArray(f.value) ? f.value.length > 0 : f.value.trim() !== '')).length;
 
   const renderValueInput = (filter) => {
     const fieldConfig = filterFields.find(f => f.value === filter.field);
@@ -159,53 +173,90 @@ const SearchAndFilter = ({ blogData, onFilter }) => {
 
   return (
     <div className="search-filter-container">
-      <div className="filter-builder-container">
-        <div className="filter-builder-header">
-          <span>Match</span>
-          <Select value={matchType} onChange={setMatchType} style={{ width: 80, margin: '0 8px' }}>
-            <Option value="All">All</Option>
-            <Option value="Any">Any</Option>
-          </Select>
-          <span>of the following filters:</span>
+      <div className="filter-toggle-bar" onClick={toggleFilterVisibility}>
+        <div className="filter-toggle-left">
+          <FilterOutlined className="filter-toggle-icon" />
+          <span className="filter-toggle-text">Advanced Filters</span>
+          {activeFiltersCount > 0 && (
+            <span className="filter-toggle-count">{activeFiltersCount}</span>
+          )}
         </div>
-        <div className="filter-list">
-          <AnimatePresence>
-            {filters.map(filter => (
-              <motion.div
-                key={filter.id}
-                layout
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, x: -20, transition: { duration: 0.2 } }}
-                transition={{ duration: 0.3, type: 'spring', stiffness: 100, damping: 20 }}
-                className="filter-motion-div"
-              >
-                <Row className="filter-row" gutter={8}>
-                  <Col><Checkbox checked={filter.enabled} onChange={e => updateFilter(filter.id, { enabled: e.target.checked })} /></Col>
-                  <Col flex="120px">
-                    <Select value={filter.field} onChange={val => onFieldChange(filter.id, val)} style={{ width: '100%' }} popupClassName="filter-field-dropdown">
-                      {filterFields.map(field => <Option key={field.value} value={field.value}>{field.icon} {field.label}</Option>)}
-                    </Select>
-                  </Col>
-                  <Col flex="150px">
-                    <Select value={filter.operator} onChange={val => updateFilter(filter.id, { operator: val })} style={{ width: '100%' }}>
-                      {(filterFields.find(f => f.value === filter.field)?.operators || []).map(op => <Option key={op} value={op}>{operatorLabels[op]}</Option>)}
-                    </Select>
-                  </Col>
-                  <Col flex="auto">{renderValueInput(filter)}</Col>
-                  <Col><Button type="text" icon={<MinusOutlined />} onClick={() => removeFilter(filter.id)} className="remove-filter-btn" /></Col>
-                </Row>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </div>
-        <Button onClick={addFilter} icon={<PlusOutlined />} className="add-filter-button">Add filter</Button>
-        
-        {/* Logic Equation Display */}
-        <div className="logic-equation-container">
-          {renderLogicEquation()}
+        <div className="filter-toggle-right">
+          {activeFiltersCount > 0 && (
+            <Button 
+              onClick={(e) => {
+                e.stopPropagation();
+                clearAllFilters();
+              }}
+              className="clear-all-filters-btn"
+              size="small"
+            >
+              Clear All
+            </Button>
+          )}
+          <DownOutlined className={`filter-toggle-icon ${isFilterVisible ? 'expanded' : ''}`} />
         </div>
       </div>
+
+      <AnimatePresence>
+        {isFilterVisible && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className="filter-dropdown-content"
+          >
+            <div className="filter-builder-container">
+              <div className="filter-builder-header">
+                <span>Match</span>
+                <Select value={matchType} onChange={setMatchType} style={{ width: 80, margin: '0 8px' }}>
+                  <Option value="All">All</Option>
+                  <Option value="Any">Any</Option>
+                </Select>
+                <span>of the following filters:</span>
+              </div>
+              <div className="filter-list">
+                <AnimatePresence>
+                  {filters.map(filter => (
+                    <motion.div
+                      key={filter.id}
+                      layout
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, x: -20, transition: { duration: 0.2 } }}
+                      transition={{ duration: 0.3, type: 'spring', stiffness: 100, damping: 20 }}
+                      className="filter-motion-div"
+                    >
+                      <Row className="filter-row" gutter={8}>
+                        <Col><Checkbox checked={filter.enabled} onChange={e => updateFilter(filter.id, { enabled: e.target.checked })} /></Col>
+                        <Col flex="120px">
+                          <Select value={filter.field} onChange={val => onFieldChange(filter.id, val)} style={{ width: '100%' }} popupClassName="filter-field-dropdown">
+                            {filterFields.map(field => <Option key={field.value} value={field.value}>{field.icon} {field.label}</Option>)}
+                          </Select>
+                        </Col>
+                        <Col flex="150px">
+                          <Select value={filter.operator} onChange={val => updateFilter(filter.id, { operator: val })} style={{ width: '100%' }}>
+                            {(filterFields.find(f => f.value === filter.field)?.operators || []).map(op => <Option key={op} value={op}>{operatorLabels[op]}</Option>)}
+                          </Select>
+                        </Col>
+                        <Col flex="auto">{renderValueInput(filter)}</Col>
+                        <Col><Button type="text" icon={<MinusOutlined />} onClick={() => removeFilter(filter.id)} className="remove-filter-btn" /></Col>
+                      </Row>
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
+              </div>
+              <Button onClick={addFilter} icon={<PlusOutlined />} className="add-filter-button">Add filter</Button>
+              
+              {/* Logic Equation Display */}
+              <div className="logic-equation-container">
+                {renderLogicEquation()}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
