@@ -25,17 +25,18 @@ export default function App() {
         <Navbar />
         <Switch>
           <Route path="/" exact component={LandingPage} />
-          <Route path="/photos" component={Photos} />
+          <Route path="/home" component={Home} />
           <Route path="/reports" component={Reports} />
+          <Route path="/photos" component={Photos} />
           <Route path="/other" component={Other} />
           <Route path="/blog" component={Blog} />
           <Route path="/post/0" component={one} />
           <Route path="/post/1" component={two} />
-          <Route path="/post/2" component={three} />   
-          <Route path="/post/3" component={four} />   
-          <Route path="/post/4" component={five} />             
-          <Route path="/post/5" component={six} />             
-          <Route path="/post/6" component={seven} />             
+          <Route path="/post/2" component={three} />
+          <Route path="/post/3" component={four} />
+          <Route path="/post/4" component={five} />
+          <Route path="/post/5" component={six} />
+          <Route path="/post/6" component={seven} />
         </Switch>
       </BrowserRouter>
     </ThemeProvider>
