@@ -439,13 +439,6 @@ export default function seven() {
         <div>
           The development of Loop Quantum Gravity began in the late 1980s and early 1990s, primarily through the work of Abhay Ashtekar, Carlo Rovelli, and Lee Smolin <a href="#ref3">[3]</a>. Ashtekar's reformulation of general relativity using new variables (now known as Ashtekar variables) provided the crucial mathematical foundation that made the canonical quantization of gravity tractable.
           
-          <center>
-            <img src={lqgDiagram} id='blogImg' alt="Loop Quantum Gravity conceptual diagram" style={{ borderRadius: '10px', borderWidth: '5px', borderStyle: 'solid', borderColor: '#0c101a', maxWidth: '90%', margin: '20px 0'}}/>
-            <div className="source-attribution" style={{ textAlign: 'center', fontSize: '0.8em', color: '#aaa', marginTop: '-10px', marginBottom: '20px' }}>
-              Conceptual representation of spacetime foam in Loop Quantum Gravity
-            </div>
-          </center>
-          
           This approach emerged as researchers became increasingly aware of the difficulties in developing a consistent theory of quantum gravity using traditional methods. While string theory was gaining prominence during the same period, LQG developed as an independent research program focused on applying quantization techniques directly to Einstein's geometric theory of gravity.
           
           The key insight was to use connection formulation of general relativity, where the fundamental variables are:
@@ -1199,12 +1192,6 @@ export default function seven() {
           
           In LQG, this entropy is explained by counting the microstates of the spin network that punctures the horizon. Each puncture carries quantum numbers (spins) that contribute to the total entropy.
           
-          <center>
-            <img src={mathdiagram} id='blogImg' alt="Mathematical structure of quantum geometry" style={{ borderRadius: '10px', borderWidth: '5px', borderStyle: 'solid', borderColor: '#0c101a', maxWidth: '90%', margin: '20px 0'}}/>
-            <div className="source-attribution" style={{ textAlign: 'center', fontSize: '0.8em', color: '#aaa', marginTop: '-10px', marginBottom: '20px' }}>
-              Mathematical framework for discrete quantum geometry in black hole physics
-            </div>
-          </center>
           
           The calculation proceeds as follows:
           
@@ -1335,12 +1322,6 @@ export default function seven() {
         <div>
           LQG and string theory represent different philosophical and technical approaches to quantum gravity:
           
-          <center>
-            <img src={stringtheory} id='blogImg' alt="String theory conceptual diagram" style={{ borderRadius: '10px', borderWidth: '5px', borderStyle: 'solid', borderColor: '#0c101a', maxWidth: '80%', margin: '20px 0'}}/>
-            <div className="source-attribution" style={{ textAlign: 'center', fontSize: '0.8em', color: '#aaa', marginTop: '-10px', marginBottom: '20px' }}>
-              String theory approach to quantum gravity with extended fundamental objects
-            </div>
-          </center>
           
           <table className="comparison-table" style={{ width: '100%', borderCollapse: 'collapse', margin: '20px 0', border: '2px solid #0c101a', borderRadius: '5px' }}>
             <thead style={{ backgroundColor: '#0c101a', color: '#fff' }}>
@@ -1402,12 +1383,6 @@ export default function seven() {
               <li>Predicts a finite number of free parameters</li>
             </ul>
             
-            <center>
-              <img src={asymptoticsafety} id='blogImg' alt="Asymptotic safety diagram" style={{ borderRadius: '10px', borderWidth: '5px', borderStyle: 'solid', borderColor: '#0c101a', maxWidth: '70%', margin: '20px 0'}}/>
-              <div className="source-attribution" style={{ textAlign: 'center', fontSize: '0.8em', color: '#aaa', marginTop: '-10px', marginBottom: '20px' }}>
-                RG flow in asymptotic safety showing UV fixed point
-              </div>
-            </center>
             
             Interestingly, some calculations in asymptotic safety yield results compatible with LQG, suggesting these approaches might be different faces of the same theory.
           </div>
@@ -1423,12 +1398,6 @@ export default function seven() {
               <li>Has connections to both LQG and string theory</li>
             </ul>
             
-            <center>
-              <img src={causalset} id='blogImg' alt="Causal set theory spacetime structure" style={{ borderRadius: '10px', borderWidth: '5px', borderStyle: 'solid', borderColor: '#0c101a', maxWidth: '80%', margin: '20px 0'}}/>
-              <div className="source-attribution" style={{ textAlign: 'center', fontSize: '0.8em', color: '#aaa', marginTop: '-10px', marginBottom: '20px' }}>
-                Discrete causal structure of spacetime in causal set theory
-              </div>
-            </center>
             
             The fundamental relation in causal sets is the causal order relation, from which both geometry and topology emerge. Recent work has shown connections between causal sets and the discrete structures appearing in LQG.
           </div>

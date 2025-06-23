@@ -3,8 +3,8 @@ import two from './photos/download (1).jpeg'
 import three from './photos/image 2.png'
 import four from './photos/what_is_attention_cover-1024x768.jpg'
 import five from './photos/image 3.png'
-import six from './photos/string_theory.jpg'
-import seven from './photos/loop_quantum_gravity.jpg'
+import six from './photos/Gemini_Generated_Image_zfp93ozfp93ozfp9.png'
+import seven from './photos/Gemini_Generated_Image_vtkmt4vtkmt4vtkm.png'
 import eight from './photos/Gemini_Generated_Image_xfpwfqxfpwfqxfpw.png'
 
 export const blogData = [
