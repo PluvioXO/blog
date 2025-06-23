@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Row, Col, Card, Button, Select, Checkbox, Input, Tag } from 'antd';
+import { Row, Col, Card, Button, Select, Checkbox, Input, Tag, Empty } from 'antd';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Credits.css'
 import 'antd/dist/reset.css'
@@ -11,7 +11,10 @@ import {
   TagOutlined,
   FileTextOutlined,
   ReadOutlined,
-  VideoCameraOutlined
+  VideoCameraOutlined,
+  DownOutlined,
+  FilterOutlined,
+  ReloadOutlined
 } from '@ant-design/icons';
 
 const { Option } = Select;
@@ -27,77 +30,50 @@ From career insights that have propelled my professional journey to mindfulness 
 What sets this blog apart is its commitment to fostering a supportive community. Engaging with like-minded individuals through shared experiences and insightful discussions has been an enriching aspect of my journey. The collaborative space they've created is not just informative but also inspiring, making personal and professional development feel like a shared adventure.
 Through Neel's advice, I've learned to embrace agency over my choices, enabling me to shape a life that aligns with my values and aspirations. The articles are not just informative but resonate on a personal level, making every piece a source of motivation and encouragement.
 Whether you're seeking guidance in your career, striving for personal development, or simply looking for inspiration to live a more intentional life then I would highly recommend to invest some time to read his posts.`,
+    reading_time: "5 min",
+    url_2: "https://neelnanda.io/glossary"
   },
   {
-    title: "Paul Graham's Essays",
-    url: "https://www.paulgraham.com/articles.html",
-    tags: ["Startups", "Entrepreneurship", "Philosophy", "Career Advice", "Business"],
-    description: `Paul Graham's Blog has some increadibally insightful articles in it, I would recommend looking here for advice if you are trying to build something. Such questions as, what hueristics are favourable in sucessful people? How to deal with risk and investment of your time? How can I analyze the world in a more factually insightful way?
-    These are all questions that I have had for a long time and thanks to his articles I have reached what I would like to believe to be really good answers to each individual question. Paul Graham is a investor in silicon valley with he himself personally overseing the growth of some of the biggest companies in the world, to which he summerizes what he learns, and puts it into a really easly digestable form. No complex jargon or economics needed. 
-    I love to just jump in and out of these articles for advice on topics I am struggling with and his advice has impacted me positively in so many ways, a very high recommend.`,
+    title: "The Century of the Self",
+    url: "https://archive.org/details/AdamCurtis_theCenturyOfTheSelf",
+    tags: ["Documentary", "Psychology", "Culture", "Politics", "Society"],
+    description: `This powerful documentary series by Adam Curtis explores how psychoanalytic ideas and techniques have been used by governments and corporations to control populations and markets. It traces the influence of Freudian psychology on consumer culture and political manipulation throughout the 20th century.
+
+The series examines how Freud's nephew, Edward Bernays, adapted psychoanalytic theories to create the field of public relations and modern advertising. It shows how governments and businesses began using psychological techniques to understand and manipulate public desires and fears.
+
+What makes this documentary particularly relevant today is its exploration of how individual self-expression and consumer choice became tools of social control. It reveals the hidden psychological mechanisms behind modern consumer culture and political messaging.
+
+The series is divided into four parts, each exploring different aspects of how psychoanalytic ideas shaped society: "Happiness Machines," "The Engineering of Consent," "There is a Policeman Inside All Our Heads," and "Eight People Sipping Wine in Kettering."
+
+This is essential viewing for anyone interested in understanding the psychological foundations of modern consumer culture, political manipulation, and the intersection of psychology and power in contemporary society.`,
+    reading_time: "240 min"
   },
   {
-    title: "Chris Olah's Blog",
-    url: "https://colah.github.io",
-    tags: ["AI", "Mechanistic Interpretability", "Machine Learning", "Research", "Visualization"],
-    description: `Chris Olah's Blog Is very interesting to look if you have interests into mech interp conscepts, looking at a range of different topics and posts from more achetecture focuses to algorithmic focuses. If I where to recommend these sources in order I would use Colah's blog as a precursor to Neel Nanda's blog when on the topic of mech interp although Colah does a better job explaining some more complicated topics involving circuits and solution spaces however Neel Nanda's covers a wider range and more detail in some cases.`,
-  },
+    title: "The Age of Uncertainty",
+    url: "https://archive.org/details/the-age-of-uncertainty-john-kenneth-galbraith",
+    tags: ["Economics", "History", "Politics", "Society", "Documentary"],
+    description: `A comprehensive 13-part documentary series by economist John Kenneth Galbraith that examines the major economic and political developments of the 20th century. The series explores how uncertainty became a defining characteristic of modern economic and political life.
+
+Galbraith guides viewers through the major economic upheavals of the century, from the Great Depression to the rise of multinational corporations, offering insights into how economic theories and policies shaped global events. The series combines historical analysis with contemporary interviews and archival footage.
+
+Each episode focuses on a different aspect of modern economic development: the rise of corporate power, the role of government in the economy, the impact of technology on society, and the growing inequality between rich and poor nations.
+
+What makes this series particularly valuable is Galbraith's ability to explain complex economic concepts in accessible terms while maintaining intellectual rigor. His perspective as both an economist and a participant in many of the events he describes adds depth and authenticity to the analysis.
+
+The series remains highly relevant today as many of the economic challenges and uncertainties Galbraith identified continue to shape our world. It's essential viewing for understanding the economic foundations of contemporary global politics and society.`,
+    reading_time: "650 min"
+  }
 ];
 
 const youtubeVideosData = [
   {
-    title: "3Blue1Brown - Neural Networks",
-    url: "https://www.youtube.com/watch?v=aircAruvnKk",
-    thumbnail: "https://img.youtube.com/vi/aircAruvnKk/maxresdefault.jpg",
-    tags: ["Math", "AI", "Machine Learning", "Neural Networks", "Visualization"],
-    description: `Grant Sanderson's incredible series on neural networks is a masterpiece of mathematical visualization. This video breaks down the fundamental concepts of neural networks in an intuitive and visually stunning way. The 3Blue1Brown channel is known for its exceptional ability to make complex mathematical concepts accessible through beautiful animations and clear explanations.`,
-    duration: "19:13",
-    channel: "3Blue1Brown"
-  },
-  {
-    title: "Veritasium - The Most Misunderstood Concept in Physics",
-    url: "https://www.youtube.com/watch?v=Y9ph6dVJJlY",
-    thumbnail: "https://img.youtube.com/vi/Y9ph6dVJJlY/maxresdefault.jpg",
-    tags: ["Physics", "Science", "Education", "Concepts"],
-    description: `Derek Muller explores one of the most fundamental yet misunderstood concepts in physics. This video challenges common misconceptions and provides deep insights into how we should think about physical concepts. Veritasium's approach to science communication is both entertaining and educational, making complex topics accessible to everyone.`,
-    duration: "27:15",
-    channel: "Veritasium"
-  },
-  {
-    title: "Lex Fridman - AI Podcast with Elon Musk",
-    url: "https://www.youtube.com/watch?v=cdiD-9MMpb0",
-    thumbnail: "https://img.youtube.com/vi/cdiD-9MMpb0/maxresdefault.jpg",
-    tags: ["AI", "Technology", "Podcast", "Interview", "Future"],
-    description: `A fascinating conversation between Lex Fridman and Elon Musk about artificial intelligence, neural networks, and the future of technology. This podcast episode delves into deep technical discussions while remaining accessible to a broad audience. Lex Fridman's podcast is known for its long-form, thoughtful discussions with leading figures in AI and technology.`,
-    duration: "2:31:45",
-    channel: "Lex Fridman"
-  },
-  {
-    title: "Numberphile - The Most Beautiful Equation",
-    url: "https://www.youtube.com/watch?v=ZxYOEwM6Wbk",
-    thumbnail: "https://img.youtube.com/vi/ZxYOEwM6Wbk/maxresdefault.jpg",
-    tags: ["Math", "Mathematics", "Euler", "Education", "Beauty"],
-    description: `Brady Haran and his guests explore Euler's identity, often called the most beautiful equation in mathematics. This video explains why this equation is so significant and how it connects different branches of mathematics. Numberphile's videos make mathematics engaging and accessible through clear explanations and visual demonstrations.`,
-    duration: "11:06",
-    channel: "Numberphile"
-  },
-  {
-    title: "Computerphile - How Computers Work",
-    url: "https://www.youtube.com/watch?v=ZxKM3DCV2kE",
-    thumbnail: "https://img.youtube.com/vi/ZxKM3DCV2kE/maxresdefault.jpg",
-    tags: ["Computer Science", "Technology", "Education", "Hardware", "Binary"],
-    description: `An excellent introduction to how computers work at the fundamental level. This video covers everything from binary numbers to logic gates, providing a solid foundation for understanding computer science. Computerphile's content is perfect for anyone interested in learning about the inner workings of technology.`,
-    duration: "15:42",
-    channel: "Computerphile"
-  },
-  {
-    title: "Kurzgesagt - The Fermi Paradox",
-    url: "https://www.youtube.com/watch?v=sNhhvQGsMEc",
-    thumbnail: "https://img.youtube.com/vi/sNhhvQGsMEc/maxresdefault.jpg",
-    tags: ["Science", "Space", "Philosophy", "Astronomy", "Animation"],
-    description: `A beautifully animated exploration of the Fermi Paradox - the apparent contradiction between the high probability of extraterrestrial civilizations and the lack of evidence for their existence. Kurzgesagt's videos combine stunning visuals with thoughtful scientific content, making complex topics both beautiful and understandable.`,
-    duration: "6:17",
-    channel: "Kurzgesagt – In a Nutshell"
+    title: "The Most Eye Opening 10 Minutes of Your Life | David Goggins",
+    url: "https://www.youtube.com/watch?v=xhHZ_lXiF38",
+    thumbnail: "https://img.youtube.com/vi/xhHZ_lXiF38/maxresdefault.jpg",
+    tags: ["Motivation", "Personal Development", "Mindset", "Self-Improvement"],
+    description: `David Goggins shares his powerful philosophy on mental toughness and self-transformation. In this intense motivational talk, he discusses overcoming limitations, embracing discomfort, and pushing beyond perceived boundaries to achieve extraordinary results.`,
+    duration: "10:23",
+    channel: "Motivation2Study"
   },
   {
     title: "The Power of Delusional Self Belief",
@@ -167,12 +143,35 @@ const checkFilter = (item, filter) => {
   }
 };
 
+// EmptyResults Component
+const EmptyResults = ({ onReset }) => {
+  return (
+    <div className="empty-results-container">
+      <Empty
+        image={Empty.PRESENTED_IMAGE_SIMPLE}
+        description={
+          <span className="empty-text">No matching resources found</span>
+        }
+      />
+      <Button 
+        type="primary" 
+        icon={<ReloadOutlined />} 
+        onClick={onReset}
+        className="reset-button"
+      >
+        Reset Filters
+      </Button>
+    </div>
+  );
+};
+
 export default function Other() {
   const [matchType, setMatchType] = useState('All');
   const [filters, setFilters] = useState([
     { id: 1, field: 'tags', operator: 'includes', value: [], enabled: true },
   ]);
   const [nextId, setNextId] = useState(2);
+  const [isFilterVisible, setIsFilterVisible] = useState(false);
 
   const filteredData = useMemo(() => {
     const activeFilters = filters.filter(f => f.enabled);
@@ -209,6 +208,21 @@ export default function Other() {
     const newValue = fieldConfig.valueType === 'multi-select' ? [] : '';
     updateFilter(id, { field: newField, operator: newOperator, value: newValue });
   };
+
+  const toggleFilterVisibility = () => {
+    setIsFilterVisible(!isFilterVisible);
+  };
+
+  const clearAllFilters = () => {
+    setFilters([{ id: 1, field: 'tags', operator: 'includes', value: [], enabled: true }]);
+    setNextId(2);
+  };
+
+  const resetFilters = () => {
+    clearAllFilters();
+  };
+
+  const activeFiltersCount = filters.filter(f => f.enabled && f.value && (Array.isArray(f.value) ? f.value.length > 0 : f.value.trim() !== '')).length;
 
   const renderValueInput = (filter) => {
     const fieldConfig = filterFields.find(f => f.value === filter.field);
@@ -264,106 +278,167 @@ export default function Other() {
 
   return (
     <motion.div className="page-container resources-page-container" initial={{opacity:0}} animate={{opacity:1}} transition={{duration:0.5}} style={{paddingTop: '2rem', paddingBottom: '2rem'}}>
-      <Row justify="center" style={{ marginBottom: '2.5rem' }}><Col><h1 id='headerTitle' style={{ textAlign: 'center', fontSize: '2.5rem' }}>Resources</h1></Col></Row>
+      <Row justify="center" style={{ marginBottom: '2.5rem' }}>
+        <Col>
+          <h1 id='headerTitle' style={{ textAlign: 'center', fontSize: '2.5rem' }}>Resources</h1>
+        </Col>
+      </Row>
 
       <Row justify="center" style={{ marginBottom: '2rem' }}>
         <Col xs={22} sm={20} md={18} lg={16} xl={14}>
-          <div className="filter-builder-container">
-            <div className="filter-builder-header">
-              <span>Match</span>
-              <Select value={matchType} onChange={setMatchType} style={{ width: 80, margin: '0 8px' }}>
-                <Option value="All">All</Option>
-                <Option value="Any">Any</Option>
-              </Select>
-              <span>of the following filters:</span>
-            </div>
-            <div className="filter-list">
-              <AnimatePresence>
-                {filters.map(filter => (
-                  <motion.div
-                    key={filter.id}
-                    layout
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, x: -20, transition: { duration: 0.2 } }}
-                    transition={{ duration: 0.3, type: 'spring', stiffness: 100, damping: 20 }}
-                    className="filter-motion-div"
+          <div className="search-filter-container">
+            <div className="filter-toggle-bar" onClick={toggleFilterVisibility}>
+              <div className="filter-toggle-left">
+                <FilterOutlined className="filter-toggle-icon" />
+                <span className="filter-toggle-text">Advanced Filters</span>
+                {activeFiltersCount > 0 && (
+                  <span className="filter-toggle-count">{activeFiltersCount}</span>
+                )}
+              </div>
+              <div className="filter-toggle-right">
+                {activeFiltersCount > 0 && (
+                  <Button 
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      clearAllFilters();
+                    }}
+                    className="clear-all-filters-btn"
+                    size="small"
                   >
-                    <Row className="filter-row" gutter={8}>
-                      <Col><Checkbox checked={filter.enabled} onChange={e => updateFilter(filter.id, { enabled: e.target.checked })} /></Col>
-                      <Col flex="120px">
-                        <Select value={filter.field} onChange={val => onFieldChange(filter.id, val)} style={{ width: '100%' }} popupClassName="filter-field-dropdown">
-                          {filterFields.map(field => <Option key={field.value} value={field.value}>{field.icon} {field.label}</Option>)}
-                        </Select>
-                      </Col>
-                      <Col flex="150px">
-                        <Select value={filter.operator} onChange={val => updateFilter(filter.id, { operator: val })} style={{ width: '100%' }}>
-                          {(filterFields.find(f => f.value === filter.field)?.operators || []).map(op => <Option key={op} value={op}>{operatorLabels[op]}</Option>)}
-                        </Select>
-                      </Col>
-                      <Col flex="auto">{renderValueInput(filter)}</Col>
-                      <Col><Button type="text" icon={<MinusOutlined />} onClick={() => removeFilter(filter.id)} className="remove-filter-btn" /></Col>
-                    </Row>
-                  </motion.div>
-                ))}
-              </AnimatePresence>
+                    Clear All
+                  </Button>
+                )}
+                <DownOutlined className={`filter-toggle-icon ${isFilterVisible ? 'expanded' : ''}`} />
+              </div>
             </div>
-            <Button onClick={addFilter} icon={<PlusOutlined />} className="add-filter-button">Add filter</Button>
-            
-            {/* Logic Equation Display */}
-            <div className="logic-equation-container">
-                {renderLogicEquation()}
-            </div>
+
+            <AnimatePresence>
+              {isFilterVisible && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3, ease: 'easeInOut' }}
+                  className="filter-dropdown-content"
+                >
+                  <div className="filter-builder-container">
+                    <div className="filter-builder-header">
+                      <span>Match</span>
+                      <Select value={matchType} onChange={setMatchType} style={{ width: 80, margin: '0 8px' }}>
+                        <Option value="All">All</Option>
+                        <Option value="Any">Any</Option>
+                      </Select>
+                      <span>of the following filters:</span>
+                    </div>
+                    <div className="filter-list">
+                      <AnimatePresence>
+                        {filters.map(filter => (
+                          <motion.div
+                            key={filter.id}
+                            layout
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, x: -20, transition: { duration: 0.2 } }}
+                            transition={{ duration: 0.3, type: 'spring', stiffness: 100, damping: 20 }}
+                            className="filter-motion-div"
+                          >
+                            <Row className="filter-row" gutter={8}>
+                              <Col><Checkbox checked={filter.enabled} onChange={e => updateFilter(filter.id, { enabled: e.target.checked })} /></Col>
+                              <Col flex="120px">
+                                <Select value={filter.field} onChange={val => onFieldChange(filter.id, val)} style={{ width: '100%' }} popupClassName="filter-field-dropdown">
+                                  {filterFields.map(field => <Option key={field.value} value={field.value}>{field.icon} {field.label}</Option>)}
+                                </Select>
+                              </Col>
+                              <Col flex="150px">
+                                <Select value={filter.operator} onChange={val => updateFilter(filter.id, { operator: val })} style={{ width: '100%' }}>
+                                  {(filterFields.find(f => f.value === filter.field)?.operators || []).map(op => <Option key={op} value={op}>{operatorLabels[op]}</Option>)}
+                                </Select>
+                              </Col>
+                              <Col flex="auto">{renderValueInput(filter)}</Col>
+                              <Col><Button type="text" icon={<MinusOutlined />} onClick={() => removeFilter(filter.id)} className="remove-filter-btn" /></Col>
+                            </Row>
+                          </motion.div>
+                        ))}
+                      </AnimatePresence>
+                    </div>
+                    <Button onClick={addFilter} icon={<PlusOutlined />} className="add-filter-button">Add filter</Button>
+                    
+                    {/* Logic Equation Display */}
+                    <div className="logic-equation-container">
+                      {renderLogicEquation()}
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </Col>
       </Row>
 
-      {filteredResources.length > 0 && (
+      {filteredData.length > 0 ? (
         <>
-          <Row justify="center" style={{ marginBottom: '3rem' }}><Col xs={22} sm={20} md={18} lg={16} xl={14}><h2 id='subTitle' style={{ textAlign: 'center', marginBottom: '2rem' }}>Blogs & Articles ({filteredResources.length})</h2></Col></Row>
-          <Row gutter={[16, 32]} justify="center" style={{ marginBottom: '4rem' }}>
-            {filteredResources.map((resource, index) => (
-              <Col xs={22} sm={20} md={18} lg={16} xl={14} key={index}>
-                <Card title={resource.title} className="resource-card" extra={<Button type="primary" href={resource.url} target="_blank" rel="noopener noreferrer" icon={<ArrowRightOutlined />} className="resource-visit-button" key="visit-extra"></Button>}>
-                  <div className="resource-tags">{resource.tags.map(tag => <Tag key={tag} color="blue" className="resource-tag">{tag}</Tag>)}</div>
-                  {resource.description.split('\n').map((paragraph, pIndex) => <p className="resource-description" key={pIndex} style={{marginBottom: '1em'}}>{paragraph}</p>)}
-                </Card>
-              </Col>
-            ))}
-          </Row>
-        </>
-      )}
+          {filteredResources.length > 0 && (
+            <>
+              <Row justify="center" style={{ marginBottom: '3rem' }}>
+                <Col xs={22} sm={20} md={18} lg={16} xl={14}>
+                  <h2 id='subTitle' style={{ textAlign: 'center', marginBottom: '2rem' }}>Blogs & Articles ({filteredResources.length})</h2>
+                </Col>
+              </Row>
+              <Row gutter={[16, 32]} justify="center" style={{ marginBottom: '4rem' }}>
+                {filteredResources.map((resource, index) => (
+                  <Col xs={22} sm={20} md={18} lg={16} xl={14} key={index}>
+                    <Card title={resource.title} className="resource-card" extra={<Button type="primary" href={resource.url} target="_blank" rel="noopener noreferrer" icon={<ArrowRightOutlined />} className="resource-visit-button" key="visit-extra"></Button>}>
+                      <div className="resource-tags">{resource.tags.map(tag => <Tag key={tag} color="blue" className="resource-tag">{tag}</Tag>)}</div>
+                      {resource.description.split('\n').map((paragraph, pIndex) => <p className="resource-description" key={pIndex} style={{marginBottom: '1em'}}>{paragraph}</p>)}
+                    </Card>
+                  </Col>
+                ))}
+              </Row>
+            </>
+          )}
 
-      {filteredVideos.length > 0 && (
-        <>
-          <Row justify="center" style={{ marginBottom: '3rem' }}><Col xs={22} sm={20} md={18} lg={16} xl={14}><h2 id='subTitle' style={{ textAlign: 'center', marginBottom: '2rem' }}>YouTube Videos ({filteredVideos.length})</h2></Col></Row>
-          <Row gutter={[16, 32]} justify="center">
-            {filteredVideos.map((video, index) => (
-              <Col xs={22} sm={20} md={18} lg={16} xl={14} key={index}>
-                <Card title={video.title} className="resource-card youtube-card" extra={<Button type="primary" href={video.url} target="_blank" rel="noopener noreferrer" icon={<PlayCircleOutlined />} className="resource-visit-button youtube-play-button" key="play-extra">Watch</Button>}>
-                  <div className="youtube-card-content">
-                    <div className="youtube-thumbnail-container"><img src={video.thumbnail} alt={video.title} className="youtube-thumbnail" /><div className="youtube-overlay"><PlayCircleOutlined className="youtube-play-icon" /></div></div>
-                    <div className="youtube-content-side">
-                      <div className="youtube-meta"><span className="youtube-channel">{video.channel}</span><span className="youtube-duration">{video.duration}</span></div>
-                      <div className="youtube-tags">{video.tags.map(tag => <Tag key={tag} color="red" className="youtube-tag">{tag}</Tag>)}</div>
-                      <p className="resource-description youtube-description">{video.description}</p>
-                    </div>
-                  </div>
-                </Card>
-              </Col>
-            ))}
-          </Row>
-        </>
-      )}
+          {filteredVideos.length > 0 && (
+            <>
+              <Row justify="center" style={{ marginBottom: '3rem' }}>
+                <Col xs={22} sm={20} md={18} lg={16} xl={14}>
+                  <h2 id='subTitle' style={{ textAlign: 'center', marginBottom: '2rem' }}>YouTube Videos ({filteredVideos.length})</h2>
+                </Col>
+              </Row>
+              <Row gutter={[16, 32]} justify="center">
+                {filteredVideos.map((video, index) => (
+                  <Col xs={22} sm={20} md={18} lg={16} xl={14} key={index}>
+                    <Card title={video.title} className="resource-card youtube-card" extra={<Button type="primary" href={video.url} target="_blank" rel="noopener noreferrer" icon={<PlayCircleOutlined />} className="resource-visit-button youtube-play-button" key="play-extra">Watch</Button>}>
+                      <div className="youtube-card-content">
+                        <div className="youtube-thumbnail-container"><img src={video.thumbnail} alt={video.title} className="youtube-thumbnail" /><div className="youtube-overlay"><PlayCircleOutlined className="youtube-play-icon" /></div></div>
+                        <div className="youtube-content-side">
+                          <div className="youtube-meta"><span className="youtube-channel">{video.channel}</span><span className="youtube-duration">{video.duration}</span></div>
+                          <div className="youtube-tags">{video.tags.map(tag => <Tag key={tag} color="red" className="youtube-tag">{tag}</Tag>)}</div>
+                          <p className="resource-description youtube-description">{video.description}</p>
+                        </div>
+                      </div>
+                    </Card>
+                  </Col>
+                ))}
+              </Row>
+            </>
+          )}
 
-      {filteredData.length === 0 && (
-        <Row justify="center"><Col xs={22} sm={20} md={18} lg={16} xl={14}>
-          <div className="no-results">
-            <h3>No resources found</h3>
-            <p>Try adjusting your filters.</p>
-            <Button type="primary" onClick={() => setFilters([])}>Clear all filters</Button>
-          </div>
-        </Col></Row>
+          {filteredData.length > 0 && filteredData.length !== allData.length && (
+            <Row justify="center" style={{ marginTop: '2rem' }}>
+              <Col xs={22} sm={20} md={18} lg={16} xl={14}>
+                <div className="results-info">
+                  Showing {filteredData.length} of {allData.length} resources
+                </div>
+              </Col>
+            </Row>
+          )}
+        </>
+      ) : (
+        <Row justify="center">
+          <Col xs={22} sm={20} md={18} lg={16} xl={14}>
+            <EmptyResults onReset={resetFilters} />
+          </Col>
+        </Row>
       )}
     </motion.div>
   );
