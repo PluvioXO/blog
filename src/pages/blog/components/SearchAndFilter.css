@@ -156,22 +156,171 @@
 }
 
 /* Responsive adjustments */
+@media (max-width: 1024px) {
+  .search-filter-container {
+    margin-bottom: var(--mobile-spacing-xl);
+  }
+  
+  .filter-toggle-bar {
+    padding: var(--mobile-spacing-md);
+  }
+  
+  .filter-dropdown-content .filter-builder-container {
+    padding: var(--mobile-spacing-lg);
+  }
+}
+
 @media (max-width: 768px) {
+  .search-filter-container {
+    margin-bottom: var(--mobile-spacing-lg);
+  }
+  
+  .filter-toggle-bar {
+    padding: var(--mobile-spacing-sm) var(--mobile-spacing-md);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--mobile-spacing-sm);
+  }
+  
+  .filter-toggle-left {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .filter-toggle-right {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  
+  .filter-toggle-text {
+    font-size: var(--font-size-sm);
+  }
+  
+  .filter-toggle-count {
+    font-size: var(--font-size-xs);
+    padding: var(--mobile-spacing-xs) var(--mobile-spacing-sm);
+    min-width: 18px;
+  }
+  
+  .clear-all-filters-btn {
+    padding: var(--mobile-spacing-xs) var(--mobile-spacing-md);
+    font-size: var(--font-size-xs);
+    min-height: var(--touch-target-size-small);
+  }
+  
+  .filter-dropdown-content .filter-builder-container {
+    padding: var(--mobile-spacing-md);
+  }
+  
   .filter-section {
-    margin-top: var(--spacing-sm);
-    padding-top: var(--spacing-sm);
+    margin-top: var(--mobile-spacing-sm);
+    padding-top: var(--mobile-spacing-sm);
+  }
+  
+  .filter-label {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--mobile-spacing-sm);
+  }
+  
+  .clear-filters-button {
+    margin-top: var(--mobile-spacing-md);
+    padding: var(--mobile-spacing-sm) var(--mobile-spacing-lg);
+    min-height: var(--touch-target-size-small);
+  }
+  
+  /* Ant Design overrides for mobile */
+  .ant-select-selector {
+    min-height: var(--touch-target-size-small) !important;
+    padding: var(--mobile-spacing-xs) var(--mobile-spacing-sm) !important;
+  }
+  
+  .ant-input {
+    min-height: var(--touch-target-size-small) !important;
+    padding: var(--mobile-spacing-sm) !important;
+    font-size: var(--font-size-sm) !important;
+  }
+  
+  .ant-checkbox-wrapper {
+    font-size: var(--font-size-sm) !important;
   }
 }
 
 @media (max-width: 576px) {
   .search-bar {
     flex-direction: column;
-    gap: var(--spacing-xs);
+    gap: var(--mobile-spacing-sm);
   }
   
   .filter-toggle-button {
-    align-self: flex-end;
-    margin-top: -40px;
+    align-self: stretch;
+    margin-top: 0;
+  }
+  
+  .filter-toggle-bar {
+    padding: var(--mobile-spacing-sm);
+  }
+  
+  .filter-toggle-text {
+    font-size: var(--font-size-xs);
+  }
+  
+  .filter-toggle-count {
+    font-size: 10px;
+    padding: 2px var(--mobile-spacing-xs);
+    min-width: 16px;
+  }
+  
+  .clear-all-filters-btn {
+    padding: var(--mobile-spacing-xs) var(--mobile-spacing-sm);
+    font-size: 10px;
+  }
+  
+  .filter-dropdown-content .filter-builder-container {
+    padding: var(--mobile-spacing-sm);
+  }
+  
+  .filter-label {
+    font-size: var(--font-size-xs);
+  }
+  
+  .clear-filters-button {
+    padding: var(--mobile-spacing-sm) var(--mobile-spacing-md);
+    font-size: var(--font-size-sm);
+  }
+  
+  .filter-result-count {
+    font-size: var(--font-size-xs);
+    margin-top: var(--mobile-spacing-sm);
+  }
+  
+  /* Smaller touch targets for very small screens */
+  .ant-select-selector {
+    min-height: 32px !important;
+    font-size: var(--font-size-sm) !important;
+  }
+  
+  .ant-input {
+    min-height: 32px !important;
+    font-size: var(--font-size-sm) !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .filter-toggle-bar {
+    padding: var(--mobile-spacing-xs);
+  }
+  
+  .filter-dropdown-content .filter-builder-container {
+    padding: var(--mobile-spacing-xs) var(--mobile-spacing-sm);
+  }
+  
+  .filter-toggle-text {
+    font-size: 10px;
+  }
+  
+  .clear-all-filters-btn {
+    font-size: 9px;
+    padding: 1px var(--mobile-spacing-xs);
   }
 }
 

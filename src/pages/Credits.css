@@ -549,3 +549,242 @@
     opacity: 0.6;
     font-style: italic;
 }
+
+/* Responsive adjustments for Credits page */
+@media (max-width: 1024px) {
+  .youtube-card-content {
+    flex-direction: column;
+    align-items: center;
+    min-height: auto;
+    padding: var(--mobile-spacing-lg);
+  }
+  
+  .youtube-thumbnail-container {
+    width: 100%;
+    max-width: 400px;
+    height: 225px;
+    margin-right: 0;
+    margin-bottom: var(--mobile-spacing-lg);
+  }
+  
+  .youtube-content-side {
+    padding: 0;
+    text-align: center;
+  }
+  
+  .resource-card .ant-card-head-title {
+    font-size: var(--font-size-xl);
+  }
+  
+  .resource-description {
+    font-size: var(--font-size-sm);
+  }
+}
+
+@media (max-width: 768px) {
+    .youtube-card-content {
+        flex-direction: column;
+        align-items: center;
+        min-height: auto;
+        padding: var(--mobile-spacing-md);
+    }
+
+    .youtube-thumbnail-container {
+        width: 100%;
+        max-width: 320px;
+        height: 180px;
+        margin-right: 0;
+        margin-bottom: var(--mobile-spacing-md);
+    }
+
+    .youtube-content-side {
+        padding: 0;
+        text-align: center;
+    }
+
+    .youtube-play-icon {
+        font-size: 2.5rem;
+    }
+
+    .youtube-meta {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--mobile-spacing-sm);
+        margin-bottom: var(--mobile-spacing-md);
+    }
+
+    .youtube-description {
+        font-size: var(--font-size-sm);
+        line-height: var(--line-height-normal);
+    }
+    
+    .resource-card {
+      margin-bottom: var(--mobile-spacing-lg);
+    }
+    
+    .resource-card .ant-card-head-title {
+      font-size: var(--font-size-lg);
+    }
+    
+    .resource-description {
+      font-size: var(--font-size-sm);
+      line-height: var(--line-height-normal);
+    }
+    
+    .resource-visit-button.ant-btn-primary {
+      padding: var(--mobile-spacing-sm) var(--mobile-spacing-lg);
+      font-size: var(--font-size-sm);
+      min-height: var(--touch-target-size-small);
+    }
+    
+    #headerTitle {
+      font-size: var(--font-size-3xl) !important;
+      text-align: center;
+    }
+    
+    #creditTitle {
+      font-size: var(--font-size-xl);
+      text-align: center;
+    }
+    
+    #subTitle {
+      font-size: var(--font-size-lg);
+      text-align: center;
+    }
+    
+    .outsideRedirectContainer {
+      font-size: var(--font-size-xl);
+      text-align: center;
+    }
+    
+    .textBody {
+      font-size: var(--font-size-sm);
+      line-height: var(--line-height-normal);
+    }
+    
+    #contentsTitle {
+      font-size: var(--font-size-sm);
+    }
+    
+    #contentsItem {
+      font-size: var(--font-size-xs);
+    }
+    
+    .tableOfContents {
+      position: static;
+      margin-bottom: var(--mobile-spacing-lg);
+    }
+}
+
+@media (max-width: 576px) {
+    .youtube-card-content {
+        padding: var(--mobile-spacing-sm);
+    }
+
+    .youtube-thumbnail-container {
+        width: 100%;
+        max-width: 280px;
+        height: 157px;
+        margin-bottom: var(--mobile-spacing-sm);
+    }
+
+    .youtube-play-icon {
+        font-size: 2rem;
+    }
+
+    .youtube-meta {
+        flex-direction: column;
+        gap: var(--mobile-spacing-xs);
+        margin-bottom: var(--mobile-spacing-sm);
+    }
+    
+    .youtube-description {
+      font-size: var(--font-size-xs);
+    }
+    
+    .resource-card {
+      margin-bottom: var(--mobile-spacing-md);
+    }
+    
+    .resource-card .ant-card-head {
+      padding: var(--mobile-spacing-md);
+    }
+    
+    .resource-card .ant-card-body {
+      padding: var(--mobile-spacing-md);
+    }
+    
+    .resource-card .ant-card-head-title {
+      font-size: var(--font-size-base);
+    }
+    
+    .resource-description {
+      font-size: var(--font-size-xs);
+    }
+    
+    .resource-visit-button.ant-btn-primary {
+      width: 100%;
+      padding: var(--mobile-spacing-sm) var(--mobile-spacing-md);
+      font-size: var(--font-size-xs);
+    }
+    
+    #headerTitle {
+      font-size: var(--font-size-2xl) !important;
+    }
+    
+    #creditTitle {
+      font-size: var(--font-size-lg);
+    }
+    
+    #subTitle {
+      font-size: var(--font-size-base);
+    }
+    
+    .outsideRedirectContainer {
+      font-size: var(--font-size-lg);
+    }
+    
+    .textBody {
+      font-size: var(--font-size-xs);
+    }
+    
+    #contentsTitle {
+      font-size: var(--font-size-xs);
+    }
+    
+    #contentsItem {
+      font-size: 10px;
+    }
+}
+
+@media (max-width: 360px) {
+  .youtube-card-content {
+    padding: var(--mobile-spacing-xs);
+  }
+  
+  .youtube-thumbnail-container {
+    max-width: 240px;
+    height: 135px;
+  }
+  
+  .resource-card .ant-card-head,
+  .resource-card .ant-card-body {
+    padding: var(--mobile-spacing-sm);
+  }
+  
+  .resource-card .ant-card-head-title {
+    font-size: var(--font-size-sm);
+  }
+  
+  .resource-description {
+    font-size: 10px;
+  }
+  
+  #headerTitle {
+    font-size: var(--font-size-xl) !important;
+  }
+  
+  #creditTitle {
+    font-size: var(--font-size-base);
+  }
+}

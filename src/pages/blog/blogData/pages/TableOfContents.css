@@ -4,67 +4,78 @@
   top: 50%;
   transform: translateY(-50%);
   background-color: var(--navbar-background-color);
-  padding: 15px;
-  border-radius: 8px;
-  margin: 0 5px 0 0; /* Reduce right margin to give more space to content */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease;
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
+  margin: 0 var(--mobile-spacing-sm) 0 0;
+  box-shadow: var(--shadow-md);
+  transition: background-color var(--transition-normal);
   max-height: 80vh;
   overflow-y: auto;
-  width: calc(100% - 5px); /* Ensure it doesn't overflow its container */
+  width: calc(100% - var(--mobile-spacing-sm));
+  border: 1px solid var(--border-color);
 }
 
 .table-of-contents-title {
   color: var(--link-color);
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--link-color);
-  transition: color 0.3s ease, border-bottom-color 0.3s ease;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--mobile-spacing-md);
+  padding-bottom: var(--mobile-spacing-sm);
+  border-bottom: 2px solid var(--link-color);
+  transition: color var(--transition-normal), border-bottom-color var(--transition-normal);
 }
 
 .table-of-contents-link {
   color: var(--text-color);
   display: block;
-  padding: 5px 0;
-  font-size: 0.9rem;
-  transition: color 0.3s ease;
+  padding: var(--mobile-spacing-sm) 0;
+  font-size: var(--font-size-sm);
+  transition: color var(--transition-normal);
   text-decoration: none;
   cursor: pointer;
+  border-radius: var(--border-radius-small);
+  padding-left: var(--mobile-spacing-xs);
+  padding-right: var(--mobile-spacing-xs);
+  min-height: var(--touch-target-size-small);
+  display: flex;
+  align-items: center;
 }
 
 .table-of-contents-link:hover {
   color: var(--link-hover-color);
+  background-color: rgba(125, 211, 252, 0.1);
 }
 
 .main-section {
-  font-weight: bold;
-  margin-top: 10px;
-  font-size: 0.95rem;
+  font-weight: var(--font-weight-bold);
+  margin-top: var(--mobile-spacing-md);
+  font-size: var(--font-size-base);
+  background-color: rgba(125, 211, 252, 0.05);
+  padding: var(--mobile-spacing-sm);
+  border-radius: var(--border-radius-small);
 }
 
 .subsections-group {
   position: relative;
-  padding-left: 15px;
-  margin-bottom: 10px;
+  padding-left: var(--mobile-spacing-md);
+  margin-bottom: var(--mobile-spacing-md);
 }
 
 .subsections-group:before {
   content: "";
   position: absolute;
-  left: 5px;
+  left: var(--mobile-spacing-sm);
   top: 0;
   bottom: 0;
   width: 1px;
-  background-color: var(--text-color);
+  background-color: var(--border-color);
   opacity: 0.5;
 }
 
 .subsection-link {
-  font-size: 0.85rem;
-  margin-bottom: 2px;
-  padding-left: 15px;
+  font-size: var(--font-size-xs);
+  margin-bottom: var(--mobile-spacing-xs);
+  padding-left: var(--mobile-spacing-md);
   position: relative;
 }
 
@@ -73,15 +84,15 @@
   position: absolute;
   left: 0;
   top: 50%;
-  width: 10px;
+  width: var(--mobile-spacing-sm);
   height: 1px;
-  background-color: var(--text-color);
+  background-color: var(--border-color);
   opacity: 0.5;
 }
 
 /* Add scrollbar styling for better appearance */
 .table-of-contents::-webkit-scrollbar {
-  width: 5px;
+  width: 4px;
 }
 
 .table-of-contents::-webkit-scrollbar-track {
@@ -90,24 +101,45 @@
 
 .table-of-contents::-webkit-scrollbar-thumb {
   background-color: var(--link-color);
-  border-radius: 10px;
+  border-radius: var(--border-radius-large);
 }
 
 /* Responsive adjustments */
+@media (max-width: 1200px) {
+  .table-of-contents {
+    transform: none;
+    top: var(--mobile-spacing-lg);
+    margin: 0 var(--mobile-spacing-md);
+    max-height: 70vh;
+  }
+}
+
 @media (max-width: 992px) {
   .table-of-contents {
     transform: none;
-    top: 20px;
-    margin: 0 10px;
+    top: var(--mobile-spacing-md);
+    margin: 0 var(--mobile-spacing-sm);
+    max-height: 60vh;
+    padding: var(--mobile-spacing-md);
+  }
+  
+  .table-of-contents-title {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--mobile-spacing-sm);
   }
 }
 
 @media (max-width: 768px) {
+  .table-of-contents {
+    display: none; /* Hide on mobile, use mobile sidebar instead */
+  }
+  
   .main-section {
-    font-size: 0.9rem;
+    font-size: var(--font-size-sm);
+    padding: var(--mobile-spacing-xs);
   }
   
   .subsection-link {
-    font-size: 0.8rem;
+    font-size: var(--font-size-xs);
   }
 } 

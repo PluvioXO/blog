@@ -8,6 +8,22 @@
   transition: background-color var(--transition-normal);
 }
 
+/* Mobile-specific navbar height */
+@media (max-width: 768px) {
+  .navbar {
+    height: var(--navbar-height-mobile);
+    padding-left: var(--mobile-spacing-lg) !important;
+    padding-right: var(--mobile-spacing-lg) !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar {
+    padding-left: var(--mobile-spacing-md) !important;
+    padding-right: var(--mobile-spacing-md) !important;
+  }
+}
+
 .navbar-text {
   color: white;
 }
@@ -93,16 +109,34 @@
   border: none !important;
   color: var(--link-color) !important;
   font-size: 24px !important;
-  padding: 0 !important;
-  height: auto !important;
+  padding: var(--mobile-spacing-sm) !important;
+  height: var(--touch-target-size) !important;
+  width: var(--touch-target-size) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: var(--border-radius) !important;
+  transition: all var(--transition-fast) !important;
 }
 
 .mobile-nav-button:hover {
   color: var(--link-hover-color) !important;
+  background-color: rgba(125, 211, 252, 0.1) !important;
 }
 
 .mobile-nav-button .anticon {
-  font-size: 24px;
+  font-size: 20px;
+}
+
+@media (max-width: 576px) {
+  .mobile-nav-button {
+    height: var(--touch-target-size-small) !important;
+    width: var(--touch-target-size-small) !important;
+  }
+  
+  .mobile-nav-button .anticon {
+    font-size: 18px;
+  }
 }
 
 /* Mobile Sidebar Styles */
@@ -112,35 +146,54 @@
 
 .mobile-sidebar .ant-drawer-header {
   background-color: var(--navbar-background-color) !important;
-  border-bottom: 1px solid var(--text-color) !important;
-  padding: 16px 24px !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  padding: var(--spacing-md) var(--spacing-lg) !important;
 }
 
 .mobile-sidebar .ant-drawer-title {
   color: var(--text-color) !important;
-  font-size: 18px !important;
+  font-size: var(--font-size-lg) !important;
+  font-weight: var(--font-weight-bold) !important;
 }
 
 .mobile-sidebar .ant-drawer-close {
   color: var(--link-color) !important;
+  width: var(--touch-target-size) !important;
+  height: var(--touch-target-size) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 .mobile-sidebar .ant-menu {
   background-color: var(--navbar-background-color) !important;
   border-right: none !important;
   color: var(--text-color) !important;
+  padding: var(--spacing-md) 0 !important;
 }
 
 .mobile-sidebar .ant-menu-item {
-  height: 50px !important;
-  line-height: 50px !important;
-  margin: 0 !important;
-  padding: 0 24px !important;
+  height: var(--touch-target-size) !important;
+  line-height: var(--touch-target-size) !important;
+  margin: var(--mobile-spacing-xs) 0 !important;
+  padding: 0 var(--spacing-lg) !important;
+  border-radius: var(--border-radius) !important;
+  margin-left: var(--spacing-md) !important;
+  margin-right: var(--spacing-md) !important;
+  transition: all var(--transition-fast) !important;
 }
 
 .mobile-sidebar .ant-menu-item a {
-  color: var(--link-color) !important;
-  font-size: 16px !important;
+  color: var(--text-color) !important;
+  font-size: var(--font-size-base) !important;
+  font-weight: var(--font-weight-normal) !important;
+  display: flex !important;
+  align-items: center !important;
+  height: 100% !important;
+}
+
+.mobile-sidebar .ant-menu-item:hover {
+  background-color: rgba(125, 211, 252, 0.1) !important;
 }
 
 .mobile-sidebar .ant-menu-item:hover a,
@@ -149,9 +202,35 @@
 }
 
 .mobile-sidebar .ant-menu-item-divider {
-  margin: 8px 0 !important;
-  background-color: var(--text-color) !important;
-  opacity: 0.2;
+  margin: var(--spacing-md) var(--spacing-lg) !important;
+  background-color: var(--border-color) !important;
+  opacity: 0.5;
+}
+
+/* Theme switch in mobile sidebar */
+.mobile-sidebar .ant-menu-item .ant-space {
+  justify-content: center !important;
+  width: 100% !important;
+}
+
+.mobile-sidebar .ant-switch {
+  background-color: var(--border-color) !important;
+}
+
+.mobile-sidebar .ant-switch-checked {
+  background-color: var(--link-color) !important;
+}
+
+@media (max-width: 576px) {
+  .mobile-sidebar .ant-menu-item {
+    height: var(--touch-target-size-small) !important;
+    line-height: var(--touch-target-size-small) !important;
+    padding: 0 var(--mobile-spacing-lg) !important;
+  }
+  
+  .mobile-sidebar .ant-menu-item a {
+    font-size: var(--font-size-sm) !important;
+  }
 }
 
 /* Update Ant Design component styles if needed, e.g., Drawer and Menu */

@@ -23,6 +23,7 @@
   
   /* === Layout Variables === */
   --navbar-height: 70px;
+  --navbar-height-mobile: 60px;
   --border-radius: 8px;
   --border-radius-small: 4px;
   --border-radius-large: 12px;
@@ -34,6 +35,13 @@
   --spacing-lg: 24px;
   --spacing-xl: 32px;
   --spacing-2xl: 48px;
+  
+  /* === Mobile-specific spacing === */
+  --mobile-spacing-xs: 2px;
+  --mobile-spacing-sm: 4px;
+  --mobile-spacing-md: 8px;
+  --mobile-spacing-lg: 12px;
+  --mobile-spacing-xl: 16px;
   
   /* === Typography === */
   --font-size-xs: 0.75rem;
@@ -53,6 +61,10 @@
   --line-height-tight: 1.25;
   --line-height-normal: 1.5;
   --line-height-relaxed: 1.75;
+  
+  /* === Touch-friendly sizes === */
+  --touch-target-size: 44px;
+  --touch-target-size-small: 36px;
   
   /* === Shadows === */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -106,6 +118,10 @@
 html {
   background-color: var(--background-color);
   transition: background-color var(--transition-normal);
+  /* Mobile optimizations */
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -120,6 +136,58 @@ body {
   transition: background-color var(--transition-normal), color var(--transition-normal);
   user-select: none;
   line-height: var(--line-height-normal);
+  /* Mobile touch optimizations */
+  -webkit-tap-highlight-color: rgba(125, 211, 252, 0.2);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
+  /* Better text rendering on mobile */
+  text-rendering: optimizeLegibility;
+  -webkit-font-feature-settings: "kern" 1;
+  font-feature-settings: "kern" 1;
+}
+
+/* Mobile scroll improvements */
+@media (max-width: 768px) {
+  body {
+    /* Enable momentum scrolling on iOS */
+    -webkit-overflow-scrolling: touch;
+    /* Prevent zoom on input focus */
+    touch-action: manipulation;
+  }
+  
+  /* Prevent zoom on input elements */
+  input, textarea, select {
+    font-size: 16px !important;
+    transform-origin: left top;
+    transform: scale(1);
+  }
+}
+
+/* Touch-friendly focus states */
+@media (max-width: 768px) {
+  button:focus,
+  a:focus,
+  input:focus,
+  textarea:focus,
+  select:focus,
+  [tabindex]:focus {
+    outline: 2px solid var(--link-color);
+    outline-offset: 2px;
+  }
+  
+  /* Better button touch targets */
+  button,
+  .btn-primary,
+  .btn-secondary,
+  [role="button"] {
+    min-height: var(--touch-target-size-small);
+    min-width: var(--touch-target-size-small);
+  }
 }
 
 /* === Global Typography === */
@@ -272,9 +340,25 @@ a:hover {
 }
 
 /* === Responsive Design === */
-@media (max-width: 768px) {
+/* Large tablets and small desktops */
+@media (max-width: 1024px) {
   .page-container {
     padding: var(--spacing-md);
+  }
+  
+  h1 { font-size: var(--font-size-3xl); }
+  h2 { font-size: var(--font-size-2xl); }
+  h3 { font-size: var(--font-size-xl); }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  :root {
+    --navbar-height: var(--navbar-height-mobile);
+  }
+  
+  .page-container {
+    padding: var(--mobile-spacing-lg);
   }
   
   h1 { font-size: var(--font-size-3xl); }
@@ -286,11 +370,26 @@ a:hover {
   .products {
     font-size: var(--font-size-3xl);
   }
+  
+  /* Touch-friendly buttons */
+  .btn-primary,
+  .btn-secondary {
+    min-height: var(--touch-target-size);
+    padding: var(--mobile-spacing-lg) var(--spacing-lg);
+    font-size: var(--font-size-base);
+  }
+  
+  /* Cards with better spacing */
+  .card {
+    padding: var(--mobile-spacing-lg);
+    margin-bottom: var(--mobile-spacing-lg);
+  }
 }
 
+/* Mobile phones */
 @media (max-width: 576px) {
   .page-container {
-    padding: var(--spacing-sm);
+    padding: var(--mobile-spacing-md);
   }
   
   h1 { font-size: var(--font-size-2xl); }
@@ -301,5 +400,247 @@ a:hover {
   .reports,
   .products {
     font-size: var(--font-size-2xl);
+  }
+  
+  /* Smaller buttons for mobile */
+  .btn-primary,
+  .btn-secondary {
+    min-height: var(--touch-target-size-small);
+    padding: var(--mobile-spacing-md) var(--mobile-spacing-lg);
+    font-size: var(--font-size-sm);
+  }
+  
+  /* Tighter card spacing */
+  .card {
+    padding: var(--mobile-spacing-md);
+    margin-bottom: var(--mobile-spacing-md);
+  }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+  .page-container {
+    padding: var(--mobile-spacing-sm);
+  }
+  
+  h1 { font-size: var(--font-size-xl); }
+  h2 { font-size: var(--font-size-lg); }
+  h3 { font-size: var(--font-size-base); }
+  
+  .card {
+    padding: var(--mobile-spacing-sm);
+  }
+}
+
+/* === Mobile-specific Ant Design Overrides === */
+@media (max-width: 768px) {
+  /* Modal improvements */
+  .ant-modal {
+    margin: var(--mobile-spacing-md) !important;
+    max-width: calc(100vw - var(--mobile-spacing-lg)) !important;
+  }
+  
+  .ant-modal-content {
+    border-radius: var(--border-radius) !important;
+  }
+  
+  .ant-modal-header {
+    padding: var(--mobile-spacing-md) var(--mobile-spacing-lg) !important;
+  }
+  
+  .ant-modal-body {
+    padding: var(--mobile-spacing-lg) !important;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+  
+  .ant-modal-footer {
+    padding: var(--mobile-spacing-md) var(--mobile-spacing-lg) !important;
+  }
+  
+  /* Button improvements */
+  .ant-btn {
+    min-height: var(--touch-target-size-small) !important;
+    padding: var(--mobile-spacing-sm) var(--mobile-spacing-md) !important;
+    font-size: var(--font-size-sm) !important;
+    border-radius: var(--border-radius) !important;
+  }
+  
+  .ant-btn-lg {
+    min-height: var(--touch-target-size) !important;
+    padding: var(--mobile-spacing-md) var(--mobile-spacing-lg) !important;
+    font-size: var(--font-size-base) !important;
+  }
+  
+  /* Input improvements */
+  .ant-input,
+  .ant-input-number,
+  .ant-select-selector {
+    min-height: var(--touch-target-size-small) !important;
+    padding: var(--mobile-spacing-sm) !important;
+    font-size: var(--font-size-sm) !important;
+    border-radius: var(--border-radius) !important;
+  }
+  
+  /* Dropdown improvements */
+  .ant-dropdown {
+    border-radius: var(--border-radius) !important;
+  }
+  
+  .ant-dropdown-menu-item {
+    min-height: var(--touch-target-size-small) !important;
+    padding: var(--mobile-spacing-sm) var(--mobile-spacing-md) !important;
+    font-size: var(--font-size-sm) !important;
+  }
+  
+  /* Card improvements */
+  .ant-card {
+    border-radius: var(--border-radius) !important;
+  }
+  
+  .ant-card-head {
+    padding: var(--mobile-spacing-md) var(--mobile-spacing-lg) !important;
+  }
+  
+  .ant-card-body {
+    padding: var(--mobile-spacing-lg) !important;
+  }
+  
+  /* Menu improvements */
+  .ant-menu-item {
+    min-height: var(--touch-target-size-small) !important;
+    line-height: var(--touch-target-size-small) !important;
+    padding: 0 var(--mobile-spacing-md) !important;
+    font-size: var(--font-size-sm) !important;
+  }
+  
+  /* Tabs improvements */
+  .ant-tabs-tab {
+    min-height: var(--touch-target-size-small) !important;
+    padding: var(--mobile-spacing-sm) var(--mobile-spacing-md) !important;
+    font-size: var(--font-size-sm) !important;
+  }
+  
+  /* Drawer improvements */
+  .ant-drawer-content-wrapper {
+    border-radius: var(--border-radius) 0 0 var(--border-radius) !important;
+  }
+  
+  .ant-drawer-header {
+    padding: var(--mobile-spacing-md) var(--mobile-spacing-lg) !important;
+  }
+  
+  .ant-drawer-body {
+    padding: var(--mobile-spacing-lg) !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Smaller touch targets for very small screens */
+  .ant-btn {
+    min-height: 32px !important;
+    padding: var(--mobile-spacing-xs) var(--mobile-spacing-sm) !important;
+    font-size: var(--font-size-xs) !important;
+  }
+  
+  .ant-input,
+  .ant-input-number,
+  .ant-select-selector {
+    min-height: 32px !important;
+    padding: var(--mobile-spacing-xs) !important;
+    font-size: var(--font-size-xs) !important;
+  }
+  
+  .ant-modal {
+    margin: var(--mobile-spacing-sm) !important;
+    max-width: calc(100vw - var(--mobile-spacing-md)) !important;
+  }
+  
+  .ant-modal-header,
+  .ant-modal-footer {
+    padding: var(--mobile-spacing-sm) var(--mobile-spacing-md) !important;
+  }
+  
+  .ant-modal-body {
+    padding: var(--mobile-spacing-md) !important;
+  }
+}
+
+/* === Performance Optimizations === */
+/* GPU acceleration for smoother animations */
+.card,
+.blog-card,
+.photo-card,
+.navbar,
+.mobile-nav-button,
+.sidebar-toggle,
+.btn-primary,
+.btn-secondary {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Optimize animations for mobile */
+@media (max-width: 768px) {
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  
+  /* Optimize expensive properties */
+  .card:hover,
+  .blog-card:hover,
+  .photo-card:hover {
+    transform: translateY(-2px) translateZ(0);
+  }
+  
+  /* Reduce shadow complexity on mobile */
+  .card,
+  .blog-card,
+  .photo-card {
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .card:hover,
+  .blog-card:hover,
+  .photo-card:hover {
+    box-shadow: var(--shadow-md);
+  }
+  
+  /* Optimize image rendering */
+  img {
+    image-rendering: optimizeQuality;
+    image-rendering: -webkit-optimize-contrast;
+  }
+  
+  /* Optimize text rendering */
+  body,
+  .blog-text-content {
+    text-rendering: optimizeSpeed;
+  }
+}
+
+/* Optimize for very small screens */
+@media (max-width: 360px) {
+  /* Disable hover effects on very small screens */
+  .card:hover,
+  .blog-card:hover,
+  .photo-card:hover,
+  .btn-primary:hover,
+  .btn-secondary:hover {
+    transform: none;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* Reduce animation complexity */
+  * {
+    transition-duration: var(--transition-fast) !important;
   }
 }

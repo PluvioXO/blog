@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Dropdown, Menu, Switch, Space, Typography, Row, Col, Drawer, Button } from 'antd';
 import './Navbar.css';
 import 'antd/dist/reset.css'
@@ -11,7 +11,24 @@ import { ThemeContext } from '../ThemeContext';
 
 export default function Navbar() {
   const [visible, setVisible] = useState(false);
+  const [logoHeight, setLogoHeight] = useState('70px');
   const { theme, toggleTheme } = useContext(ThemeContext);
+
+  useEffect(() => {
+    const updateLogoHeight = () => {
+      if (window.innerWidth <= 576) {
+        setLogoHeight('50px');
+      } else if (window.innerWidth <= 768) {
+        setLogoHeight('60px');
+      } else {
+        setLogoHeight('70px');
+      }
+    };
+
+    updateLogoHeight();
+    window.addEventListener('resize', updateLogoHeight);
+    return () => window.removeEventListener('resize', updateLogoHeight);
+  }, []);
 
   const showDrawer = () => {
     setVisible(true);
@@ -30,7 +47,16 @@ export default function Navbar() {
           <Col xs={1} sm={1} md={0} lg={0} xl={0}></Col>
           <Col xs={16} sm={16} md={4} lg={4} xl={4}>
             <Link to="/">
-            <motion.img src={ BlogLogo } style={{height:'70px'}} initial={{opacity:0}} animate={{opacity: 1}} transition={{duration:0.5}}/>
+            <motion.img 
+              src={ BlogLogo } 
+              style={{
+                height: logoHeight,
+                transition: 'height 0.3s ease'
+              }} 
+              initial={{opacity:0}} 
+              animate={{opacity: 1}} 
+              transition={{duration:0.5}}
+            />
             </Link>
           </Col>
           <Col xs={0} sm={0} md={0} lg={0} xl={0} />

@@ -89,39 +89,107 @@
 }
 
 /* Responsive adjustments */
+@media (max-width: 1024px) {
+  .blog-page-title {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .blog-card {
+    margin: var(--mobile-spacing-sm);
+    padding: var(--mobile-spacing-lg);
+  }
+  
+  .blog-card-image {
+    height: 180px;
+  }
+}
+
 @media (max-width: 768px) {
   .blog-page-title {
     font-size: var(--font-size-3xl);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--mobile-spacing-lg);
+    text-align: center;
   }
   
   .blog-title {
     font-size: var(--font-size-2xl);
+    margin-bottom: var(--mobile-spacing-xl);
+  }
+  
+  .blog-card {
+    margin: var(--mobile-spacing-xs);
+    padding: var(--mobile-spacing-md);
+    margin-bottom: var(--mobile-spacing-lg);
   }
   
   .blog-card-title {
     font-size: var(--font-size-base);
+    line-height: var(--line-height-tight);
   }
   
   .blog-card-image {
-    height: 140px;
+    height: 160px;
+  }
+  
+  .blog-card-tags {
+    gap: var(--mobile-spacing-xs);
+  }
+  
+  .blog-card-tag {
+    padding: var(--mobile-spacing-xs) var(--mobile-spacing-sm);
+    font-size: var(--font-size-xs);
   }
 }
 
 @media (max-width: 576px) {
   .blog-page-title {
     font-size: var(--font-size-2xl);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--mobile-spacing-md);
   }
   
   .blog-title {
     font-size: var(--font-size-xl);
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--mobile-spacing-lg);
+  }
+  
+  .blog-card {
+    margin: 0;
+    padding: var(--mobile-spacing-md);
+    margin-bottom: var(--mobile-spacing-md);
+    border-radius: var(--border-radius-small);
+  }
+  
+  .blog-card-title {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--mobile-spacing-sm);
   }
   
   .blog-card-tag {
     font-size: var(--font-size-xs);
-    padding: var(--spacing-xs) var(--spacing-sm);
+    padding: var(--mobile-spacing-xs) var(--mobile-spacing-sm);
+  }
+  
+  .blog-card-image {
+    height: 140px;
+  }
+  
+  .blog-card-date {
+    font-size: var(--font-size-xs);
+  }
+}
+
+@media (max-width: 360px) {
+  .blog-page-title {
+    font-size: var(--font-size-xl);
+  }
+  
+  .blog-title {
+    font-size: var(--font-size-lg);
+  }
+  
+  .blog-card {
+    padding: var(--mobile-spacing-sm);
   }
   
   .blog-card-image {
