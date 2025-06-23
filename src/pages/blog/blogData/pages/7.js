@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import './IndividualPost.css';
 import { BlockMath, InlineMath } from 'react-katex';
 import lqgDiagram from '../photos/loop_quantum_gravity.jpg'
-import asymptoticsafety from '../photos/asymptotic_safety.png'
+// Placeholder for missing asymptotic_safety.png
+const asymptoticsafety = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+CiAgPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzk5OTk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkFzeW1wdG90aWMgU2FmZXR5IFBsYWNlaG9sZGVyPC90ZXh0Pgo8L3N2Zz4K'
 import causalset from '../photos/causal_set_theory.png'
 import stringtheory from '../photos/string_theory.jpg'
 import mathdiagram from '../photos/differentiation_scheme.png'
@@ -1086,7 +1087,7 @@ export default function seven() {
                 annotations: [
                   {
                     x: 0,
-                    y: 0.1,
+                    y: 1.0,
                     text: 'Quantum<br>Bounce',
                     showarrow: true,
                     arrowhead: 2,
@@ -1096,8 +1097,8 @@ export default function seven() {
                   },
                   {
                     x: 0,
-                    y: 0,
-                    text: 'Classical<br>Singularity',
+                    y: 0.05,
+                    text: 'Classical<br>Singularity<br>(Avoided)',
                     showarrow: true,
                     arrowhead: 2,
                     ax: 40,

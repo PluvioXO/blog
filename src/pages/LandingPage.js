@@ -8,7 +8,7 @@ import { TYPING_SPEED, ANIMATION_DURATIONS } from '../constants';
 export default function LandingPage() {
   const [titleText, setTitleText] = useState('');
   const [showCursor, setShowCursor] = useState(true);
-  const fullTitle = "Maximilians Blog";
+  const fullTitle = "Maximilian's Blog";
 
   useEffect(() => {
     let currentIndex = 0;

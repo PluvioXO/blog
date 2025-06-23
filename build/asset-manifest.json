@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.19686e7d.css",
-    "main.js": "/static/js/main.9e580a54.js",
+    "main.css": "/static/css/main.4c98debe.css",
+    "main.js": "/static/js/main.a04407d2.js",
     "static/media/P1200345.jpg": "/static/media/P1200345.aa5e70f3aa051d1bbeec.jpg",
     "static/media/P1200240.jpg": "/static/media/P1200240.c4a2ffcf3ff04191384d.jpg",
     "static/media/P1180558.jpg": "/static/media/P1180558.e3a8370c27c62608edd0.jpg",
@@ -16,12 +16,16 @@
     "static/media/image 2.png": "/static/media/image 2.e5ef48cb2fb5ced76713.png",
     "static/media/P1200367.jpg": "/static/media/P1200367.25dae0ec24bc5896d582.jpg",
     "static/media/what_is_attention_cover-1024x768.jpg": "/static/media/what_is_attention_cover-1024x768.aae009958a22b5024820.jpg",
+    "static/media/differentiation_scheme.png": "/static/media/differentiation_scheme.40159d71bcfc52fda0c4.png",
     "static/media/istockphoto-154919536-612x612_a.jpg": "/static/media/istockphoto-154919536-612x612_a.1193e4cc6d2f0b8db64b.jpg",
     "static/media/KaTeX_AMS-Regular.ttf": "/static/media/KaTeX_AMS-Regular.853be92419a6c3766b9a.ttf",
     "static/media/KaTeX_Main-Regular.ttf": "/static/media/KaTeX_Main-Regular.9eba1d77abcf2aa6e94e.ttf",
     "static/media/KaTeX_Main-Bold.ttf": "/static/media/KaTeX_Main-Bold.8169508bf58f8bd92ad8.ttf",
     "static/media/istockphoto-154919536-612x612.jpg": "/static/media/istockphoto-154919536-612x612.bba72ae7d76a6d97521b.jpg",
+    "static/media/loop_quantum_gravity.jpg": "/static/media/loop_quantum_gravity.bba72ae7d76a6d97521b.jpg",
+    "static/media/string_theory.jpg": "/static/media/string_theory.bba72ae7d76a6d97521b.jpg",
     "static/media/Working-principles-of-softmax-function.png": "/static/media/Working-principles-of-softmax-function.4fd21313661907908d25.png",
+    "static/media/causal_set_theory.png": "/static/media/causal_set_theory.0efcef36a8602b1f667b.png",
     "static/media/image-9-627x376.png": "/static/media/image-9-627x376.0efcef36a8602b1f667b.png",
     "static/media/KaTeX_Main-Italic.ttf": "/static/media/KaTeX_Main-Italic.fa675e5e4bec9eb250b6.ttf",
     "static/media/KaTeX_AMS-Regular.woff": "/static/media/KaTeX_AMS-Regular.d562e886c52f12660a41.woff",
@@ -84,11 +88,11 @@
     "static/media/KaTeX_Size3-Regular.woff": "/static/media/KaTeX_Size3-Regular.7947224e8a9914fa332b.woff",
     "static/media/KaTeX_Size3-Regular.woff2": "/static/media/KaTeX_Size3-Regular.e1951519f6f0596f7356.woff2",
     "index.html": "/index.html",
-    "main.19686e7d.css.map": "/static/css/main.19686e7d.css.map",
-    "main.9e580a54.js.map": "/static/js/main.9e580a54.js.map"
+    "main.4c98debe.css.map": "/static/css/main.4c98debe.css.map",
+    "main.a04407d2.js.map": "/static/js/main.a04407d2.js.map"
   },
   "entrypoints": [
-    "static/css/main.19686e7d.css",
-    "static/js/main.9e580a54.js"
+    "static/css/main.4c98debe.css",
+    "static/js/main.a04407d2.js"
   ]
 }

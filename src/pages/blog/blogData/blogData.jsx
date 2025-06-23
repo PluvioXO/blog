@@ -5,7 +5,7 @@ import four from './photos/what_is_attention_cover-1024x768.jpg'
 import five from './photos/image 3.png'
 import six from './photos/string_theory.jpg'
 import seven from './photos/loop_quantum_gravity.jpg'
-import eight from './photos/asymptotic_safety.png'
+import eight from './photos/Gemini_Generated_Image_xfpwfqxfpwfqxfpw.png'
 
 export const blogData = [
     {
