@@ -3,16 +3,18 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px 20px;
-  background-color: var(--navbar-background-color);
-  border-radius: 8px;
-  margin-bottom: 20px;
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  background-color: var(--card-background-color);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing-lg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
 }
 
 .empty-text {
   color: var(--text-color);
-  font-size: 1rem;
-  margin-bottom: 15px;
+  font-size: var(--font-size-base);
+  margin-bottom: var(--spacing-md);
 }
 
 .reset-button {
@@ -31,10 +33,10 @@
 
 @media (max-width: 576px) {
   .empty-results-container {
-    padding: 30px 15px;
+    padding: var(--spacing-xl) var(--spacing-md);
   }
   
   .empty-text {
-    font-size: 0.9rem;
+    font-size: var(--font-size-sm);
   }
 } 

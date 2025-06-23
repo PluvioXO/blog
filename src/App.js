@@ -17,6 +17,7 @@ import four from './pages/blog/blogData/pages/4';
 import five from './pages/blog/blogData/pages/5';
 import six from './pages/blog/blogData/pages/6';
 import seven from './pages/blog/blogData/pages/7';
+import eight from './pages/blog/blogData/pages/8';
 
 export default function App() {
   return (
@@ -37,6 +38,7 @@ export default function App() {
           <Route path="/post/4" component={five} />
           <Route path="/post/5" component={six} />
           <Route path="/post/6" component={seven} />
+          <Route path="/post/7" component={eight} />
         </Switch>
       </BrowserRouter>
     </ThemeProvider>

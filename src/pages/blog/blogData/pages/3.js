@@ -375,21 +375,73 @@ export default function three() {
         
         <p id="references" className='section-title'>References</p>
         <div className="indented-block references">
-          <p>[1] Robbins, H., & Monro, S. (1951). A Stochastic Approximation Method. <a href="https://www.jstor.org/stable/2236626" target="_blank" rel="noopener noreferrer">The Annals of Mathematical Statistics, 22(3), 400-407</a></p>
+          <p>[1] Robbins, H., & Monro, S. (1951). A Stochastic Approximation Method. <a href="https://doi.org/10.1214/aoms/1177729586" target="_blank" rel="noopener noreferrer">The Annals of Mathematical Statistics, 22(3), 400-407</a>. Foundational work establishing stochastic approximation with recursive formula <InlineMath>{"x_{n+1} = x_n - a_n \\nabla f(x_n, Y_n)"}</InlineMath> and convergence conditions.</p>
           
-          <p>[2] Sutskever, I., Martens, J., Dahl, G., & Hinton, G. (2013). On the importance of initialization and momentum in deep learning. <a href="https://www.cs.toronto.edu/~hinton/absps/momentum.pdf" target="_blank" rel="noopener noreferrer">ICML'13: Proceedings of the 30th International Conference on International Conference on Machine Learning</a></p>
+          <p>[2] Sutskever, I., Martens, J., Dahl, G., & Hinton, G. (2013). On the Importance of Initialization and Momentum in Deep Learning. <a href="https://doi.org/10.5555/3042817.3043064" target="_blank" rel="noopener noreferrer">ICML'13: Proceedings of the 30th International Conference on Machine Learning</a>. Demonstrates momentum acceleration: <InlineMath>{"v_t = \\mu v_{t-1} + \\eta \\nabla Q(w)"}</InlineMath>.</p>
           
-          <p>[3] Bottou, L. (1991). Stochastic Gradient Learning in Neural Networks. <a href="https://leon.bottou.org/publications/pdf/nimes-1991.pdf" target="_blank" rel="noopener noreferrer">Proceedings of Neuro-Nîmes 91</a></p>
+          <p>[3] Bottou, L. (1991). Stochastic Gradient Learning in Neural Networks. <a href="https://leon.bottou.org/publications/pdf/nimes-1991.pdf" target="_blank" rel="noopener noreferrer">Proceedings of Neuro-Nîmes 91</a>. Early analysis of SGD convergence properties and regularization effects through gradient noise.</p>
           
-          <p>[4] Dauphin, Y., Pascanu, R., Gulcehre, C., Cho, K., Ganguli, S., & Bengio, Y. (2014). Identifying and attacking the saddle point problem in high-dimensional non-convex optimization. <a href="https://arxiv.org/abs/1406.2572" target="_blank" rel="noopener noreferrer">arXiv:1406.2572</a></p>
+          <p>[4] Dauphin, Y., Pascanu, R., Gulcehre, C., Cho, K., Ganguli, S., & Bengio, Y. (2014). Identifying and Attacking the Saddle Point Problem in High-Dimensional Non-Convex Optimization. <a href="https://doi.org/10.48550/arXiv.1406.2572" target="_blank" rel="noopener noreferrer">Advances in Neural Information Processing Systems 27</a>. Shows that saddle points, not local minima, are the primary challenge in high-dimensional optimization.</p>
           
-          <p>[5] Duchi, J., Hazan, E., & Singer, Y. (2011). Adaptive Subgradient Methods for Online Learning and Stochastic Optimization. <a href="https://jmlr.org/papers/v12/duchi11a.html" target="_blank" rel="noopener noreferrer">Journal of Machine Learning Research, 12, 2121-2159</a></p>
+          <p>[5] Duchi, J., Hazan, E., & Singer, Y. (2011). Adaptive Subgradient Methods for Online Learning and Stochastic Optimization. <a href="https://doi.org/10.5555/1953048.2021068" target="_blank" rel="noopener noreferrer">Journal of Machine Learning Research, 12, 2121-2159</a>. Introduces AdaGrad with adaptive learning rates: <InlineMath>{"\\eta_{t,i} = \\frac{\\eta}{\\sqrt{\\sum_{\\tau=1}^{t} g_{\\tau,i}^2}}"}</InlineMath>.</p>
           
-          <p>[6] Hinton, G. (2012). Neural Networks for Machine Learning - Lecture 6a - Overview of mini-batch gradient descent. <a href="https://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf" target="_blank" rel="noopener noreferrer">University of Toronto, CSC321</a></p>
+          <p>[6] Hinton, G., Srivastava, N., & Swersky, K. (2012). Neural Networks for Machine Learning - Lecture 6a. <a href="https://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf" target="_blank" rel="noopener noreferrer">University of Toronto, CSC321</a>. RMSprop introduction with exponentially weighted moving average of squared gradients.</p>
           
-          <p>[7] Kingma, D. P., & Ba, J. (2014). Adam: A Method for Stochastic Optimization. <a href="https://arxiv.org/abs/1412.6980" target="_blank" rel="noopener noreferrer">arXiv:1412.6980</a></p>
+          <p>[7] Kingma, D. P., & Ba, J. (2014). Adam: A Method for Stochastic Optimization. <a href="https://doi.org/10.48550/arXiv.1412.6980" target="_blank" rel="noopener noreferrer">arXiv:1412.6980</a>. Combines momentum and adaptive learning rates: <InlineMath>{"m_t = \\beta_1 m_{t-1} + (1-\\beta_1)g_t"}</InlineMath>, <InlineMath>{"v_t = \\beta_2 v_{t-1} + (1-\\beta_2)g_t^2"}</InlineMath>.</p>
           
-          <p>[8] Ruder, S. (2016). An overview of gradient descent optimization algorithms. <a href="https://arxiv.org/abs/1609.04747" target="_blank" rel="noopener noreferrer">arXiv:1609.04747</a></p>
+          <p>[8] Ruder, S. (2016). An Overview of Gradient Descent Optimization Algorithms. <a href="https://doi.org/10.48550/arXiv.1609.04747" target="_blank" rel="noopener noreferrer">arXiv:1609.04747</a>. Comprehensive survey of gradient descent variants and their comparative performance characteristics.</p>
+          
+          <p>[9] Polyak, B. T. (1964). Some Methods of Speeding Up the Convergence of Iteration Methods. <a href="https://doi.org/10.1016/0041-5553(64)90137-5" target="_blank" rel="noopener noreferrer">USSR Computational Mathematics and Mathematical Physics, 4(5), 1-17</a>. Original momentum method with heavy ball dynamics: <InlineMath>{"x_{k+1} = x_k - \\alpha \\nabla f(x_k) + \\beta(x_k - x_{k-1})"}</InlineMath>.</p>
+          
+          <p>[10] Nesterov, Y. (1983). A Method for Unconstrained Convex Minimization Problem with the Rate of Convergence O(1/k²). <a href="https://doi.org/10.1007/BF01582116" target="_blank" rel="noopener noreferrer">Soviet Mathematics Doklady, 27(2), 372-376</a>. Accelerated gradient method achieving optimal convergence rate for smooth convex functions.</p>
+          
+          <p>[11] Zeiler, M. D. (2012). ADADELTA: An Adaptive Learning Rate Method. <a href="https://doi.org/10.48550/arXiv.1212.5701" target="_blank" rel="noopener noreferrer">arXiv:1212.5701</a>. Parameter-free adaptive method using running averages: <InlineMath>{"\\Delta x_t = -\\frac{\\sqrt{E[\\Delta x^2]_{t-1} + \\epsilon}}{\\sqrt{E[g^2]_t + \\epsilon}} g_t"}</InlineMath>.</p>
+          
+          <p>[12] Tieleman, T., & Hinton, G. (2012). Lecture 6.5-rmsprop: Divide the Gradient by a Running Average of Its Recent Magnitude. <a href="https://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf" target="_blank" rel="noopener noreferrer">COURSERA: Neural Networks for Machine Learning</a>. RMSprop algorithm addressing AdaGrad's diminishing learning rates.</p>
+          
+          <p>[13] Keskar, N. S., & Socher, R. (2017). Improving Generalization Performance by Switching from Adam to SGD. <a href="https://doi.org/10.48550/arXiv.1712.07628" target="_blank" rel="noopener noreferrer">arXiv:1712.07628</a>. Empirical analysis showing SGD's superior generalization despite slower convergence compared to adaptive methods.</p>
+          
+          <p>[14] Wilson, A. C., Roelofs, R., Stern, M., Srebro, N., & Recht, B. (2017). The Marginal Value of Adaptive Gradient Methods in Machine Learning. <a href="https://doi.org/10.48550/arXiv.1705.08292" target="_blank" rel="noopener noreferrer">Advances in Neural Information Processing Systems 30</a>. Questions adaptive methods' benefits for generalization performance.</p>
+          
+          <p>[15] Schmidt, M., Le Roux, N., & Bach, F. (2017). Minimizing Finite Sums with the Stochastic Average Gradient. <a href="https://doi.org/10.1007/s10107-016-1030-6" target="_blank" rel="noopener noreferrer">Mathematical Programming, 162(1-2), 83-112</a>. Variance reduction method achieving linear convergence: <InlineMath>{"\\mathbb{E}[\\|x_k - x^*\\|^2] \\leq (1-\\mu)^k \\|x_0 - x^*\\|^2"}</InlineMath>.</p>
+          
+          <p>[16] Johnson, R., & Zhang, T. (2013). Accelerating Stochastic Gradient Descent Using Predictive Variance Reduction. <a href="https://doi.org/10.48550/arXiv.1305.2982" target="_blank" rel="noopener noreferrer">Advances in Neural Information Processing Systems 26</a>. SVRG method with controlled variance: <InlineMath>{"v_t = \\nabla f_{i_t}(x_t) - \\nabla f_{i_t}(\\tilde{x}) + \\mu"}</InlineMath>.</p>
+          
+          <p>[17] Defazio, A., Bach, F., & Lacoste-Julien, S. (2014). SAGA: A Fast Incremental Gradient Method With Support for Non-Strongly Convex Composite Objectives. <a href="https://doi.org/10.48550/arXiv.1407.0202" target="_blank" rel="noopener noreferrer">Advances in Neural Information Processing Systems 27</a>. Unbiased variance reduction extending SAG to general convex functions.</p>
+          
+          <p>[18] Reddi, S. J., Kale, S., & Kumar, S. (2018). On the Convergence of Adam and Beyond. <a href="https://doi.org/10.48550/arXiv.1904.09237" target="_blank" rel="noopener noreferrer">International Conference on Learning Representations</a>. Theoretical analysis exposing Adam's convergence issues and proposing AMSGrad correction.</p>
+        </div>
+
+        <p id="future-directions" className='section-title'>Future Directions and Theoretical Frontiers</p>
+        <div className="indented-block">
+          <p>The evolution of stochastic gradient descent continues to drive advances in optimization theory and practice:</p>
+          
+          <p className='subsection-title'>Federated Learning Optimization</p>
+          <div>
+            Distributed machine learning across edge devices requires new SGD variants that handle non-IID data and communication constraints:
+            
+            <BlockMath>{"\\min_{w} \\sum_{k=1}^{K} p_k F_k(w) \\quad \\text{subject to} \\quad \\sum_{k} \\Delta w_k = 0"}</BlockMath>
+            
+            where <InlineMath>{"F_k(w)"}</InlineMath> represents the local objective at client <InlineMath>{"k"}</InlineMath> and communication rounds are limited, requiring sophisticated aggregation schemes.
+          </div>
+          
+          <p className='subsection-title'>Quantum-Enhanced SGD</p>
+          <div>
+            Quantum computing may revolutionize optimization through quantum advantage in gradient estimation:
+            
+            <BlockMath>{"\\nabla_{quantum} f(x) = \\text{Im}\\left[ \\langle \\psi(x) | \\frac{\\partial H}{\\partial x} | \\psi(x) \\rangle \\right]"}</BlockMath>
+            
+            where quantum amplitude estimation could provide quadratic speedups in gradient computation for certain objective functions, though practical quantum computers remain limited.
+          </div>
+          
+          <p className='subsection-title'>Neuromorphic Computing Optimization</p>
+          <div>
+            Brain-inspired computing architectures may enable new forms of local, asynchronous optimization that transcend traditional SGD paradigms:
+            
+            <BlockMath>{"\\tau \\frac{dw_{ij}}{dt} = -w_{ij} + \\eta \\cdot \\text{STDP}(\\Delta t_{pre}, \\Delta t_{post}) + \\sigma(t) \\xi(t)"}</BlockMath>
+            
+            where spike-timing-dependent plasticity (STDP) replaces traditional backpropagation, potentially offering energy-efficient alternatives for edge AI applications.
+          </div>
         </div>
       </Col>
       <Col xs={0} sm={0} md={5} lg={5} xl={5} className="desktop-toc">

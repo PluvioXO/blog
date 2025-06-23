@@ -42,7 +42,7 @@ export default function Photos() {
 
   return (
     <motion.div 
-      className="photos-container" 
+      className="page-container" 
       initial={{opacity: 0, y: 2}} 
       animate={{opacity: 1, y: 0}} 
       transition={{duration: ANIMATION_DURATIONS.MEDIUM}}

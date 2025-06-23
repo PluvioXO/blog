@@ -5,6 +5,7 @@ import four from './photos/what_is_attention_cover-1024x768.jpg'
 import five from './photos/image 3.png'
 import six from './photos/string_theory.jpg'
 import seven from './photos/loop_quantum_gravity.jpg'
+import eight from './photos/asymptotic_safety.png'
 
 export const blogData = [
     {
@@ -48,5 +49,11 @@ export const blogData = [
         image: seven,
         date:'2025 January',
         tag: ['Physics', 'Quantum Gravity', 'Theoretical Physics'],
+    },
+    {
+        name:'The Consciousness Revolution: AI\'s Exponential Ascent Toward Artificial General Intelligence',
+        image: eight,
+        date:'2025 January',
+        tag: ['AI', 'Machine Learning', 'AGI', 'Consciousness', 'Singularity'],
     }
 ]

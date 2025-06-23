@@ -1,12 +1,7 @@
-/* General Page Styles */
-.photos-container {
-  padding: 20px;
-  background-color: var(--background-color);
-  transition: background-color 0.3s ease;
-}
+/* Photos page specific styles */
 
 .photos-header-row {
-  margin-bottom: 30px;
+  margin-bottom: var(--spacing-xl);
 }
 
 .photos-title {
@@ -14,9 +9,9 @@
   cursor: default;
   user-select: none;
   color: var(--text-color);
-  font-size: 2.5rem;
-  font-weight: bold;
-  transition: color 0.3s ease;
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  transition: color var(--transition-normal);
 }
 
 /* Image Grid Styles */
@@ -30,20 +25,22 @@
 }
 
 .photo-card {
-  background-color: var(--navbar-background-color); /* Example: using navbar bg for cards */
-  border-radius: 8px;
-  overflow: hidden; /* Ensures image corners are rounded if image itself isn't */
+  background-color: var(--card-background-color);
+  border-radius: var(--border-radius);
+  overflow: hidden;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-  width: 100%; /* Make card take full width of its column */
-  margin-bottom: 16px; /* Consistent spacing from gutter or if no gutter */
+  transition: all var(--transition-normal);
+  width: 100%;
+  margin-bottom: var(--spacing-md);
   display: flex;
   flex-direction: column;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
 }
 
 .photo-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Shadow might need adjustment for light mode */
+  box-shadow: var(--shadow-xl);
 }
 
 .photo-image-preview {
@@ -133,71 +130,71 @@
   background-color: var(--button-background-color);
   border-color: var(--button-background-color);
   color: var(--button-text-color);
-  font-weight: bold;
-  border-radius: 6px;
-  padding: 8px 20px;
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  font-weight: var(--font-weight-bold);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  transition: all var(--transition-normal);
 }
 
 .photo-modal-info .download-button:hover {
   background-color: var(--button-hover-background-color);
   border-color: var(--button-hover-background-color);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
 }
 
 /* Image open prompt */
 .image-open-prompt {
   position: fixed;
-  bottom: 20px;
+  bottom: var(--spacing-lg);
   left: 50%;
   transform: translateX(-50%);
-  background-color: var(--navbar-background-color); /* Using navbar bg as example */
-  color: var(--text-color); /* Using text color */
-  padding: 10px 20px;
-  border-radius: 5px;
+  background-color: var(--card-background-color);
+  color: var(--text-color);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--border-radius);
   z-index: 100;
-  font-size: 0.9rem;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: var(--font-size-sm);
+  transition: all var(--transition-normal);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
 }
 
 /* Footer count */
 .photos-count-footer {
-  color: var(--text-color); /* Use main text color, adjust opacity if needed for softer look */
-  font-weight: normal; /* Less emphasis */
+  color: var(--text-color-secondary);
+  font-weight: var(--font-weight-normal);
   text-align: center;
-  margin-top: 20px;
-  opacity: 0.7; /* Example for softer look */
-  transition: color 0.3s ease;
+  margin-top: var(--spacing-lg);
+  transition: color var(--transition-normal);
 }
 
 
 /* Responsive adjustments for the grid and titles */
 @media (max-width: 768px) {
   .photos-title {
-    font-size: 2rem;
+    font-size: var(--font-size-3xl);
   }
   .photo-image-preview {
-    height: 220px; /* Adjust height for tablets */
+    height: 220px;
   }
 }
 
 @media (max-width: 576px) {
-  .photos-container {
-    padding: 10px;
-  }
   .photos-title {
-    font-size: 1.75rem;
+    font-size: var(--font-size-2xl);
   }
   .photo-image-preview {
-    height: 180px; /* Adjust height for phones */
+    height: 180px;
   }
   .photo-date-overlay {
-    font-size: 0.8rem;
-    padding: 6px;
+    font-size: var(--font-size-xs);
+    padding: var(--spacing-sm);
   }
   .image-open-prompt {
-    font-size: 0.85rem;
-    padding: 8px 15px;
-    bottom: 10px;
+    font-size: var(--font-size-xs);
+    padding: var(--spacing-sm) var(--spacing-md);
+    bottom: var(--spacing-sm);
   }
 }
 

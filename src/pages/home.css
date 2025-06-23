@@ -7,24 +7,26 @@
 }
 
 #title {
-    font-weight: bold;
+    font-weight: var(--font-weight-bold);
     color: var(--link-color);
-    font-size: 2rem;
+    font-size: var(--font-size-4xl);
     text-align: left;
-    transition: color 0.3s ease;
+    transition: color var(--transition-normal);
 }
 
 .card {
     height: auto;
     width: auto;
-    background-color: var(--navbar-background-color);
+    background-color: var(--card-background-color);
     position: absolute;
     left: 50%;
     top: 50%;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     color: var(--text-color);
-    transition: background-color 0.3s ease, color 0.3s ease;
-    transform: translate(-50%, -50%); /* Proper centering for absolute positioning */
+    transition: all var(--transition-normal);
+    transform: translate(-50%, -50%);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
 }
 
 .card.orange {
@@ -33,15 +35,15 @@
 
 .code {
     color: var(--text-color);
-    font-weight: bold;
+    font-weight: var(--font-weight-bold);
     display: inline-block;
-    transition: color 0.3s ease;
+    transition: color var(--transition-normal);
 }
 
 .inside {
-    margin: 20px;
+    margin: var(--spacing-lg);
 }
 
 .status-success {
-    color: #62dc64; /* Keep as static color for status indication */
+    color: var(--success-color);
 }

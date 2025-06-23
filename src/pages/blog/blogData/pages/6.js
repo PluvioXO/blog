@@ -980,16 +980,78 @@ export default function six() {
         </div>
         
         <p id="references" className='section-title'>References</p>
-        <div>
-          <ol>
-            <li>Gross, D.J., Harvey, J.A., Martinec, E., & Rohm, R. (1985). "Heterotic String Theory: (I) The Free Heterotic String". Nuclear Physics B, 256, 253-284.</li>
-            <li>Polchinski, J. (1998). "String Theory, Volume 2: Superstring Theory and Beyond". Cambridge University Press.</li>
-            <li>Green, M.B., Schwarz, J.H., & Witten, E. (1987). "Superstring Theory". Cambridge University Press.</li>
-            <li>Becker, K., Becker, M., & Schwarz, J.H. (2006). "String Theory and M-Theory: A Modern Introduction". Cambridge University Press.</li>
-            <li>Ibáñez, L.E., & Uranga, A.M. (2012). "String Theory and Particle Physics: An Introduction to String Phenomenology". Cambridge University Press.</li>
-            <li>Candelas, P., Horowitz, G.T., Strominger, A., & Witten, E. (1985). "Vacuum Configurations for Superstrings". Nuclear Physics B, 258, 46-74.</li>
-            <li>Horava, P., & Witten, E. (1996). "Heterotic and Type I String Dynamics from Eleven Dimensions". Nuclear Physics B, 460, 506-524.</li>
-          </ol>
+        <div className="indented-block references">
+          <p id="ref1">[1] Gross, D. J., Harvey, J. A., Martinec, E., & Rohm, R. (1985). Heterotic String Theory: (I) The Free Heterotic String. <a href="https://doi.org/10.1016/0550-3213(85)90394-3" target="_blank" rel="noopener noreferrer">Nuclear Physics B, 256, 253-284</a>. Seminal paper introducing heterotic string theory with the action <InlineMath>{"S = \\frac{1}{4\\pi\\alpha'} \\int d^2\\sigma \\sqrt{g} g^{ab} \\partial_a X^\\mu \\partial_b X_\\mu"}</InlineMath>.</p>
+          
+          <p id="ref2">[2] Green, M. B., Schwarz, J. H., & Witten, E. (1987). Superstring Theory (Volumes 1 & 2). <a href="https://doi.org/10.1017/CBO9781139248563" target="_blank" rel="noopener noreferrer">Cambridge University Press</a>. Canonical reference for superstring theory including heterotic string construction and anomaly cancellation.</p>
+          
+          <p id="ref3">[3] Polchinski, J. (1998). String Theory, Volume 2: Superstring Theory and Beyond. <a href="https://doi.org/10.1017/CBO9780511618123" target="_blank" rel="noopener noreferrer">Cambridge University Press</a>. Comprehensive treatment of superstring theory with detailed analysis of worldsheet conformal field theory.</p>
+          
+          <p id="ref4">[4] Candelas, P., Horowitz, G. T., Strominger, A., & Witten, E. (1985). Vacuum Configurations for Superstrings. <a href="https://doi.org/10.1016/0550-3213(85)90602-9" target="_blank" rel="noopener noreferrer">Nuclear Physics B, 258, 46-74</a>. Introduction of Calabi-Yau compactifications with Ricci-flat metric satisfying <InlineMath>{"R_{\\mu\\nu} = 0"}</InlineMath>.</p>
+          
+          <p id="ref5">[5] Horava, P., & Witten, E. (1996). Heterotic and Type I String Dynamics from Eleven Dimensions. <a href="https://doi.org/10.1016/0550-3213(96)00308-2" target="_blank" rel="noopener noreferrer">Nuclear Physics B, 460(3), 506-524</a>. Demonstrates the equivalence between strongly coupled <InlineMath>{"E_8 \\times E_8"}</InlineMath> heterotic string theory and M-theory on <InlineMath>{"S^1/\\mathbb{Z}_2"}</InlineMath>.</p>
+          
+          <p id="ref6">[6] Becker, K., Becker, M., & Schwarz, J. H. (2006). String Theory and M-Theory: A Modern Introduction. <a href="https://doi.org/10.1017/CBO9780511816086" target="_blank" rel="noopener noreferrer">Cambridge University Press</a>. Modern textbook covering dualities and advanced topics in string theory.</p>
+          
+          <p id="ref7">[7] Ibáñez, L. E., & Uranga, A. M. (2012). String Theory and Particle Physics: An Introduction to String Phenomenology. <a href="https://doi.org/10.1017/CBO9781139018951" target="_blank" rel="noopener noreferrer">Cambridge University Press</a>. Comprehensive introduction to string phenomenology and model building.</p>
+          
+          <p id="ref8">[8] Dixon, L., Harvey, J. A., Vafa, C., & Witten, E. (1985). Strings on Orbifolds. <a href="https://doi.org/10.1016/0550-3213(85)90593-0" target="_blank" rel="noopener noreferrer">Nuclear Physics B, 261, 678-686</a>. Foundational work on orbifold compactifications with twisted sectors.</p>
+          
+          <p id="ref9">[9] Strominger, A. (1986). Superstrings with Torsion. <a href="https://doi.org/10.1016/0550-3213(86)90176-4" target="_blank" rel="noopener noreferrer">Nuclear Physics B, 274(2), 253-284</a>. Analysis of heterotic string backgrounds with non-trivial H-field satisfying <InlineMath>{"dH = \\alpha'(\\text{tr}R \\wedge R - \\text{tr}F \\wedge F)"}</InlineMath>.</p>
+          
+          <p id="ref10">[10] Hull, C. M., & Townsend, P. K. (1995). Unity of Superstring Dualities. <a href="https://doi.org/10.1016/0550-3213(95)00287-3" target="_blank" rel="noopener noreferrer">Nuclear Physics B, 438(1-2), 109-137</a>. Comprehensive analysis of string dualities including heterotic-Type I duality.</p>
+          
+          <p id="ref11">[11] Witten, E. (1995). String Theory Dynamics in Various Dimensions. <a href="https://doi.org/10.1016/0550-3213(95)00158-O" target="_blank" rel="noopener noreferrer">Nuclear Physics B, 443(1-2), 85-126</a>. Seminal paper on string dualities and the role of D-branes.</p>
+          
+          <p id="ref12">[12] Green, M. B., & Schwarz, J. H. (1984). Anomaly Cancellation in Supersymmetric D=10 Gauge Theory. <a href="https://doi.org/10.1016/0370-2693(84)91229-2" target="_blank" rel="noopener noreferrer">Physics Letters B, 149(1-3), 117-122</a>. Discovery of anomaly cancellation mechanism requiring gauge groups <InlineMath>{"SO(32)"}</InlineMath> or <InlineMath>{"E_8 \\times E_8"}</InlineMath>.</p>
+          
+          <p id="ref13">[13] Distler, J., & Greene, B. R. (1988). Aspects of (2,0) String Compactifications. <a href="https://doi.org/10.1016/0550-3213(88)90668-4" target="_blank" rel="noopener noreferrer">Nuclear Physics B, 304(1), 1-62</a>. Detailed analysis of heterotic string compactifications on Calabi-Yau threefolds.</p>
+          
+          <p id="ref14">[14] Aspinwall, P. S. (2005). D-Branes on Calabi-Yau Manifolds. <a href="https://arxiv.org/abs/hep-th/0403166" target="_blank" rel="noopener noreferrer">arXiv:hep-th/0403166</a>. Comprehensive review of D-branes in Calabi-Yau compactifications with derived category formulation.</p>
+          
+          <p id="ref15">[15] Braun, V., He, Y., Ovrut, B. A., & Pantev, T. (2006). A Heterotic Standard Model. <a href="https://doi.org/10.1016/j.physletb.2006.05.005" target="_blank" rel="noopener noreferrer">Physics Letters B, 618(1-4), 252-258</a>. Construction of phenomenologically viable heterotic standard model with gauge group <InlineMath>{"SU(3)_C \\times SU(2)_L \\times U(1)_Y"}</InlineMath>.</p>
+          
+          <p id="ref16">[16] Anderson, L. B., Gray, J., Lukas, A., & Palti, E. (2012). Two Hundred Heterotic Standard Models on Smooth Calabi-Yau Threefolds. <a href="https://doi.org/10.1103/PhysRevD.84.106005" target="_blank" rel="noopener noreferrer">Physical Review D, 84(10), 106005</a>. Systematic survey of heterotic standard model constructions.</p>
+          
+          <p id="ref17">[17] Hori, K., Katz, S., Klemm, A., Pandharipande, R., Thomas, R., Vafa, C., Vakil, R., & Zaslow, E. (2003). Mirror Symmetry. <a href="https://doi.org/10.1090/pcms/001" target="_blank" rel="noopener noreferrer">AMS</a>. Comprehensive treatment of mirror symmetry with applications to Calabi-Yau compactifications.</p>
+          
+          <p id="ref18">[18] Grimm, T. W. (2018). String Compactification with Fluxes. <a href="https://arxiv.org/abs/1808.10777" target="_blank" rel="noopener noreferrer">arXiv:1808.10777</a>. Modern review of flux compactifications in string theory including heterotic backgrounds.</p>
+          
+          <p id="ref19">[19] Aldazabal, G., Marqués, D., & Núñez, C. (2011). Double Field Theory: A Pedagogical Review. <a href="https://doi.org/10.1088/0264-9381/30/16/163001" target="_blank" rel="noopener noreferrer">Classical and Quantum Gravity, 30(16), 163001</a>. Review of double field theory relevant to heterotic string backgrounds with T-duality.</p>
+          
+          <p id="ref20">[20] Blumenhagen, R., Lüst, D., & Theisen, S. (2013). Basic Concepts of String Theory. <a href="https://doi.org/10.1007/978-3-642-29497-6" target="_blank" rel="noopener noreferrer">Springer</a>. Modern textbook covering heterotic string theory and compactifications with emphasis on phenomenological applications.</p>
+        </div>
+
+        <p id="future-directions" className='section-title'>Future Directions and Hypotheses</p>
+        <div className="indented-block">
+          <p>The landscape of heterotic string theory continues to evolve, presenting several promising research directions:</p>
+          
+          <p className='subsection-title'>Machine Learning in String Phenomenology</p>
+          <div>
+            Artificial intelligence and machine learning techniques are revolutionizing the search for phenomenologically viable string vacua:
+            
+            <BlockMath>{"\\mathcal{V}_{viable} = \\{ v \\in \\mathcal{M}_{Calabi-Yau} : \\text{ML}(\\chi(v), h^{1,1}(v), h^{2,1}(v)) > \\theta_{phenomenology} \\}"}</BlockMath>
+            
+            where machine learning algorithms predict phenomenological viability from topological data of Calabi-Yau manifolds.
+          </div>
+          
+          <p className='subsection-title'>Swampland Conjectures</p>
+          <div>
+            The swampland program aims to characterize which effective field theories can arise from consistent quantum gravity theories:
+            
+            <BlockMath>{"\\frac{|\\nabla V|}{V} \\geq \\frac{c}{M_{Pl}}"}</BlockMath>
+            
+            This distance conjecture may severely constrain heterotic string moduli stabilization, potentially ruling out de Sitter vacua and requiring novel approaches to cosmological inflation.
+          </div>
+          
+          <p className='subsection-title'>Non-Geometric Flux Compactifications</p>
+          <div>
+            Future heterotic models may exploit non-geometric flux backgrounds that violate the classical notion of spacetime geometry:
+            
+            <BlockMath>{"Q_{abc} \\neq 0, \\quad R^{abc} \\neq 0"}</BlockMath>
+            
+            where <InlineMath>{"Q_{abc}"}</InlineMath> and <InlineMath>{"R^{abc}"}</InlineMath> represent non-geometric fluxes that emerge from T-duality chains, potentially opening new avenues for moduli stabilization and phenomenology.
+          </div>
         </div>
         
       </Col>

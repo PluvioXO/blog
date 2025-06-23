@@ -29,7 +29,7 @@ export default function LandingPage() {
 
   return (
     <motion.div 
-      className="landing-container"
+      className="page-container container-centered"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: ANIMATION_DURATIONS.SLOW }}

@@ -1,11 +1,11 @@
 .navbar {
   background-color: var(--navbar-background-color);
-  height: 70px;
+  height: var(--navbar-height);
   position: sticky;
   top: 0;
   z-index: 5;
   user-select: none;
-  transition: background-color 0.3s ease;
+  transition: background-color var(--transition-normal);
 }
 
 .navbar-text {
@@ -13,7 +13,7 @@
 }
 
 .tags.desktop-nav {
-  margin-top: 15px;
+  margin-top: var(--spacing-md);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,16 +22,16 @@
 }
 
 #tags {
-  margin-left: 10px;
+  margin-left: var(--spacing-md);
 }
 
 #headerOption {
   color: var(--link-color);
   height: 100%;
   font-size: revert;
-  transition: color 0.3s ease;
+  transition: color var(--transition-normal);
   position: relative;
-  padding-bottom: 4px;
+  padding-bottom: var(--spacing-xs);
 }
 
 #headerOption::after {
@@ -42,7 +42,7 @@
   bottom: 0;
   left: 0;
   background-color: var(--link-hover-color);
-  transition: width 0.3s ease-in-out;
+  transition: width var(--transition-normal) ease-in-out;
 }
 
 #headerOption:hover {
@@ -70,15 +70,15 @@
 
 .signature path{
   stroke: var(--link-color);
-  transition: 0.5s ease;
+  transition: var(--transition-slow) ease;
 }
 .signature:hover path{
   stroke: var(--link-hover-color);
-  transition: 0.5s ease;
+  transition: var(--transition-slow) ease;
 }
 .logo:hover path{
-  fill: #F3F4F6;
-  transition: 0.5s ease;
+  fill: var(--text-color);
+  transition: var(--transition-slow) ease;
 }
 
 .block{

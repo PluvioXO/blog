@@ -19,7 +19,7 @@ export default function Blog() {
   };
 
   return (
-    <motion.div className="blog-container" initial={{opacity:0, y:2}} animate={{opacity:1, y:0}} transition={{duration:0.5}}>
+    <motion.div className="page-container" initial={{opacity:0, y:2}} animate={{opacity:1, y:0}} transition={{duration:0.5}}>
       <Row justify="center">
         <Col xs={22} sm={20} md={18} lg={18} xl={18}>
           <h1 className="blog-page-title">Blog</h1>
