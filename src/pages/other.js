@@ -83,6 +83,15 @@ const youtubeVideosData = [
     description: `An inspiring exploration of how self-belief, even when it might seem "delusional" to others, can be a powerful force for achieving extraordinary goals. This video examines the psychology behind unwavering confidence and how it can drive success in various fields, from entrepreneurship to creative pursuits.`,
     duration: "8:45",
     channel: "Modern Ideas"
+  },
+  {
+    title: "Video Resource",
+    url: "https://www.youtube.com/watch?v=TQuxVz52w2w",
+    thumbnail: "https://img.youtube.com/vi/TQuxVz52w2w/maxresdefault.jpg",
+    tags: ["Resource", "Educational"],
+    description: `A valuable video resource added to the collection. Please update the title, description, tags, duration, and channel information to reflect the actual content of this video.`,
+    duration: "TBD",
+    channel: "TBD"
   }
 ];
 
