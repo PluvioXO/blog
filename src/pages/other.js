@@ -67,15 +67,6 @@ The series remains highly relevant today as many of the economic challenges and 
 
 const youtubeVideosData = [
   {
-    title: "The Most Eye Opening 10 Minutes of Your Life | David Goggins",
-    url: "https://www.youtube.com/watch?v=xhHZ_lXiF38",
-    thumbnail: "https://img.youtube.com/vi/xhHZ_lXiF38/maxresdefault.jpg",
-    tags: ["Motivation", "Personal Development", "Mindset", "Self-Improvement"],
-    description: `David Goggins shares his powerful philosophy on mental toughness and self-transformation. In this intense motivational talk, he discusses overcoming limitations, embracing discomfort, and pushing beyond perceived boundaries to achieve extraordinary results.`,
-    duration: "10:23",
-    channel: "Motivation2Study"
-  },
-  {
     title: "The Power of Delusional Self Belief",
     url: "https://www.youtube.com/watch?v=V_Z8XoPVDBg",
     thumbnail: "https://img.youtube.com/vi/V_Z8XoPVDBg/maxresdefault.jpg",
@@ -85,13 +76,13 @@ const youtubeVideosData = [
     channel: "Modern Ideas"
   },
   {
-    title: "Video Resource",
+    title: "The Stock Market Always Wins",
     url: "https://www.youtube.com/watch?v=TQuxVz52w2w",
     thumbnail: "https://img.youtube.com/vi/TQuxVz52w2w/maxresdefault.jpg",
-    tags: ["Resource", "Educational"],
-    description: `A valuable video resource added to the collection. Please update the title, description, tags, duration, and channel information to reflect the actual content of this video.`,
-    duration: "TBD",
-    channel: "TBD"
+    tags: ["Economics", "Finance", "Stock Market", "Warren Buffett", "Investing"],
+    description: `Warren Buffett spent his entire life beating the stock market... then bet a million dollars that it was impossible to do. This video explores the paradox of market efficiency and why the stock market tends to win in the long run, offering insights into investment strategies and market behavior.`,
+    duration: "15:41",
+    channel: "Art of the Problem"
   }
 ];
 
