@@ -5,7 +5,7 @@ import 'antd/dist/reset.css'
 import { Link } from 'react-router-dom';
 import { motion, useScroll } from "framer-motion";
 import { ReactComponent as YourSvg } from './assets/Component 1.svg'
-import { SunOutlined, MoonOutlined, GithubOutlined, MenuOutlined } from '@ant-design/icons';
+import { SunOutlined, MoonOutlined, GithubOutlined, LinkedinOutlined, MenuOutlined } from '@ant-design/icons';
 import BlogLogo from './assets/blogLogo.png'
 import { ThemeContext } from '../ThemeContext';
 
@@ -39,6 +39,7 @@ export default function Navbar() {
   };
 
   const githubRepoUrl = "https://github.com/PluvioXO/blog";
+  const linkedinProfileUrl = "https://www.linkedin.com/in/your-profile"; // Update this with your LinkedIn profile URL
 
   return (
     <>
@@ -90,6 +91,13 @@ export default function Navbar() {
                 target="_blank" 
                 className="github-nav-button"
               />
+              <Button 
+                type="text" 
+                icon={<LinkedinOutlined style={{ fontSize: '20px'}} />} 
+                href={linkedinProfileUrl} 
+                target="_blank" 
+                className="linkedin-nav-button"
+              />
             </Space>
           </Col>
           
@@ -134,6 +142,12 @@ export default function Navbar() {
               <a href={githubRepoUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>
                 <GithubOutlined style={{ marginRight: '8px' }} />
                 GitHub
+              </a>
+            </Menu.Item>
+            <Menu.Item key="6" style={{ textAlign: 'center' }}>
+              <a href={linkedinProfileUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>
+                <LinkedinOutlined style={{ marginRight: '8px' }} />
+                LinkedIn
               </a>
             </Menu.Item>
           </Menu>

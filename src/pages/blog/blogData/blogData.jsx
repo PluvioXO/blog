@@ -6,6 +6,7 @@ import five from './photos/image 3.png'
 import six from './photos/Gemini_Generated_Image_zfp93ozfp93ozfp9.png'
 import seven from './photos/Gemini_Generated_Image_vtkmt4vtkmt4vtkm.png'
 import eight from './photos/Gemini_Generated_Image_xfpwfqxfpwfqxfpw.png'
+import nine from './photos/0_S1KQ-2vjFuKGfg8C.png'
 
 export const blogData = [
     {
@@ -55,5 +56,11 @@ export const blogData = [
         image: eight,
         date:'2025 January',
         tag: ['AI', 'Machine Learning', 'AGI', 'Consciousness', 'Singularity'],
+    },
+    {
+        name:'The Stock Market Always Wins: Warren Buffett\'s Paradox',
+        image: nine,
+        date:'2025 January',
+        tag: ['Economics', 'Finance', 'Stock Market', 'Warren Buffett', 'Investing'],
     }
 ]
