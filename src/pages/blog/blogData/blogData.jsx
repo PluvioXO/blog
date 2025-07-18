@@ -49,6 +49,7 @@ export const blogData = [
         image: seven,
         date:'2025 January',
         tag: ['Physics', 'Quantum Gravity', 'Theoretical Physics'],
+        pinned: true,
     },
     {
         name:'The Consciousness Revolution: AI\'s Exponential Ascent Toward Artificial General Intelligence',
