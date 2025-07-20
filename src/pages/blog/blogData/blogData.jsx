@@ -6,6 +6,7 @@ import five from './photos/image 3.png'
 import six from './photos/Gemini_Generated_Image_zfp93ozfp93ozfp9.png'
 import seven from './photos/Gemini_Generated_Image_vtkmt4vtkmt4vtkm.png'
 import eight from './photos/Gemini_Generated_Image_xfpwfqxfpwfqxfpw.png'
+import nine from './photos/mental-health-brain.jpg'
 
 export const blogData = [
     {
@@ -56,5 +57,12 @@ export const blogData = [
         image: eight,
         date:'2025 January',
         tag: ['AI', 'Machine Learning', 'AGI', 'Consciousness', 'Singularity'],
+    },
+    {
+        name:'The Free Energy Principle and Mental Health: A Unifying Framework for Understanding and Treating Psychological Disorders',
+        image: nine,
+        date:'2025 January',
+        tag: ['Mental Health', 'Neuroscience', 'Psychology', 'Free Energy Principle', 'Predictive Processing', 'Computational Psychiatry'],
+        pinned: true,
     }
 ]

@@ -10,6 +10,8 @@
   --navbar-text-color: #e0e0e0;
   --link-color: #7DD3FC;
   --link-hover-color: #38bdf8;
+  --primary-color: #7DD3FC;
+  --primary-color-rgb: 125, 211, 252;
   --button-background-color: #38bdf8;
   --button-text-color: white;
   --button-hover-background-color: #0ea5e9;
@@ -88,6 +90,8 @@
   --navbar-text-color: #1f2937;
   --link-color: #0ea5e9;
   --link-hover-color: #0284c7;
+  --primary-color: #0ea5e9;
+  --primary-color-rgb: 14, 165, 233;
   --button-background-color: #0ea5e9;
   --button-text-color: white;
   --button-hover-background-color: #0284c7;
