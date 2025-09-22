@@ -78,6 +78,50 @@
   border-color: var(--error-color);
 }
 
+.view-mode-toggle-btn {
+  background-color: var(--link-color);
+  color: white;
+  border: 1px solid var(--link-color);
+  border-radius: var(--border-radius-small);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: var(--font-size-xs);
+  margin-right: var(--spacing-sm);
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.view-mode-toggle-btn:hover {
+  background-color: var(--link-hover-color);
+  border-color: var(--link-hover-color);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.view-mode-toggle-btn.list {
+  background-color: var(--button-background-color);
+  color: var(--button-text-color);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.view-mode-toggle-btn.list:hover {
+  background-color: var(--link-hover-color);
+  color: white;
+  border-color: var(--link-color);
+}
+
+.view-mode-toggle-btn.graph {
+  background-color: var(--link-color);
+  color: white;
+  border-color: var(--link-color);
+}
+
+.view-mode-toggle-btn.graph:hover {
+  background-color: var(--link-hover-color);
+  border-color: var(--link-hover-color);
+}
+
 .filter-dropdown-content {
   overflow: hidden;
   margin-top: var(--spacing-sm);

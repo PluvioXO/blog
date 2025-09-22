@@ -8,7 +8,9 @@ import {
   FileTextOutlined,
   CalendarOutlined,
   DownOutlined,
-  FilterOutlined
+  FilterOutlined,
+  AppstoreOutlined,
+  ShareAltOutlined
 } from '@ant-design/icons';
 import './SearchAndFilter.css';
 
@@ -53,7 +55,7 @@ const checkFilter = (post, filter) => {
   }
 };
 
-const SearchAndFilter = ({ blogData, onFilter }) => {
+const SearchAndFilter = ({ blogData, onFilter, viewMode = 'list', onViewModeChange }) => {
   const [matchType, setMatchType] = useState('All');
   const [filters, setFilters] = useState([
     { id: 1, field: 'tags', operator: 'includes', value: [], enabled: true },
@@ -182,6 +184,19 @@ const SearchAndFilter = ({ blogData, onFilter }) => {
           )}
         </div>
         <div className="filter-toggle-right">
+          {onViewModeChange && (
+            <Button
+              onClick={(e) => {
+                e.stopPropagation();
+                onViewModeChange(viewMode === 'list' ? 'graph' : 'list');
+              }}
+              className={`view-mode-toggle-btn ${viewMode}`}
+              size="small"
+              icon={viewMode === 'list' ? <ShareAltOutlined /> : <AppstoreOutlined />}
+            >
+              {viewMode === 'list' ? 'Graph' : 'List'}
+            </Button>
+          )}
           {activeFiltersCount > 0 && (
             <Button 
               onClick={(e) => {

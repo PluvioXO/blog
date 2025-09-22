@@ -7,6 +7,7 @@ import six from './photos/Gemini_Generated_Image_zfp93ozfp93ozfp9.png'
 import seven from './photos/Gemini_Generated_Image_vtkmt4vtkmt4vtkm.png'
 import eight from './photos/Gemini_Generated_Image_xfpwfqxfpwfqxfpw.png'
 import nine from './photos/mental-health-brain.jpg'
+import ten from './photos/differentiation_scheme.png'
 
 export const blogData = [
     {
@@ -63,6 +64,13 @@ export const blogData = [
         image: nine,
         date:'2025 January',
         tag: ['Mental Health', 'Neuroscience', 'Psychology', 'Free Energy Principle', 'Predictive Processing', 'Computational Psychiatry'],
+        pinned: true,
+    },
+    {
+        name:'Cross-Model Feature Alignment with Sparse Autoencoders: Bridging the Gap Between Different Language Models',
+        image: ten,
+        date:'2025 January',
+        tag: ['AI', 'Machine Learning', 'Model Interpretability', 'Sparse Autoencoders', 'Hypernetworks', 'Cross-Model Alignment'],
         pinned: true,
     }
 ]
