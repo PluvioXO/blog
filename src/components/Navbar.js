@@ -39,7 +39,7 @@ export default function Navbar() {
   };
 
   const githubRepoUrl = "https://github.com/PluvioXO/blog";
-  const linkedinProfileUrl = "https://www.linkedin.com/in/your-profile"; // Update this with your LinkedIn profile URL
+  const linkedinProfileUrl = "https://www.linkedin.com/in/maximilian-nicholson-325964226/";
 
   return (
     <>
@@ -69,6 +69,9 @@ export default function Navbar() {
             </Link>
             <Link to='photos'>
               <motion.h2 id='headerOption'>~/photos</motion.h2>
+            </Link>
+            <Link to='contact'>
+              <motion.h2 id='headerOption'>~/contact</motion.h2>
             </Link>
             <Link to='other'>
               <motion.h2 id='headerOption' >~/resources</motion.h2>
@@ -125,9 +128,10 @@ export default function Navbar() {
           <Menu mode="vertical" style={{ borderRight: 0}} onClick={onClose}>
             <Menu.Item key="1"><Link to='/blog' className='blog-link-hover'>~/blog</Link></Menu.Item>
             <Menu.Item key="2"><Link to='photos'>~/photos</Link></Menu.Item>
-            <Menu.Item key="3"><Link to='other'>~/resources</Link></Menu.Item>
+            <Menu.Item key="3"><Link to='contact'>~/contact</Link></Menu.Item>
+            <Menu.Item key="4"><Link to='other'>~/resources</Link></Menu.Item>
             <Menu.Divider />
-            <Menu.Item key="4" style={{ textAlign: 'center' }}>
+            <Menu.Item key="5" style={{ textAlign: 'center' }}>
               <Space>
                 <span>Theme:</span>
                 <Switch
@@ -138,13 +142,13 @@ export default function Navbar() {
                 />
               </Space>
             </Menu.Item>
-            <Menu.Item key="5" style={{ textAlign: 'center' }}>
+            <Menu.Item key="6" style={{ textAlign: 'center' }}>
               <a href={githubRepoUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>
                 <GithubOutlined style={{ marginRight: '8px' }} />
                 GitHub
               </a>
             </Menu.Item>
-            <Menu.Item key="6" style={{ textAlign: 'center' }}>
+            <Menu.Item key="7" style={{ textAlign: 'center' }}>
               <a href={linkedinProfileUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>
                 <LinkedinOutlined style={{ marginRight: '8px' }} />
                 LinkedIn

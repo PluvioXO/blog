@@ -8,6 +8,7 @@ import Navbar from './components/Navbar';
 import Photos from './pages/Photos';
 import Other from './pages/other';
 import Blog from './pages/blog/blog';
+import Contact from './pages/Contact';
 import LandingPage from './pages/LandingPage';
 
 import one from './pages/blog/blogData/pages/1';
@@ -32,6 +33,7 @@ export default function App() {
           <Route path="/reports" component={Reports} />
           <Route path="/photos" component={Photos} />
           <Route path="/other" component={Other} />
+          <Route path="/contact" component={Contact} />
           <Route path="/blog" component={Blog} />
           <Route path="/post/0" component={one} />
           <Route path="/post/1" component={two} />

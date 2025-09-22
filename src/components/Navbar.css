@@ -294,3 +294,11 @@
 .github-nav-button.ant-btn-text:hover .anticon {
   color: var(--link-hover-color) !important; /* Use link hover color for the GitHub icon on hover */
 }
+
+.linkedin-nav-button.ant-btn-text .anticon {
+  color: var(--link-color) !important; /* Use link color for the LinkedIn icon */
+}
+
+.linkedin-nav-button.ant-btn-text:hover .anticon {
+  color: var(--link-hover-color) !important; /* Use link hover color for the LinkedIn icon on hover */
+}
