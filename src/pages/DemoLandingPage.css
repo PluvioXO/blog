@@ -1,0 +1,417 @@
+/* X.ai Grok Misty Light Effect Demo */
+
+.grok-demo {
+  min-height: 100vh;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ===== VOLUMETRIC LIGHTING SYSTEM ===== */
+
+.volumetric-lighting {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Main Light Beam - The Key Effect */
+/* Light Beam Effects - Grok Style */
+.light-beam {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    /* Core intense white light */
+    radial-gradient(
+      ellipse 400px 300px at 75% 45%,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.9) 10%,
+      rgba(255, 255, 255, 0.6) 20%,
+      rgba(220, 240, 255, 0.4) 35%,
+      rgba(180, 220, 255, 0.2) 50%,
+      rgba(140, 200, 255, 0.1) 70%,
+      transparent 100%
+    ),
+    /* Secondary light spread */
+    radial-gradient(
+      ellipse 800px 600px at 80% 50%,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(200, 230, 255, 0.2) 30%,
+      rgba(150, 200, 255, 0.1) 60%,
+      transparent 100%
+    );
+  mix-blend-mode: screen;
+  animation: grok-light-pulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes grok-light-pulse {
+  0% { 
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  100% { 
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+/* Intense light core - positioned behind text */
+.light-beam::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle 200px at 72% 48%,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.8) 20%,
+    rgba(255, 255, 255, 0.4) 40%,
+    transparent 60%
+  );
+  mix-blend-mode: screen;
+  animation: core-pulse 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes core-pulse {
+  0% { 
+    opacity: 0.9;
+    transform: scale(0.95);
+  }
+  100% { 
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+/* Atmospheric Fog */
+.atmospheric-fog {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    /* Subtle atmospheric haze extending from light source */
+    radial-gradient(ellipse 1000px 700px at 78% 48%, 
+      rgba(255, 255, 255, 0.05) 0%, 
+      rgba(200, 230, 255, 0.08) 30%, 
+      rgba(150, 200, 255, 0.05) 60%, 
+      transparent 100%
+    );
+  mix-blend-mode: screen;
+  animation: subtle-drift 8s ease-in-out infinite;
+}
+
+@keyframes subtle-drift {
+  0% { 
+    opacity: 0.3;
+    transform: translateX(0) scale(1);
+  }
+  50% { 
+    opacity: 0.5;
+    transform: translateX(-10px) scale(1.02);
+  }
+  100% { 
+    opacity: 0.3;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Light Particles */
+.light-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8), 0 0 12px rgba(173, 216, 255, 0.6);
+  animation: particle-float 4s linear infinite;
+  mix-blend-mode: screen;
+}
+
+/* Particle positions in the light beam area */
+.particle-1 { top: 25%; right: 20%; animation-delay: 0s; }
+.particle-2 { top: 35%; right: 30%; animation-delay: 1s; }
+.particle-3 { top: 20%; right: 35%; animation-delay: 2s; }
+.particle-4 { top: 40%; right: 25%; animation-delay: 3s; }
+.particle-5 { top: 30%; right: 40%; animation-delay: 0.5s; }
+.particle-6 { top: 45%; right: 15%; animation-delay: 1.5s; }
+.particle-7 { top: 15%; right: 45%; animation-delay: 2.5s; }
+.particle-8 { top: 50%; right: 35%; animation-delay: 3.5s; }
+.particle-9 { top: 28%; right: 50%; animation-delay: 4s; }
+.particle-10 { top: 38%; right: 28%; animation-delay: 0.8s; }
+.particle-11 { top: 48%; right: 18%; animation-delay: 1.8s; }
+.particle-12 { top: 12%; right: 38%; animation-delay: 2.8s; }
+.particle-13 { top: 32%; right: 48%; animation-delay: 3.8s; }
+.particle-14 { top: 42%; right: 22%; animation-delay: 4.5s; }
+.particle-15 { top: 22%; right: 42%; animation-delay: 0.3s; }
+
+@keyframes particle-float {
+  0% { 
+    opacity: 0; 
+    transform: translateY(0) translateX(0) scale(0.3); 
+  }
+  20% { 
+    opacity: 1; 
+    transform: translateY(-20px) translateX(12px) scale(1.2); 
+  }
+  50% { 
+    opacity: 0.8; 
+    transform: translateY(-40px) translateX(20px) scale(1); 
+  }
+  80% { 
+    opacity: 0.6; 
+    transform: translateY(-65px) translateX(30px) scale(0.8); 
+  }
+  100% { 
+    opacity: 0; 
+    transform: translateY(-90px) translateX(40px) scale(0.3); 
+  }
+}
+
+/* ===== CONTENT STYLING ===== */
+
+.grok-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 1000px;
+  padding: 0 20px;
+}
+
+.grok-title-container {
+  margin-bottom: 60px;
+}
+
+.grok-title {
+  font-size: clamp(5rem, 12vw, 12rem);
+  font-weight: 700;
+  margin: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(100, 100, 100, 0.9) 0%,
+    rgba(120, 120, 120, 0.95) 20%,
+    rgba(200, 200, 200, 1) 40%,
+    rgba(255, 255, 255, 1) 60%,
+    rgba(255, 255, 255, 1) 80%,
+    rgba(180, 180, 180, 0.9) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 
+    0 0 30px rgba(255, 255, 255, 0.5),
+    0 0 60px rgba(255, 255, 255, 0.3),
+    0 0 100px rgba(255, 255, 255, 0.1);
+  letter-spacing: -0.02em;
+  position: relative;
+  z-index: 3;
+}
+
+@keyframes title-glow {
+  0% { 
+    text-shadow: 
+      0 0 60px rgba(255, 255, 255, 0.3),
+      0 0 100px rgba(135, 206, 250, 0.2);
+  }
+  100% { 
+    text-shadow: 
+      0 0 80px rgba(255, 255, 255, 0.5),
+      0 0 120px rgba(135, 206, 250, 0.3),
+      0 0 160px rgba(100, 149, 237, 0.2);
+  }
+}
+
+.search-section {
+  margin-bottom: 80px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.search-glass-container {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  /* Force proper width constraints on the glass component */
+  overflow: hidden;
+}
+
+.search-glass-container > div {
+  width: 100% !important;
+  max-width: 600px !important;
+  margin: 0 auto;
+}
+
+.search-box-inner {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  min-width: 0; /* Prevent overflow */
+}
+
+.search-input-glass {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  padding: 0 70px 0 24px;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  outline: none;
+  font-family: inherit;
+}
+
+.search-input-glass::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.search-button-glass {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.search-button-glass:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.2) 100%);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 1);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.announcement-section {
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.announcement-text {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 32px 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.announcement-glass {
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  /* Constrain the glass button width */
+  max-width: 300px;
+}
+
+.announcement-glass > div {
+  width: auto !important;
+  min-width: 200px;
+  max-width: 300px;
+}
+
+.announcement-glass:hover {
+  transform: translateY(-2px);
+}
+
+.announcement-button-text {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.4);
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-10px); }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+@media (max-width: 768px) {
+  .grok-content {
+    padding: 0 15px;
+  }
+  
+  .search-box {
+    max-width: 90%;
+  }
+  
+  .announcement-text {
+    font-size: 16px;
+    padding: 0 20px;
+  }
+  
+  .light-beam {
+    background: radial-gradient(
+      ellipse 80% 60% at 70% 40%,
+      rgba(100, 149, 237, 0.6) 0%,
+      rgba(135, 206, 250, 0.4) 20%,
+      rgba(173, 216, 230, 0.3) 40%,
+      rgba(255, 255, 255, 0.1) 60%,
+      transparent 100%
+    );
+  }
+}
+
+@media (max-width: 480px) {
+  .search-input {
+    height: 50px;
+    font-size: 14px;
+  }
+  
+  .search-button {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .announcement-text {
+    font-size: 14px;
+  }
+}

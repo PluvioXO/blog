@@ -1,7 +1,12 @@
 /* Landing page specific styles */
+body {
+  background: radial-gradient(circle, rgba(10, 10, 30, 1) 0%, rgba(0, 0, 20, 1) 100%) !important;
+  overflow: auto;
+}
+
 .page-container.container-centered {
   text-align: center;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .landing-content {
@@ -60,6 +65,60 @@
   border-color: var(--button-hover-background-color) !important;
   transform: translateY(-1px);
   box-shadow: var(--shadow-md);
+}
+
+.landing-glass-button {
+  display: inline-block;
+  width: auto;
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 20px auto;
+}
+
+.landing-glass-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.custom-glass-button {
+  display: inline-block;
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 20px auto;
+}
+
+.custom-glass-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.glass-button-inner {
+  display: inline-block;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /* Responsive adjustments */
@@ -182,4 +241,4 @@
     width: 100%;
     max-width: 200px;
   }
-} 
+}

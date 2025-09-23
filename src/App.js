@@ -13,6 +13,7 @@ import LandingPage from './pages/LandingPage';
 
 import one from './pages/blog/blogData/pages/1';
 import two from './pages/blog/blogData/pages/2';
+
 import three from './pages/blog/blogData/pages/3';
 import four from './pages/blog/blogData/pages/4';
 import five from './pages/blog/blogData/pages/5';
@@ -45,6 +46,7 @@ export default function App() {
           <Route path="/post/7" component={eight} />
           <Route path="/post/8" component={nine} />
           <Route path="/post/9" component={ten} />
+          <Route path="*" component={LandingPage} />
         </Switch>
       </BrowserRouter>
     </ThemeProvider>

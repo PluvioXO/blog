@@ -1,5 +1,5 @@
-import React, { useState, useMemo } from 'react';
-import { Row, Col, Divider } from 'antd';
+import React, { useState, useMemo, useEffect } from 'react';
+import { Row, Col, Divider, Spin } from 'antd';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { blogData } from './blogData/blogData';
@@ -11,7 +11,14 @@ import './blog.css'; // Import the CSS file
 export default function Blog() {
   const [filteredBlogData, setFilteredBlogData] = useState(blogData);
   const [viewMode, setViewMode] = useState('list'); // 'list' or 'graph'
-  
+  const [loading, setLoading] = useState(true); // Loading state
+
+  // Simulate loading effect
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1000); // Simulate 1-second loading
+    return () => clearTimeout(timer);
+  }, []);
+
   // Sort blog data to show pinned posts first
   const sortedBlogData = useMemo(() => {
     return [...blogData].sort((a, b) => {
@@ -28,6 +35,14 @@ export default function Blog() {
   const resetFilters = () => {
     setFilteredBlogData(sortedBlogData);
   };
+
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <Spin size="large" />
+      </div>
+    );
+  }
 
   return (
     <motion.div className="page-container" initial={{opacity:0, y:2}} animate={{opacity:1, y:0}} transition={{duration:0.5}}>

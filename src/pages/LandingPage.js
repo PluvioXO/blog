@@ -56,13 +56,19 @@ export default function LandingPage() {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: ANIMATION_DURATIONS.MEDIUM, delay: 0.6 }}
         >
-          <Link to="/blog">
-            <Button type="primary" size="large" className="landing-button">
-              Explore the Blog
-            </Button>
-          </Link>
+        </motion.div>
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: ANIMATION_DURATIONS.MEDIUM, delay: 0.8 }}
+        >
+          <div className="custom-glass-button">
+            <Link to="/blog">
+              Go to Blog
+            </Link>
+          </div>
         </motion.div>
       </div>
     </motion.div>
   );
-} 
+}
